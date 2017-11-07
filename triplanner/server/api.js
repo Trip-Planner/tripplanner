@@ -1,18 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
+const storage = require('dom-storage')
+const session = require('express-session');
 
+router.use(session({secret :'ssshhhh'}));
 let response = {
     status: 200,
     data: [],
     message: null
 };
-
+ 
 const con = mysql.createConnection({
     host: "localhost",
     user: "admin",
     password: "admin",
-    database : 'testing'
+    database : 'triplanner'
   });
 
 
@@ -29,7 +32,10 @@ router.get('/users',function(req,res){
         res.json(response);
       });
 })
-
+router.get()
+router.post('/login',function(req,res){
+    
+})
 router.get('/show',function (req,res){
     res.end("Hi ,show api");
 })

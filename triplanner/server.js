@@ -4,8 +4,7 @@ const bodyParser = require('body-parser');
 const http =require('http');
 const app = express();
 const api = require('./server/api');
-
-
+const session = require('express-session')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 

@@ -13,6 +13,9 @@ import { CoPlanningComponent } from './feature/co-planning/co-planning.component
 import { EditplanComponent } from './feature/editplan/editplan.component';
 import { ReviewPostComponent } from './feature/review-post/review-post.component';
 import { FavnotiComponent } from './feature/favnoti/favnoti.component';
+import { RegisterComponent } from './feature/register/register.component';
+import { LoginComponent } from './feature/login/login.component';
+import { MenubarComponent } from './menubar/menubar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { FavnotiComponent } from './feature/favnoti/favnoti.component';
     CoPlanningComponent,
     EditplanComponent,
     ReviewPostComponent,
-    FavnotiComponent
+    FavnotiComponent,
+    RegisterComponent,
+    LoginComponent,
+    MenubarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +37,10 @@ import { FavnotiComponent } from './feature/favnoti/favnoti.component';
 
     //  routing to component
     RouterModule.forRoot([
+      {
+        path: '', 
+        component: LoginComponent
+      },
       {
         path:'createplan',
         component: CreateplanComponent

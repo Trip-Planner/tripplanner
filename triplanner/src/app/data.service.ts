@@ -10,6 +10,6 @@ export class DataService {
   
   getUsers(){ 
     return this.http.get("/api/users")
-      .map(result => this.result = result.json().data);
+      .map(result => this.result = result.json().data)
   }
 }
