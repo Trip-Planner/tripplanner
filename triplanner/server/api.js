@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
 const storage = require('dom-storage')
-const session = require('express-session');
+const session = require('express-session')
 
-router.use(session({secret :'ssshhhh'}));
+localStorage = new storage('./db.json', { strict: false, ws: '  ' })
+
 let response = {
     status: 200,
     data: [],
@@ -15,7 +16,7 @@ const con = mysql.createConnection({
     host: "localhost",
     user: "admin",
     password: "admin",
-    database : 'triplanner'
+    database : 'triplannerdb'
   });
 
 
@@ -26,16 +27,25 @@ con.connect(function(err){
 
 
 router.get('/users',function(req,res){
-    con.query("SELECT * FROM table1", function (err, result) {
+    con.query("SELECT * FROM account", function (err, result) {
         if (err) throw err;
-        response.data = result;
+        response.data = session;
         res.json(response);
       });
 })
-router.get()
-router.post('/login',function(req,res){
-    
+
+router.get('/session',function(req,res){
+    localStorage.setItem('myKey', req.query.catid);
+    response.data = req.query.name
+        res.json(response);
 })
+
+router.get('/login', function (req, res) {
+    response.data = localStorage.getItem('myKey');
+    res.json(response);
+    })
+
+
 router.get('/show',function (req,res){
     res.end("Hi ,show api");
 })

@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms'
 import { DataService } from './data.service';
 import { RouterModule} from '@angular/router' // for routing
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule,MatCardModule,MatMenuModule,MatToolbarModule,MatIconModule} from '@angular/material';
+import { MatButtonModule,MatCardModule,MatMenuModule,MatToolbarModule,MatIconModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CreateplanComponent } from './feature/createplan/createplan.component';
@@ -20,6 +20,7 @@ import { LoginComponent } from './feature/login/login.component';
 import { MenubarComponent } from './menubar/menubar.component';
 import { ActivitiesComponent } from './feature/components/activities/activities.component';
 import { GenerateplanComponent } from './feature/components/generateplan/generateplan.component';
+import { HomeComponent } from './feature/home/home.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { GenerateplanComponent } from './feature/components/generateplan/generat
     MenubarComponent,
     ActivitiesComponent,
     GenerateplanComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,6 @@ import { GenerateplanComponent } from './feature/components/generateplan/generat
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-
     //  routing to component
     RouterModule.forRoot([
       {
@@ -84,7 +85,10 @@ import { GenerateplanComponent } from './feature/components/generateplan/generat
         path:'generateplan',
         component: GenerateplanComponent
       },
-
+      {
+        path:'register',
+        component: RegisterComponent     
+      },
     ])
   ],
   providers: [DataService ],
