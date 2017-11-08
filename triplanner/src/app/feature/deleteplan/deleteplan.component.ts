@@ -12,4 +12,8 @@ export class DeleteplanComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
+  
+
 }
