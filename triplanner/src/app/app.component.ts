@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
-import {Http} from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -26,8 +25,6 @@ export class AppComponent {
     }
     console.log("wrong password")
   }
-
-
 }
 export class user{
 
