@@ -15,14 +15,11 @@ import { CoPlanningComponent } from './feature/co-planning/co-planning.component
 import { EditplanComponent } from './feature/editplan/editplan.component';
 import { ReviewPostComponent } from './feature/review-post/review-post.component';
 import { FavnotiComponent } from './feature/favnoti/favnoti.component';
-<<<<<<< HEAD
 import { RegisterComponent } from './feature/register/register.component';
 import { LoginComponent } from './feature/login/login.component';
 import { MenubarComponent } from './menubar/menubar.component';
-=======
 import { ActivitiesComponent } from './feature/components/activities/activities.component';
 import { GenerateplanComponent } from './feature/components/generateplan/generateplan.component';
->>>>>>> 8e4f79839fe6c8d7503d22370d6c6310bf9e314e
 
 @NgModule({
   declarations: [
@@ -33,14 +30,11 @@ import { GenerateplanComponent } from './feature/components/generateplan/generat
     EditplanComponent,
     ReviewPostComponent,
     FavnotiComponent,
-<<<<<<< HEAD
     RegisterComponent,
     LoginComponent,
-    MenubarComponent
-=======
+    MenubarComponent,
     ActivitiesComponent,
-    GenerateplanComponent
->>>>>>> 8e4f79839fe6c8d7503d22370d6c6310bf9e314e
+    GenerateplanComponent,
   ],
   imports: [
     BrowserModule,
