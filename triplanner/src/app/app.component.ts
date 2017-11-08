@@ -12,11 +12,19 @@ export class AppComponent {
   user = new user();
   users:Array<any>
   constructor(private _dataService:DataService){
-    this._dataService.getUsers()
-
+  //   this._dataService.getUsers()
+    this._dataService.login()
       .subscribe(res => {
-        console.log(res)
-        return this.users =res});
+      console.log(res)
+      return this.users =res});
+  
+    this._dataService.getSession("111")
+         .subscribe(res => {
+           console.log(res)
+           return this.users =res});
+  //     .subscribe(res => {
+  //       console.log(res)
+  //       return this.users =res});
   }
   submit(){
     for (var item of this.users) {
