@@ -5,6 +5,8 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms' 
 import { DataService } from './data.service';
 import { RouterModule} from '@angular/router' // for routing
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule,MatCardModule,MatMenuModule,MatToolbarModule,MatIconModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CreateplanComponent } from './feature/createplan/createplan.component';
@@ -13,6 +15,8 @@ import { CoPlanningComponent } from './feature/co-planning/co-planning.component
 import { EditplanComponent } from './feature/editplan/editplan.component';
 import { ReviewPostComponent } from './feature/review-post/review-post.component';
 import { FavnotiComponent } from './feature/favnoti/favnoti.component';
+import { ActivitiesComponent } from './feature/components/activities/activities.component';
+import { GenerateplanComponent } from './feature/components/generateplan/generateplan.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +26,20 @@ import { FavnotiComponent } from './feature/favnoti/favnoti.component';
     CoPlanningComponent,
     EditplanComponent,
     ReviewPostComponent,
-    FavnotiComponent
+    FavnotiComponent,
+    ActivitiesComponent,
+    GenerateplanComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
 
     //  routing to component
     RouterModule.forRoot([
@@ -58,7 +70,10 @@ import { FavnotiComponent } from './feature/favnoti/favnoti.component';
         path:'review-post',
         component: ReviewPostComponent
       },
-      
+      {
+        path:'generateplan',
+        component: GenerateplanComponent
+      },
 
     ])
   ],
