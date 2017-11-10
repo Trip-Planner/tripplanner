@@ -13,7 +13,7 @@ export class CreateplanComponent implements OnInit {
   departDate:string;
   returnDate:string;
   resultDate:number;
-  isSubmit:boolean;
+  isSubmit:boolean; 
   isActCreate:boolean[];
   isAlert:boolean;
   
@@ -72,7 +72,7 @@ export class CreateplanComponent implements OnInit {
         day   = departDate.slice(8,10);
 
     //temporary (only use for test)
-    var  total = ( Number(year)*365)+( Number(month)*31)+(Number(day));
+    var  total = ( Number(year)*365)+(this.calculateMonth(Number(month)))+(Number(day));
 
   /*   //not perfect yet
     if(month =='4' || month == '6'|| month == '9'||month == '11'){
@@ -93,7 +93,7 @@ export class CreateplanComponent implements OnInit {
       day2   = returnDate.slice(8,10);
       
        //temporary (only use for test)
-       var  total2 = ( Number(year2)*365)+( Number(month2)*31)+(Number(day2));
+       var  total2 = ( Number(year2)*365)+( this.calculateMonth(Number(month2)))+(Number(day2));
 
 /*       //not perfect yet
     if(month2 =='4' || month2 == '6'|| month2 == '9'||month2 == '11'){
@@ -107,7 +107,7 @@ export class CreateplanComponent implements OnInit {
         var  total2 =   ( Number(year2)*365)+( Number(month2)*31)+(Number(day2));
       }
       */
-
+      // KUyyyyyyyyyyyyyyyyyyyyy
 
       this.resultDate = total2-total+1; 
 
@@ -122,6 +122,43 @@ export class CreateplanComponent implements OnInit {
      return(console.log(total+" "+total2+" "+this.resultDate));
 
   }
+
+
+    calculateMonth (m:number){
+    {
+    switch (m){
+        case 1:
+          return Number(31);  
+        case 2:
+          return Number(31+28);
+        case 3:
+          return Number(31+28+31);
+        case 4:
+          return Number(31+28+31+30);     
+        case 5:
+          return Number(31+28+31+30+31);
+        case 6:
+          return Number(31+28+31+30+31+30);
+        case 7:
+          return Number(31+28+31+30+31+30+31);
+        case 8:
+          return Number(31+28+31+30+31+30+31+31);
+        case 9:
+          return Number(31+28+31+30+31+30+31+31+30);   
+        case 10:
+         return  Number(31+28+31+30+31+30+31+31+30+31);
+        case 11:
+          return Number(31+28+31+30+31+30+31+31+30+31+30);   
+        case 12:
+          return Number(31+28+31+30+31+30+31+31+30+31+30+31);
+      }
+
+
+    }
+    
+  }
+
+
     //สร้างarray object day[] ตามจำนวนวัน 
     createDay(n) {
     var day = new Array(n)
