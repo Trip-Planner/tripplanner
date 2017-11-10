@@ -86,7 +86,7 @@ import { HomeComponent } from './feature/home/home.component';
         component: ReviewPostComponent
       },
       {
-        path:'generateplan',
+        path:'generateplan/:name/:depdate/:retdate',
         component: GenerateplanComponent
       },
       {

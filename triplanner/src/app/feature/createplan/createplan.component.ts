@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
+import {ActivatedRoute,RouterLink,Router} from '@angular/router'
 /* import {Http} from '@angular/http'; */
 
 
@@ -14,17 +16,16 @@ export class CreateplanComponent implements OnInit {
   returnDate:string;
   resultDate:number;
   isSubmit:boolean; 
-  isActCreate:boolean[];
   isAlert:boolean;
+  isHide:boolean;
+  isActCreate:boolean[];
+  dayShow:boolean[];
   
   act_temp:string;
-  acts:string[];
-  times:string[];
-  details:string[];
 
   days:dayPlanning[];
   
-  constructor() { }
+  constructor(private router: Router,private _dataService:DataService,private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -33,26 +34,54 @@ export class CreateplanComponent implements OnInit {
   this.returnDate='';
   this.resultDate=+'';
   this.isSubmit= false;
-  this.isActCreate=[false];
   this.isAlert=false;
+  this.isHide=false;
+  this.isActCreate=[false];
+  this.dayShow=[true];
 
   this.act_temp="";
-  this.acts=[];
-  this.times=[];
-  this.details=[];
 
+  
   this.days=[];
   }
 
-  
+  dayShowing(num:number,end:number)
+  {
+    for ( var i = 0;i < end ;i++)
+    {
+      this.dayShow[i]=false;
+    }
+    this.dayShow[num]=true;
 
+  }
+
+ /*  onSearch() {
+    var name = this.tripName;
+    var depdate = this.departDate;
+    var retdate = this.returnDate;
+    this.router.navigate(['/generateplan',name,depdate,retdate]); 
+  } */
 
   addActs(act:string,time:string,detail:string,j:number){
     this.days[j].acts.push(act);
     this.days[j].times.push(time);
     this.days[j].details.push(detail);
-    return false;
 
+
+    for (var i = 0 ;i< this.days[j].acts.length-1;i++)
+    { 
+      for (var k = 0; k < this.days[j].acts.length-1-i ;k++)   
+      {
+        if(this.days[j].times[k]>=this.days[j].times[k+1])
+        {
+        var temp = this.days[j].times[k];
+        this.days[j].times[k] = this.days[j].times[k+1];
+        this.days[j].times[k+1] = temp;
+         }
+      }
+    }
+
+    return false;
 
   }
   /* still not perfect** */
@@ -74,19 +103,6 @@ export class CreateplanComponent implements OnInit {
     //temporary (only use for test)
     var  total = ( Number(year)*365)+(this.calculateMonth(Number(month)))+(Number(day));
 
-  /*   //not perfect yet
-    if(month =='4' || month == '6'|| month == '9'||month == '11'){
-
-        var  total =   ( Number(year)*365)+( Number(month)*30)+(Number(day));
-      }
-      else if(month =='2'){
-        var  total =   ( Number(year)*365)+( Number(month)*28)+(Number(day));
-      }
-      else{
-        var  total =   ( Number(year)*365)+( Number(month)*31)+(Number(day));
-      }
- */
-
       //returnDate
       var year2  = returnDate.slice(0,4),
       month2 = returnDate.slice(5,7),
@@ -95,26 +111,16 @@ export class CreateplanComponent implements OnInit {
        //temporary (only use for test)
        var  total2 = ( Number(year2)*365)+( this.calculateMonth(Number(month2)))+(Number(day2));
 
-/*       //not perfect yet
-    if(month2 =='4' || month2 == '6'|| month2 == '9'||month2 == '11'){
-
-        var  total2 =   ( Number(year2)*365)+( Number(month2)*30)+(Number(day2));
-      }
-      else if(month =='2'){
-        var  total2 =   ( Number(year2)*365)+( Number(month2)*28)+(Number(day2));
-      }
-      else{
-        var  total2 =   ( Number(year2)*365)+( Number(month2)*31)+(Number(day2));
-      }
-      */
-      // KUyyyyyyyyyyyyyyyyyyyyy
-
       this.resultDate = total2-total+1; 
+
+      for(var x =1;x< this.resultDate;x++)
+      {
+        this.dayShow[x]=false;
+      }
 
     if (this.resultDate < 0)
     {
       this.isAlert=true;
-
     }
     else
     this.days =this.createDay(this.resultDate);
@@ -122,8 +128,6 @@ export class CreateplanComponent implements OnInit {
      return(console.log(total+" "+total2+" "+this.resultDate));
 
   }
-
-
     calculateMonth (m:number){
     {
     switch (m){
@@ -152,12 +156,9 @@ export class CreateplanComponent implements OnInit {
         case 12:
           return Number(31+28+31+30+31+30+31+31+30+31+30+31);
       }
-
-
     }
     
   }
-
 
     //สร้างarray object day[] ตามจำนวนวัน 
     createDay(n) {

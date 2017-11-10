@@ -3,7 +3,7 @@
 </p>
 DELETE PLAN !!
 
-<div *ngFor="let plan of planName;let i =index;">
+<div *ngFor="let plan of planName;let i =index;"> <!-- loop "dataplanName" by plan -->
 
   <form name="myDelete">
     <label>{{planName[i]}}:
@@ -13,4 +13,4 @@ DELETE PLAN !!
   </form>
 </div>
 
-<button (click)="removePlan()"> DELETE</button>
+<button (click)="removePlan()"> DELETE</button>  <!-- delete summittion -->

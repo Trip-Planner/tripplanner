@@ -13,9 +13,8 @@ export class DeleteplanComponent implements OnInit {
 
   ngOnInit() {
 
-    this.planName=["plan1","plan2"];
-    this.cb_plan= [false,false];
-4
+    this.planName=["plan1","plan2"];  //data for test
+    this.cb_plan= [false,false];      //data for test
 
     
   }
