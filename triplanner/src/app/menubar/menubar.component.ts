@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './../data.service';
+import {Http} from '@angular/http';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menubar',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menubar.component.css']
 })
 export class MenubarComponent implements OnInit {
-
-  constructor() { }
+  status:string;
+  constructor(private router: Router,private _dataService:DataService) { }
 
   ngOnInit() {
+    this.status = null
   }
 
+  canlink(temp:string){
+    
+    this._dataService.getSession()
+    .subscribe(res => {
+      this.status = res
+      if(this.status != null)
+      this.router.navigate([temp]);
+      else
+      this.router.navigate(['']);});
+    
+  }
 }

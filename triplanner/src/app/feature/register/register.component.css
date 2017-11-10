@@ -1,0 +1,45 @@
+
+#block{
+    background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0,0,0,0.6) 100%);
+    
+        width: 700px;
+        height: 60%;
+    padding: 25px;
+    margin: auto;
+    text-align:center;
+}
+
+input{
+    background: white;
+    color:black;
+    width:100%;
+    height: 40px;
+    border:none;
+    font-size: 15px;
+    border-bottom: 1px solid white;
+    border-radius: 5px;
+    -webkit-input-placeholder:white;
+
+}
+#fontw {
+    font-size: 15px;
+    font-style: normal;
+    color:red;
+    text-align:center;
+  
+}
+
+#fontr {
+    font-size: 50px;
+    font-style: normal;
+    color:white;
+    text-align:center;
+}
+
+#fonts {
+    font-size: 15px;
+    font-style: normal;
+    color:white;
+
+    text-align:left;
+}

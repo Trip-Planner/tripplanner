@@ -55,6 +55,10 @@ import { HomeComponent } from './feature/home/home.component';
         component: LoginComponent
       },
       {
+        path: 'login', 
+        component: LoginComponent
+      },
+      {
         path:'createplan',
         component: CreateplanComponent
       },
@@ -88,6 +92,10 @@ import { HomeComponent } from './feature/home/home.component';
       {
         path:'register',
         component: RegisterComponent     
+      },
+      {
+        path:'home',
+        component: HomeComponent  
       },
     ])
   ],
