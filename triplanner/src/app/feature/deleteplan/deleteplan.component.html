@@ -1,3 +1,16 @@
 <p>
   deleteplan works!
 </p>
+DELETE PLAN !!
+
+<div *ngFor="let plan of planName;let i =index;">
+
+  <form name="myDelete">
+    <label>{{planName[i]}}:
+      <input type="checkbox"name ="cb_plan[i]"[(ngModel)]="cb_plan[i]">
+    </label><br>
+    value{{i}} = {{cb_plan[i]}}<br>
+  </form>
+</div>
+
+<button (click)="removePlan()"> DELETE</button>
