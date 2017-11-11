@@ -1,5 +1,5 @@
 #backs { 
-    background: url('/assets/images/bar.jpg') no-repeat center center fixed; 
+    background:rgb(76, 196, 196);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -56,13 +56,14 @@ button:active:after {
 }
 
 #lato_font {
-    font-family: 'Lato';font-size: 75px;
+    font-family: 'Lato';font-size: 55px;
     font-style: normal;
     color:white;
-    text-align:center;
+    text-align:left;
+    padding:15px;
 }
 li {
-    float: left;
+    float: right;
 }
 
 li a {

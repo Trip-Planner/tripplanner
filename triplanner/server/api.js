@@ -62,7 +62,6 @@ router.get('/login', function (req, res) {
 
 router.get('/register', function (req, res) {
     var temp=[];
-    
     var sql = 'INSERT INTO account (username,password,email) VALUES (' + mysql.escape(req.query.user)+','+mysql.escape(req.query.pass)+','+mysql.escape(req.query.email)+')';
     con.query(sql, function (err, result) {
         if (err) throw err;
@@ -71,6 +70,36 @@ router.get('/register', function (req, res) {
     });
    
 });
+
+router.get('/createplan', function (req, res) {
+    var temp=[];
+    var user_id = localStorage.getItem('CurrentUser');
+    var sql = 'INSERT INTO plan (plan_name,startdate,enddate,user_id) VALUES (' + mysql.escape(req.query.planname)+','+mysql.escape(req.query.startdate)+','+mysql.escape(req.query.enddate)+','+mysql.escape(user_id)+')';
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+    });
+    sql = 'SELECT * FROM plan WHERE plan_name = ' + mysql.escape(req.query.planname);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        array.forEach(function(result) {
+            if(result.user_id == user_id)
+            response.data = result.plan_id;
+            return res.json(response);
+        }, this);
+    });
+});
+
+router.get('/putplandetail', function (req, res) {
+    var temp=[];
+    var sql = 'INSERT INTO plandetial (plan_id,starttime,date,type,detail,activityname) VALUES (' + mysql.escape(req.query.planid)+','+mysql.escape(req.query.starttime)+','+mysql.escape(req.query.date)+','+mysql.escape(req.query.type)+','+mysql.escape(req.query.detail)+','+mysql.escape(req.query.activityname)+')';
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data = 'done';
+        res.json(response);
+    });
+   
+});
+
 router.get('/logout', function (req, res) {
     localStorage.clear();
     response.data = 'done';

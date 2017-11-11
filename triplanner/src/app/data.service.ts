@@ -39,7 +39,31 @@ export class DataService {
       .map(result => this.result = result.json().data)
   }
 
+  createplan(planname:string,startdate:string,enddate:string){
+    let myParams = new URLSearchParams();
+    myParams.append('planname', planname)
+    myParams.append('startdate',startdate)
+    myParams.append('enddate', enddate);
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/createplan",options)
+      .map(result => this.result = result.json().data)
 
+  }
+
+  putplandetail(planid:string,starttime:string,date:string,type:string,detail:string,activityname:string)
+  {
+    let myParams = new URLSearchParams();
+    myParams.append('planid', planid)
+    myParams.append('starttime',starttime)
+    myParams.append('date', date)
+    myParams.append('type', type)
+    myParams.append('detail',detail)
+    myParams.append('activityname', activityname)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/putplandetail",options)
+      .map(result => this.result = result.json().data)
+  }
+  
   logout(){
     return this.http.get("/api/logout")
     .map(result => this.result = result.json().data)

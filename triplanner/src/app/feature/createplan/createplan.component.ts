@@ -20,15 +20,16 @@ export class CreateplanComponent implements OnInit {
   isHide:boolean;
   isActCreate:boolean[];
   dayShow:boolean[];
-  
   act_temp:string;
-
+  now:string;
   days:dayPlanning[];
-  
+  status1:string;
+  status2:string;
   constructor(private router: Router,private _dataService:DataService,private route: ActivatedRoute) { }
 
   ngOnInit() {
-
+    var date = new Date();
+  this.now =  date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
   this.tripName='';
   this.departDate='';
   this.returnDate='';
@@ -38,6 +39,7 @@ export class CreateplanComponent implements OnInit {
   this.isHide=false;
   this.isActCreate=[false];
   this.dayShow=[true];
+  this.status1="";
 
   this.act_temp="";
 
@@ -63,6 +65,17 @@ export class CreateplanComponent implements OnInit {
   } */
 
   addActs(act:string,time:string,detail:string,j:number){
+    
+    
+    if(time!=""&&detail!=""&&detail!=undefined)
+    {
+      this.isActCreate[j]=false;
+      this.status2="";
+    }
+    else
+    {
+      return this.status2="Please Fill All Information"
+    }
     this.days[j].acts.push(act);
     this.days[j].times.push(time);
     this.days[j].details.push(detail);
@@ -86,7 +99,7 @@ export class CreateplanComponent implements OnInit {
   }
   /* still not perfect** */
   removeActs(i:number,j:number){
-
+   
     this.days[j].acts.splice(i,1);
     this.days[j].times.splice(i,1);
     this.days[j].details.splice(i,1);
@@ -94,19 +107,27 @@ export class CreateplanComponent implements OnInit {
   }
 
   //หาจำนวนวัน พร้อมเรียกใช้ฟังก์ชันcreateDay
-  calculateDate(departDate:string,returnDate:string){
+  calculateDate(){
     //departDate
-    var year  = departDate.slice(0,4),
-        month = departDate.slice(5,7),
-        day   = departDate.slice(8,10);
+    if(this.departDate!=""&&this.tripName!=""&&this.returnDate!="")
+    {
+      this.isSubmit =true;
+    }
+    else
+    {
+      this.status1="Please Fill All Information"
+    }
+    var year  = this.departDate.slice(0,4),
+        month = this.departDate.slice(5,7),
+        day   = this.departDate.slice(8,10);
 
     //temporary (only use for test)
     var  total = ( Number(year)*365)+(this.calculateMonth(Number(month)))+(Number(day));
 
       //returnDate
-      var year2  = returnDate.slice(0,4),
-      month2 = returnDate.slice(5,7),
-      day2   = returnDate.slice(8,10);
+      var year2  = this.returnDate.slice(0,4),
+      month2 = this.returnDate.slice(5,7),
+      day2   = this.returnDate.slice(8,10);
       
        //temporary (only use for test)
        var  total2 = ( Number(year2)*365)+( this.calculateMonth(Number(month2)))+(Number(day2));
@@ -170,8 +191,20 @@ export class CreateplanComponent implements OnInit {
     }
     return day;
   }
+
+  //function ยืนยัน generate
+  confirm(){  
+    this._dataService.createplan(this.tripName,this.departDate,this.returnDate)
+    .subscribe(res => {
+      //ใส่ loop
+      //this._dataService.putplandetail(planid,starttime,date,type,detial,activityid).subscribe(res =>{
+        
+      //})
+    });
+  }
 }
 
+  
 //คลาสของ planning
 class dayPlanning {
 

@@ -4,7 +4,8 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 955px;
+    min-height: 955px;
+    height:auto;
   }
 
   /* Bordered form */

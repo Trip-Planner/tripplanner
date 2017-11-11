@@ -3,18 +3,71 @@
     flex: 1 1 auto;
   }
   
+  #block{
+    
+    width: 750px;
+    border: 5px solid rgba(52, 218, 118, 0.822);
+    padding: 25px;
+    margin: auto;
+}
+input{
+
+  width: 100%;
+  height: 35px;
+  border:none;
+  border-radius:5px; 
+  font-size: 20px;
+  -webkit-input-placeholder:white;
+}
+.right {
+  width: 80%; /*or 45%*/
+  float: left;
+  } 
   
+.left {
+  width: 20%; /*or 55%*/
+  float: left;
+}
+
+#block1{
+  font-family: 'Lato';
+  font-size: 55px;
+  width: 750px;
+  border: 5px solid rgba(52, 218, 118, 0.822);
+  padding: 0px;
+  margin: auto;
+  text-align: center;
+  color:white;
+  border-bottom: none;
+  border-bottom-right-radius: 25px;
+}
   #table{
     border: 1px solid grey;
     border-collapse: collapse;
     padding: 5px;
+    color:black;
   }
   #table-odd{
     background-color: #f1f1f1;
   }
   #table-even {
     background-color: #1da3f7;
+    
   }
   #table-stable{
     background-color: #e9f7ff;
+
   }
+#fontw{
+  color:white;
+  font-size: 20px;
+}
+#fontb{
+  color:black;
+  font-size: 20px;
+}
+
+#fontr{
+  color:red;
+  font-size: 20px;
+}
