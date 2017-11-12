@@ -1,12 +1,22 @@
-<div id="backs">
-
+<!--<div id="backs">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <ul>
-    <li style="float:left">
-      <div id="lato_font">TRIPLANNER
-        <br>
+    
+    <div class="topnav" id="myTopnav">
+      <li style="float:left">
+      <div id="font">TRIPLANNER</div>
+      </li>
+        <a style="float:right" href="#"><i class="fa fa-search"></i></a> 
+        <a style="float:right" type="submit" class="lato_font" (click)="canlink('/login')">Login</a>
+        <a style="float:right" type="submit" class="lato_font" (click)="canlink('/home')">Home</a>
+        <a style="float:right" type="submit" class="lato_font" (click)="canlink('/editplan')">Edit Plan</a>
+        <a style="float:right" type="submit" class="lato_font" (click)="canlink('/deleteplan')">Delete Plan</a>
+        <a style="float:right" type="submit" class="lato_font" (click)="canlink('/review-post')">Review&Post</a>
+        <a style="float:right" type="submit" class="lato_font" (click)="canlink('/co-planning')">Co-planning</a>
       </div>
-    </li>
-    <li>
+        
+       
+    <!--<li>
       
       <button type="submit" class="lato_font" (click)="canlink('/deleteplan')">Delete Plan</button>
     </li>
@@ -42,8 +52,8 @@
       
   
       <button type="submit" class="lato_font" (click)="canlink('/home')">Home</button>
-    </li>
+    </li>-->
 
   </ul>
 
-</div>
+<!--</div>-->
