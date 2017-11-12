@@ -56,7 +56,7 @@ export class DataService {
     myParams.append('planid', planid)
     myParams.append('starttime',starttime)
     myParams.append('date', date)
-    myParams.append('type', type)
+    myParams.append('type', type) 
     myParams.append('detail',detail)
     myParams.append('activityname', activityname)
     let options = new RequestOptions({ params: myParams });

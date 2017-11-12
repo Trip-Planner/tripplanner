@@ -91,7 +91,7 @@ router.get('/createplan', function (req, res) {
 
 router.get('/putplandetail', function (req, res) {
     var temp=[];
-    var sql = 'INSERT INTO plandetial (plan_id,starttime,date,type,detail,activityname) VALUES (' + mysql.escape(req.query.planid)+','+mysql.escape(req.query.starttime)+','+mysql.escape(req.query.date)+','+mysql.escape(req.query.type)+','+mysql.escape(req.query.detail)+','+mysql.escape(req.query.activityname)+')';
+    var sql = 'INSERT INTO plandetail (plan_id,starttime,date,type,detail,activityname) VALUES (' + mysql.escape(parseInt(req.query.planid))+','+mysql.escape(req.query.starttime)+','+mysql.escape(req.query.date)+','+mysql.escape(req.query.type)+','+mysql.escape(req.query.detail)+','+mysql.escape(req.query.activityname)+')';
     con.query(sql, function (err, result) {
         if (err) throw err;
         response.data = 'done';

@@ -20,11 +20,11 @@ export class CreateplanComponent implements OnInit {
   isHide:boolean;
   isActCreate:boolean[];
   dayShow:boolean[];
-  act_temp:string;
   now:string;
   days:dayPlanning[];
   status1:string;
   status2:string;
+  date:string[];
   constructor(private router: Router,private _dataService:DataService,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -40,8 +40,8 @@ export class CreateplanComponent implements OnInit {
   this.isActCreate=[false];
   this.dayShow=[true];
   this.status1="";
+  this.date=[""];
 
-  this.act_temp="";
 
   
   this.days=[];
@@ -196,28 +196,46 @@ export class CreateplanComponent implements OnInit {
   confirm(){  
     this._dataService.createplan(this.tripName,this.departDate,this.returnDate)
     .subscribe(res => {
-      //ใส่ loop
-      //this._dataService.putplandetail(planid,starttime,date,type,detial,activityid).subscribe(res =>{
-        
-      //})
+
+      console.log(res);
+      
+
+      for(var i = 0; i < this.resultDate;i++)
+      {
+        for(var j =0; j < this.days[i].acts.length; j++)  
+        {
+
+          this._dataService.putplandetail(res,this.days[i].times[j],this.departDate,"type",this.days[i].details[j],this.days[i].acts[j]).subscribe(res =>{
+            
+       });    
+      }
+    }
+
     });
+
+    this.router.navigate(['/home']);
   }
 }
+
+
+
+
+
 
   
 //คลาสของ planning
 class dayPlanning {
 
-  act_temp:string;
   acts:string[];
   times:string[];
   details:string[];
+  date:string;
 
   constructor() {
-    this.act_temp="";
     this.acts=[];
     this.times=[];
     this.details=[];
+    this.date="";
 
   }
 }
