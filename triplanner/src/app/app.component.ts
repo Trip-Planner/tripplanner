@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
-import {Http} from '@angular/http';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,15 +7,33 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  status:string;
-  constructor(private _dataService:DataService,private router: Router){
-    this._dataService.getSession()
-    .subscribe(res => {
-      this.status = res});
-    if(this.status != null)
-      this.router.navigate(['/createplan']);
-    else
-      this.router.navigate(['']);
+  title = 'app';
+  user = new user();
+  users:Array<any>
+  constructor(private _dataService:DataService){
+    this._dataService.getUsers()
+
+      .subscribe(res => {
+        console.log(res)
+        return this.users =res});
+  }
+  submit(){
+    for (var item of this.users) {
+      if(item.username == this.user.id)
+        if(item.password == this.user.pw)
+        return console.log("login sucess");
+    }
+    console.log("wrong password")
   }
 }
+export class user{
 
+  
+  public id:string
+  public pw:string
+  constructor(){
+    this.id='';
+    this.pw='';
+  }
+  
+}
