@@ -1,0 +1,14 @@
+<br>
+ <div id="block">
+   <div id="fontr">Login<br><br></div>
+	
+    	<input type="text" placeholder="Username" [(ngModel)]="username" required="required" /><br>
+        <input type="password" placeholder="Password" [(ngModel)]="password" required="required" /><br><br><br><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large" (click)="submit()"><h5>Login to Triplanner</h5></button><br>
+        <div *ngIf="status == 'initial';else WrongTmp1">
+          <br>
+        </div>
+        <ng-template #WrongTmp1><div id="fontw">Wrongpassword<br><br></div></ng-template>
+        <a routerLink="/register" >Create a free Triplanner Acount</a>
+
+</div>
