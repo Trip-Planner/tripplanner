@@ -4,11 +4,11 @@
   }
   
   #block{
-    
     width: 750px;
-    border: 5px solid rgba(52, 218, 118, 0.822);
+    border: 0px solid rgba(52, 218, 118, 0.822);
     padding: 25px;
     margin: auto;
+    background: linear-gradient(to bottom,rgba(128, 124, 124, 0.637) 20%, rgba(0,0,0,0.6) 80%);
 }
 input{
 
@@ -30,10 +30,11 @@ input{
 }
 
 #block1{
-  font-family: 'Lato';
-  font-size: 55px;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 30px;
   width: 750px;
-  border: 5px solid rgba(52, 218, 118, 0.822);
+  border: 0px solid rgba(52, 218, 118, 0.822);
   padding: 0px;
   margin: auto;
   text-align: center;
@@ -62,9 +63,10 @@ input{
   color:white;
   font-size: 20px;
 }
-#fontb{
+#fontb{ 
   color:black;
-  font-size: 20px;
+  font-style:italic;
+  font-size: 16px;
 }
 
 #fontr{

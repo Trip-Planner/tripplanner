@@ -18,7 +18,7 @@ input{
     border:none;
     font-size: 18px;
     border-bottom: 1px solid white;
-    -webkit-input-placeholder:rgb(202, 202, 202);
+    -webkit-input-placeholder:white;
 }
 #fontw {
     font-size: 15px;
@@ -29,7 +29,7 @@ input{
 }
 #fontr {
     font-family: 'Arial';
-    font-size: 40px;
+    font-size: 30px;
     font-style: normal;
     color:white;
     text-align:center;
