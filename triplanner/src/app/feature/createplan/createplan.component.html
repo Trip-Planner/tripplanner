@@ -1,6 +1,6 @@
 <br>
 <div id='block1' >
-        Make your plan 
+        MAKE YOUR PLAN
     <br>
 </div>
 <div id='block' style="color:white">
@@ -8,28 +8,29 @@
         <form>
             <div class="left">
             <label for="tripName">
-                <b style="font-size:24px">TripName :</b><br><br>
-                <b style="font-size:24px">StartDate :</b><br><br>
-                <b style="font-size:24px">EndDate :</b><br><br>
+                <b style="font-size:18px;font-family: 'Arial';">Trip Name </b><br><br><br>
+                <b style="font-size:18px;font-family: 'Arial';">Start Date </b><br><br><br>
+                <b style="font-size:18px;font-family: 'Arial';">End Date </b><br><br><br>
             </label>
         </div>
         <div class="right">
-            <input type="text" id="fontb" placeholder="Enter TripName" name="tripName" [(ngModel)]="tripName" required />
-            <br> <br>
+            <br>
+            <input type="text" id="fontb" placeholder="Enter your trip name" name="tripName" [(ngModel)]="tripName" required />
+            <br> <br><br>
             <input type="date" name="departDate" id="fontb" [(ngModel)]="departDate" placeholder="yyyy-MM-dd" min={{now}} max="2019-12-31"
                 required />
-            <br> <br>
+            <br> <br><br>
 
             
             <input type="date" name="returnDate" id="fontb" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" min={{departDate}} max="2019-12-31"
                 required />
             <br>
-            <br>
+            <br><br>
         </div> 
         
         <br><br><br><br><br><br><br>
         <p style="color:red">{{status1}}</p>
-        <button class="btn btn-primary btn-large" style="float:right;" (click)="calculateDate()"> Startplaning </button>        <br>
+        <button class="btn btn-primary btn-large" style="float:right;" (click)="calculateDate()"> Start Planing </button>        <br>
         <br>
         
         
@@ -58,9 +59,9 @@
                 </mat-toolbar>
                 <br>
                 <mat-menu #appMenu="matMenu">
-                    <button mat-menu-item (click)="act_temp = 'Chiangmai';isActCreate[j]=true">Chiangmai</button>
+                    <button mat-menu-item (click)="act_temp = 'Chiangmai';isActCreate[j]=true">Chiang Mai</button>
                     <!--  ex activites (need database) -->
-                    <button mat-menu-item (click)="act_temp = 'Bankkok';isActCreate[j]=true">Bankok</button>
+                    <button mat-menu-item (click)="act_temp = 'Bangkok';isActCreate[j]=true">Bangkok</button>
                     <!--  ex activites (need database) -->
                 </mat-menu>
 
@@ -94,7 +95,7 @@
                         <thead id="table-even">
                             <th>Time</th>
                             <th>Detail</th>
-                            <th>Activitie</th>
+                            <th>Activity</th>
                         </thead>
                         <td>
                             <input type="time" [(ngModel)]="time" required />
@@ -126,7 +127,7 @@
 
 
             <!-- <button routerLink="/generateplan">generateplan !!</button>   -->
-            <button type="button" class="btn btn-primary" (click)="isHide= true"> Generateplan</button>
+            <button type="button" class="btn btn-primary" (click)="isHide= true"> Generate Plan</button>
 
         </div>
 
