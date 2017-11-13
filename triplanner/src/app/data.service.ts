@@ -110,7 +110,7 @@ export class DataService {
     myParams.append('detail',detail)
     myParams.append('activityname', activityname)
     let options = new RequestOptions({ params: myParams });
-    return this.http.get("/api/putplandetail",options)
+    return this.http.get("/api/editplandetail",options)
       .map(result => this.result = result.json().data)
   }
 
