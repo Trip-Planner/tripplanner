@@ -24,7 +24,6 @@ con.connect(function (err) {
     console.log("Connected!");
 });
 
-
 router.get('/users', function (req, res) {
     con.query("SELECT * FROM account", function (err, result) {
         if (err) throw err;
@@ -81,9 +80,9 @@ router.get('/createplan', function (req, res) {
     sql = 'SELECT * FROM plan WHERE plan_name = ' + mysql.escape(req.query.planname);
     con.query(sql, function (err, result) {
         if (err) throw err;
-        array.forEach(function(result) {
-            if(result.user_id == user_id)
-            response.data = result.plan_id;
+        result.forEach(function(element) {
+            if(element.user_id == user_id)
+            response.data = element.plan_id;
             return res.json(response);
         }, this);
     });
@@ -91,7 +90,7 @@ router.get('/createplan', function (req, res) {
 
 router.get('/putplandetail', function (req, res) {
     var temp=[];
-    var sql = 'INSERT INTO plandetial (plan_id,starttime,date,type,detail,activityname) VALUES (' + mysql.escape(req.query.planid)+','+mysql.escape(req.query.starttime)+','+mysql.escape(req.query.date)+','+mysql.escape(req.query.type)+','+mysql.escape(req.query.detail)+','+mysql.escape(req.query.activityname)+')';
+    var sql = 'INSERT INTO plandetail (plan_id,starttime,date,type,detail,activityname) VALUES (' + mysql.escape(req.query.planid)+','+mysql.escape(req.query.starttime)+','+mysql.escape(req.query.date)+','+mysql.escape(req.query.type)+','+mysql.escape(req.query.detail)+','+mysql.escape(req.query.activityname)+')';
     con.query(sql, function (err, result) {
         if (err) throw err;
         response.data = 'done';
@@ -109,5 +108,52 @@ router.get('/logout', function (req, res) {
 router.get('/show', function (req, res) {
     res.end("Hi ,show api");
 });
+
+router.get('/getplan',function (req,res) {
+    var user_id = localStorage.getItem('CurrentUser');
+    sql = 'SELECT * FROM plan WHERE user_id = ' + mysql.escape(user_id);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data= result;
+        res.json(response);
+    });
+});
+
+
+router.get('/getplandetail',function (req,res) {
+    sql = 'SELECT * FROM plandetail WHERE plan_id = ' + mysql.escape(req.query.planid);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data= result;
+        res.json(response);
+    });
+});
+
+router.get('/deleteplan',function (res,req){
+    sql = 'DELETE * FROM plan WHERE plan_id = ' + mysql.escape(req.query.planid);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data= 'DONE';
+        res.json(response);
+    });
+})
+
+router.get('/editplan',function (req,res){
+    sql = 'UPDATE plan SET plan_name = '+mysql.escape(req.query.planname)+',startdate = '+mysql.escape(req.query.startdate)+',enddate = '+mysql.escape(req.query.enddate)+' WHERE plan_id = '+mysql.escape(req.query.plan_id);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data= 'DONE';
+        res.json(response);
+    });
+})
+
+router.get('/editplandetail',function (req,res){
+    sql = 'UPDATE plandetail SET starttime = '+mysql.escape(req.query.starttime)+',date = '+mysql.escape(req.query.date)+',type = '+mysql.escape(req.query.type)+',detail = '+mysql.escape(req.query.detail)+',activityname = '+mysql.escape(req.query.activityname)+' WHERE act_id = '+mysql.escape(req.query.actid);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data= 'DONE';
+        res.json(response);
+    });
+})
 
 module.exports = router;

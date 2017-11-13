@@ -1,0 +1,10 @@
+.right {
+    width: 80%; /*or 45%*/
+    float: left;
+    } 
+    
+  .left {
+    width: 20%; /*or 55%*/
+    float: left;
+  }
+  
