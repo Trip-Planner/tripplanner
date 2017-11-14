@@ -30,9 +30,9 @@ input{
 }
 
 #block1{
-  font-family: 'Arial';
+  font-family: "Lato", sans-serif;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
   width: 750px;
   border: 0px solid rgba(52, 218, 118, 0.822);
   padding: 0px;
@@ -66,7 +66,7 @@ input{
 #fontb{ 
   color:black;
   font-style:italic;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #fontr{
