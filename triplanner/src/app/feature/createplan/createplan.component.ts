@@ -196,10 +196,18 @@ export class CreateplanComponent implements OnInit {
   confirm(){  
     this._dataService.createplan(this.tripName,this.departDate,this.returnDate)
     .subscribe(res => {
-      //ใส่ loop
-      //this._dataService.putplandetail(planid,starttime,date,type,detial,activityid).subscribe(res =>{
-        
-      //})
+       console.log(res);     
+      for(var i = 0; i < this.resultDate;i++)
+      {
+        for(var j =0; j < this.days[i].acts.length; j++)  
+        {
+
+          this._dataService.putplandetail(res,this.days[i].times[j],this.departDate,"type",this.days[i].details[j],this.days[i].acts[j]).subscribe(res =>{
+            
+       });    
+      }
+    }
+
     });
   }
 }

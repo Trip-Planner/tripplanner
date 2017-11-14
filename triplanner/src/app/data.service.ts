@@ -68,4 +68,51 @@ export class DataService {
     return this.http.get("/api/logout")
     .map(result => this.result = result.json().data)
   }
+
+  getplan(){
+    return this.http.get("/api/getplan")
+    .map(result => this.result = result.json().data)    
+  }
+
+  getplandetail(planid:string){
+    let myParams = new URLSearchParams();
+    myParams.append('planid', planid)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/getplandetail",options)
+    .map(result => this.result = result.json().data)   
+  }
+
+  deleteplan(planid:string){
+    let myParams = new URLSearchParams();
+    myParams.append('planid', planid)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/deleteplan",options)
+    .map(result => this.result = result.json().data)   
+  }
+
+  editplan(planid:string,planname:string,startdate:string,enddate:string){
+    let myParams = new URLSearchParams();
+    myParams.append('planid', planid)
+    myParams.append('planname', planname)
+    myParams.append('startdate',startdate)
+    myParams.append('enddate', enddate);
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/editplan",options)
+      .map(result => this.result = result.json().data)
+  }
+
+  editplandetail(actid:string,starttime:string,date:string,type:string,detail:string,activityname:string){
+    let myParams = new URLSearchParams();
+    myParams.append('actid', actid)
+    myParams.append('starttime',starttime)
+    myParams.append('date', date)
+    myParams.append('type', type)
+    myParams.append('detail',detail)
+    myParams.append('activityname', activityname)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/editplandetail",options)
+      .map(result => this.result = result.json().data)
+  }
+
+
 }

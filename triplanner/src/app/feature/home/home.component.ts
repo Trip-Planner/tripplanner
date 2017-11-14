@@ -9,11 +9,14 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  plan:any;
   constructor(private router: Router,private _dataService:DataService) { }
 
   ngOnInit() {
-  }
+    this._dataService.getplan().subscribe(res =>{
+        this.plan = res;
+      })
+    }
 
   logout(){
   this._dataService.logout()
