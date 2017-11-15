@@ -11,6 +11,8 @@ export class EditplanComponent implements OnInit {
 
   plan:any
   days_data:any
+  plan_id:string
+
   tripName:string;
   departDate:string;
   returnDate:string;
@@ -21,9 +23,13 @@ export class EditplanComponent implements OnInit {
   isEdit:boolean;
   isDelete:boolean;
   isSubmit:boolean;
+  isCoplanning:boolean;
+  showPlan:boolean;
   plan_index:number;
 
   delete_temp:string;
+
+  co_id:string;
  
 
   isActCreate:boolean[];
@@ -47,6 +53,8 @@ export class EditplanComponent implements OnInit {
     this.isSubmit= false;
     this.isEdit=false;
     this.isDelete=false;
+    this.isCoplanning=false;
+    this.showPlan=false;
    /*  this.isAlert=false; */
     this.isHide=false;
     this.isActCreate=[false];
@@ -56,13 +64,14 @@ export class EditplanComponent implements OnInit {
     this.plan_index=0;
     this.act_temp="";
     this.total=+'';
+    this.co_id = "";
     
     this.days=[];
 
 
 
     //get data
-    this._dataService.getplan().subscribe(res =>{
+    this._dataService.getuserplan().subscribe(res =>{
       this.plan = res;
     
     })
@@ -213,8 +222,19 @@ export class EditplanComponent implements OnInit {
     }
     return day;
   } */
-  
+
+
+  Co_Confirm(){
+    console.log("CO DONE")
+
+    this.ngOnInit()
+    
+
+  }
+
+
 confirm(){
+
     this._dataService.deleteplan(this.days_data[0].plan_id).subscribe(res=>
     {
       console.log(res);   
@@ -249,13 +269,15 @@ confirm(){
       }
     }
 
+    this.ngOnInit()
     });
+    
   }
 
   moveToPlandetail(plan_id:string,index:string)
   { 
    
-
+    this.plan_id = plan_id;
     this.index_temp = index;
     this._dataService.getplandetail(plan_id).subscribe(res =>{  
     this.days_data= res;
@@ -343,11 +365,7 @@ confirm(){
 
     })
   }
-  navigateToHome()
-  {
 
-  this.router.navigate([' /home'])
-  }
   deletePlan(delete_temp:string)
   {
     this._dataService.deleteplan(delete_temp).subscribe(res=>
@@ -359,7 +377,8 @@ confirm(){
             this._dataService.deleteplandetail(this.days_data[i].acti_id).subscribe(res =>{     
          });         
       }
-      console.log(delete_temp);   
+      console.log(delete_temp); 
+      this.ngOnInit()    
       })
 
   }

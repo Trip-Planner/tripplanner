@@ -109,7 +109,7 @@ router.get('/show', function (req, res) {
     res.end("Hi ,show api");
 });
 
-router.get('/getplan',function (req,res) {
+router.get('/getuserplan',function (req,res) {
     var user_id = localStorage.getItem('CurrentUser');
     sql = 'SELECT * FROM plan WHERE user_id = ' + mysql.escape(user_id);
     con.query(sql, function (err, result) {

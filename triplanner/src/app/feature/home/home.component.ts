@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router,private _dataService:DataService) { }
 
   ngOnInit() {
-    this._dataService.getplan().subscribe(res =>{
+    this._dataService.getuserplan().subscribe(res =>{
         this.plan = res;
       })
     }

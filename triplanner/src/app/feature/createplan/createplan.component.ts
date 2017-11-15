@@ -93,7 +93,7 @@ export class CreateplanComponent implements OnInit {
     }
 
     return false;
-
+    
   }
   /* still not perfect** */
   removeActs(i:number,j:number){
@@ -267,6 +267,8 @@ export class CreateplanComponent implements OnInit {
        });    
       }
     }
+
+    this.router.navigate(['/editplan']);
 
     });
   }

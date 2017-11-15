@@ -69,8 +69,8 @@ export class DataService {
     .map(result => this.result = result.json().data)
   }
 
-  getplan(){
-    return this.http.get("/api/getplan")
+  getuserplan(){
+    return this.http.get("/api/getuserplan")
     .map(result => this.result = result.json().data)    
   }
 
