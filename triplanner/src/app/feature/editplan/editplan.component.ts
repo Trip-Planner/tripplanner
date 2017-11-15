@@ -166,7 +166,7 @@ export class EditplanComponent implements OnInit {
     else */
     //date show
 
-    return (console.log(this.total + " " + total2 + " " + this.resultDate));
+    return (this.total + " " + total2 + " " + this.resultDate);
 
   }
   calculateMonth(m: number) {
@@ -215,7 +215,7 @@ export class EditplanComponent implements OnInit {
 
 
   Co_Confirm() {
-    console.log("CO DONE")
+    //console.log("CO DONE")
 
     this.ngOnInit()
 
@@ -226,18 +226,18 @@ export class EditplanComponent implements OnInit {
   confirm() {
 
     this._dataService.deleteplan(this.days_data[0].plan_id).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       for (var i = 0; i < this.days_data.length; i++) {
-        console.log(this.days_data.length);
+        //console.log(this.days_data.length);
         this._dataService.deleteplandetail(this.days_data[i].acti_id).subscribe(res => {
         });
       }
-      console.log("test");
+      //console.log("test");
     })
 
     this._dataService.createplan(this.tripName, this.departDate, this.returnDate)
       .subscribe(res => {
-        console.log(res);
+        // console.log(res);
         for (var i = 0; i < this.resultDate; i++) {
           if (this.days[i] == null) {
 
@@ -245,7 +245,7 @@ export class EditplanComponent implements OnInit {
           else {
             for (var j = 0; j < this.days[i].acts.length; j++) {
 
-              console.log("HERE" + this.days[i].thatDate + "type" + this.days[i].details[j] + this.days[i].acts[j])
+              // console.log("HERE" + this.days[i].thatDate + "type" + this.days[i].details[j] + this.days[i].acts[j])
               this._dataService.putplandetail(res, this.days[i].times[j], String(this.days[i].thatDate), "type", this.days[i].details[j], this.days[i].acts[j]).subscribe(res => {
 
               });
@@ -259,33 +259,34 @@ export class EditplanComponent implements OnInit {
   }
 
   moveToPlandetail(plan_id: string, index: string) {
-
     this.plan_id = plan_id;
     this.index_temp = index;
+    var plan: any;
+    this._dataService.getplan(plan_id).subscribe(res => {
+      this.tripName = res[0].plan_name;
+      this.departDate = res[0].startdate;
+      this.returnDate = res[0].enddate;
+    })
     this._dataService.getplandetail(plan_id).subscribe(res => {
       this.days_data = res;
-      console.log(res);
-
       this.plan_index = 0;
+      console.log(res)
+      if (res[0] == null)
+        return 0;
       for (var i = 0; i <= this.plan.length; i++) {
-
-
         if (res[0].plan_id == this.plan[i].plan_id) {
-          console.log(this.plan_index)
+          //console.log(this.plan_index)
           break;
         }
         this.plan_index++;
       }
 
 
-      this.tripName = this.plan[this.plan_index].plan_name;
-      this.departDate = this.plan[this.plan_index].startdate;
-      this.returnDate = this.plan[this.plan_index].enddate;
 
-      console.log(this.plan)
-      console.log(this.tripName)
-      console.log(this.departDate)
-      console.log(this.returnDate)
+      //console.log(this.plan)
+      //console.log(this.tripName)
+      //console.log(this.departDate)
+      //console.log(this.returnDate)
 
 
       var temp_date = this.calculateDate()
@@ -305,10 +306,10 @@ export class EditplanComponent implements OnInit {
 
       this.days[day_index].thatDate = res[temp].date;
 
-      console.log("days = " + this.days[day_index].acts);
-      console.log("days = " + this.days[day_index].times);
-      console.log("days = " + this.days[day_index].details);
-      console.log("days = " + this.days[day_index].thatDate);
+      //console.log("days = " + this.days[day_index].acts);
+      //console.log("days = " + this.days[day_index].times);
+      //console.log("days = " + this.days[day_index].details);
+      //console.log("days = " + this.days[day_index].thatDate);
 
 
       for (var x = 0; x < res.length - 1; x++) {
@@ -334,10 +335,10 @@ export class EditplanComponent implements OnInit {
 
 
 
-        console.log("days = " + this.days[day_index].acts);
-        console.log("days = " + this.days[day_index].times);
-        console.log("days = " + this.days[day_index].details);
-        console.log("days = " + this.days[day_index].thatDate);
+        //console.log("days = " + this.days[day_index].acts);
+        // console.log("days = " + this.days[day_index].times);
+        // console.log("days = " + this.days[day_index].details);
+        // console.log("days = " + this.days[day_index].thatDate);
 
       }
 
@@ -346,13 +347,13 @@ export class EditplanComponent implements OnInit {
 
   deletePlan(delete_temp: string) {
     this._dataService.deleteplan(delete_temp).subscribe(res => {
-      console.log(res);
+      //console.log(res);
       for (var i = 0; i < this.days_data.length; i++) {
-        console.log(this.days_data.length);
+        // console.log(this.days_data.length);
         this._dataService.deleteplandetail(this.days_data[i].acti_id).subscribe(res => {
         });
       }
-      console.log(delete_temp);
+      //console.log(delete_temp);
       this.ngOnInit()
     })
 

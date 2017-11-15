@@ -93,16 +93,12 @@ router.get('/createplan', function (req, res) {
     con.query(sql, function (err, result) {
         if (err) throw err;
     });
-    sql = 'SELECT * FROM plan WHERE plan_name = ' + mysql.escape(req.query.planname);
+    sql = 'SELECT * FROM plan WHERE plan_id=(SELECT MAX(plan_id) FROM plan)';    
     con.query(sql, function (err, result) {
-        if (err) throw err;
-        result.forEach(function (element) {
-            if (element.user_id == user_id)
-                response.data = element.plan_id;
-            return res.json(response);
-        }, this);
+            response.data = result[0].plan_id;
+            res.json(response);
     });
-});
+})
 
 router.get('/putplandetail', function (req, res) {
     var temp = [];
