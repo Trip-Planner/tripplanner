@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
+import {Http} from '@angular/http';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-deleteplan',
@@ -6,33 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deleteplan.component.css']
 })
 export class DeleteplanComponent implements OnInit {
-  
-  planName:string[];
-  cb_plan:boolean[];
-  constructor() { }
+  status:string;
+  constructor(private router: Router,private _dataService:DataService) { }
 
   ngOnInit() {
-
-    this.planName=["plan1","plan2"];  //data for test
-    this.cb_plan= [false,false];      //data for test
-
-    
+    this.status='waiting';
   }
-
-
-  removePlan(){
-    for (var index in this.cb_plan) {
-      if (this.cb_plan[index] == true) {
-
-        this.planName.splice(Number(index),1);
-        this.cb_plan.splice(Number(index),1);
-        
-      }
-    }
-    
-   
-        return false;
-      }
-  
-
+  remove(){
+    this._dataService.deleteplan("7").subscribe(res=>{
+      this.status=res;
+    })
+  }
 }

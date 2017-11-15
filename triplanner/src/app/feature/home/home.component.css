@@ -1,10 +1,45 @@
-.right {
-    width: 80%; /*or 45%*/
-    float: left;
-    } 
+
+  
+  #block{
+    background:white;
+    width: 20%;
+    min-height: 800px;
+    float:left;
+    padding:25px;
+    text-align:center;
+    margin:25px;
+  }
     
-  .left {
-    width: 20%; /*or 55%*/
-    float: left;
+  #block2{
+    background:white;
+    width: 70%;
+    min-height: 800px;
+    float:right;
+    padding:25px;
+    text-align:center;
+    margin:25px;
+    margin-right:35px; 
   }
   
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Change the link color on hover */
+
+
+#button1 {
+  border:none;
+
+  background-color: rgba(255, 255, 255, 0);
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+#button1:hover {
+  background-color: rgba(255, 255, 255, 0.274); /* Green */
+  color: white;
+}

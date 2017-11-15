@@ -80,7 +80,6 @@ export class CreateplanComponent implements OnInit {
     this.days[j].times.push(time);
     this.days[j].details.push(detail);
 
-
     for (var i = 0 ;i< this.days[j].acts.length-1;i++)
     { 
       for (var k = 0; k < this.days[j].acts.length-1-i ;k++)   

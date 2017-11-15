@@ -5,14 +5,11 @@ const http =require('http');
 const api = require('./server/api');
 const session = require('express-session')
 const app = express();
-const storage = require('dom-storage')
 
-localStorage = new storage('./db.json', { strict: false, ws: '  ' })
-localStorage.clear();
-console.log("Clear storage");
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
-
+app.use(session({secret:"ui2hf89hg32ofn3023fp",resave:false,saveUninitialized:true}))
 app.use(express.static(path.join(__dirname,'dist')));
 
 app.use('/api',api);
