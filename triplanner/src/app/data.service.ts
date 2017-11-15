@@ -90,6 +90,14 @@ export class DataService {
     .map(result => this.result = result.json().data)   
   }
 
+  deleteplandetail(actid:string){
+    let myParams = new URLSearchParams();
+    myParams.append('actid', actid)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/deleteplandetail",options)
+    .map(result => this.result = result.json().data)
+  }
+
   editplan(planid:string,planname:string,startdate:string,enddate:string){
     let myParams = new URLSearchParams();
     myParams.append('planid', planid)
@@ -113,6 +121,8 @@ export class DataService {
     return this.http.get("/api/editplandetail",options)
       .map(result => this.result = result.json().data)
   }
+
+ 
 
 
 }

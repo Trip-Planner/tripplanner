@@ -14,7 +14,7 @@ let response = {
 const con = mysql.createConnection({
     host: "localhost",
     user: "admin",
-    password: "admin",
+    password: "admin",  
     database: 'triplannerdb'
 });
 
@@ -129,8 +129,16 @@ router.get('/getplandetail',function (req,res) {
     });
 });
 
-router.get('/deleteplan',function (res,req){
-    sql = 'DELETE * FROM plan WHERE plan_id = ' + mysql.escape(req.query.planid);
+router.get('/deleteplan',function (req,res){
+    sql = 'DELETE FROM plan WHERE plan_id = ' + mysql.escape(req.query.planid);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data= 'DONE';
+        res.json(response);
+    });
+})
+router.get('/deleteplandetail',function (req,res){
+    sql = 'DELETE FROM plandetail WHERE acti_id = ' + mysql.escape(req.query.actid);
     con.query(sql, function (err, result) {
         if (err) throw err;
         response.data= 'DONE';
@@ -147,6 +155,7 @@ router.get('/editplan',function (req,res){
     });
 })
 
+
 router.get('/editplandetail',function (req,res){
     sql = 'UPDATE plandetail SET starttime = '+mysql.escape(req.query.starttime)+',date = '+mysql.escape(req.query.date)+',type = '+mysql.escape(req.query.type)+',detail = '+mysql.escape(req.query.detail)+',activityname = '+mysql.escape(req.query.activityname)+' WHERE act_id = '+mysql.escape(req.query.actid);
     con.query(sql, function (err, result) {
@@ -155,5 +164,7 @@ router.get('/editplandetail',function (req,res){
         res.json(response);
     });
 })
+
+
 
 module.exports = router;
