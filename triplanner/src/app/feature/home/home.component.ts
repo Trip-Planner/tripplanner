@@ -50,14 +50,14 @@ export class HomeComponent implements OnInit {
   }
   favorite() {
     var date = new Date();
-    var now =  date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);;    
+    var now = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);;
     this._dataService.getfavoritedetail(this.show_planid).subscribe(res => {
       this.fav = res;
       if (this.fav[0] == null)
-        this._dataService.favorite(this.show_planid,now).subscribe(res => {
+        this._dataService.favorite(this.show_planid, now).subscribe(res => {
         })
       else if (this.fav[0].status == 'false')
-        this._dataService.addfavorite(this.show_planid,now).subscribe(res => {
+        this._dataService.addfavorite(this.show_planid, now).subscribe(res => {
         })
       else if (this.fav[0].status == 'true')
         this._dataService.delfavorite(this.show_planid).subscribe(res => {

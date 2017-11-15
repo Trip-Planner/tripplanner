@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
-import {Http} from '@angular/http';
-import {Router} from "@angular/router";
+import { Http } from '@angular/http';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,12 +9,13 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  status:string;
-  constructor(private _dataService:DataService,private router: Router){
+  status: string;
+  constructor(private _dataService: DataService, private router: Router) {
     this._dataService.getSession()
-    .subscribe(res => {
-      this.status = res});
-    if(this.status != null)
+      .subscribe(res => {
+        this.status = res
+      });
+    if (this.status != null)
       this.router.navigate(['/createplan']);
     else
       this.router.navigate(['']);

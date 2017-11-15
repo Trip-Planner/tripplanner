@@ -33,7 +33,7 @@ router.get('/getuserdetail', function (req, res) {
 });
 
 router.get('/users', function (req, res) {
-    var user_id =  req.session.user;
+    var user_id = req.session.user;
     var sql = 'SELECT * FROM account WHERE user_id = ' + mysql.escape(user_id);
     con.query(sql, function (err, result) {
         if (err) throw err;
@@ -43,7 +43,7 @@ router.get('/users', function (req, res) {
 });
 
 router.get('/session', function (req, res) {
-    response.data =  req.session.user;
+    response.data = req.session.user;
     res.json(response);
 });
 
@@ -55,7 +55,7 @@ router.get('/login', function (req, res) {
         if (result[0] != null) {
             if (result[0].password == req.query.pass) {
                 req.session.user = result[0].user_id;
-                response.data = req.session.user ;
+                response.data = req.session.user;
             }
             else
                 response.data = null;
@@ -88,7 +88,7 @@ router.get('/deleteplan', function (req, res) {
 
 router.get('/createplan', function (req, res) {
     var temp = [];
-    var user_id =  req.session.user;
+    var user_id = req.session.user;
     var sql = 'INSERT INTO plan (plan_name,startdate,enddate,user_id) VALUES (' + mysql.escape(req.query.planname) + ',' + mysql.escape(req.query.startdate) + ',' + mysql.escape(req.query.enddate) + ',' + mysql.escape(user_id) + ')';
     con.query(sql, function (err, result) {
         if (err) throw err;
@@ -125,12 +125,12 @@ router.get('/show', function (req, res) {
     res.end("Hi ,show api");
 });
 
-router.get('/getuserplan',function (req,res) {
-    var user_id =  req.session.user;
+router.get('/getuserplan', function (req, res) {
+    var user_id = req.session.user;
     sql = 'SELECT * FROM plan WHERE user_id = ' + mysql.escape(user_id);
     con.query(sql, function (err, result) {
         if (err) throw err;
-        response.data= result;
+        response.data = result;
         res.json(response);
     });
 });
@@ -192,7 +192,7 @@ router.get('/getreviewplan', function (req, res) {
 })
 
 router.get('/getnotreviewplan', function (req, res) {
-    var user_id =  req.session.user;
+    var user_id = req.session.user;
     sql = 'SELECT * FROM plan WHERE plan_status = ' + mysql.escape('waiting') + 'AND user_id = ' + mysql.escape(user_id);
     con.query(sql, function (err, result) {
         if (err) throw err;
@@ -210,7 +210,7 @@ router.get('/setreviewplan', function (req, res) {
 })
 
 router.get('/getfavoritedetail', function (req, res) {
-    var user_id =  req.session.user;
+    var user_id = req.session.user;
     sql = 'SELECT * FROM favorite WHERE plan_id = ' + mysql.escape(req.query.planid) + 'AND user_id = ' + mysql.escape(user_id);
     con.query(sql, function (err, result) {
         if (err) throw err;
@@ -220,7 +220,7 @@ router.get('/getfavoritedetail', function (req, res) {
 })
 
 router.get('/getfavorite', function (req, res) {
-    sql = 'SELECT * FROM favorite WHERE plan_id = ' + mysql.escape(req.query.planid) +  'AND status = "true"';
+    sql = 'SELECT * FROM favorite WHERE plan_id = ' + mysql.escape(req.query.planid) + 'AND status = "true"';
     con.query(sql, function (err, result) {
         if (err) throw err;
         response.data = result;
@@ -229,8 +229,8 @@ router.get('/getfavorite', function (req, res) {
 })
 
 router.get('/favorite', function (req, res) {
-    var user_id =  req.session.user;
-    var sql = 'INSERT INTO favorite (plan_id,user_id,status,time) VALUES (' + mysql.escape(req.query.planid) + ',' + mysql.escape(user_id) + ',' + mysql.escape("true") +',' + mysql.escape(req.query.time)+ ')';
+    var user_id = req.session.user;
+    var sql = 'INSERT INTO favorite (plan_id,user_id,status,time) VALUES (' + mysql.escape(req.query.planid) + ',' + mysql.escape(user_id) + ',' + mysql.escape("true") + ',' + mysql.escape(req.query.time) + ')';
     con.query(sql, function (err, result) {
         if (err) throw err;
     });
@@ -243,7 +243,7 @@ router.get('/favorite', function (req, res) {
 })
 
 router.get('/delfavorite', function (req, res) {
-    var user_id =  req.session.user;
+    var user_id = req.session.user;
     sql = 'UPDATE favorite SET status = ' + mysql.escape("false") + ' WHERE plan_id = ' + mysql.escape(req.query.planid) + 'AND user_id = ' + mysql.escape(user_id);
     con.query(sql, function (err, result) {
         if (err) throw err;
@@ -257,8 +257,8 @@ router.get('/delfavorite', function (req, res) {
 })
 
 router.get('/addfavorite', function (req, res) {
-    var user_id =  req.session.user;
-    sql = 'UPDATE favorite SET status = ' + mysql.escape("true") + ',time = '+mysql.escape(req.query.time)+' WHERE plan_id = ' + mysql.escape(req.query.planid) + 'AND user_id = ' + mysql.escape(user_id);
+    var user_id = req.session.user;
+    sql = 'UPDATE favorite SET status = ' + mysql.escape("true") + ',time = ' + mysql.escape(req.query.time) + ' WHERE plan_id = ' + mysql.escape(req.query.planid) + 'AND user_id = ' + mysql.escape(user_id);
     con.query(sql, function (err, result) {
         if (err) throw err;
     });

@@ -76,12 +76,12 @@ export class DataService {
       .map(result => this.result = result.json().data)
   }
 
-  getuserplan(){
+  getuserplan() {
     return this.http.get("/api/getuserplan")
-    .map(result => this.result = result.json().data)
+      .map(result => this.result = result.json().data)
   }
 
-  getplan(planid:string) {
+  getplan(planid: string) {
     let myParams = new URLSearchParams();
     myParams.append('planid', planid);
     let options = new RequestOptions({ params: myParams });
@@ -149,7 +149,7 @@ export class DataService {
       .map(result => this.result = result.json().data)
   }
 
-  getuserdetail(userid:string){
+  getuserdetail(userid: string) {
     let myParams = new URLSearchParams();
     myParams.append('userid', userid)
     let options = new RequestOptions({ params: myParams });
@@ -157,7 +157,7 @@ export class DataService {
       .map(result => this.result = result.json().data)
   }
 
-  getfavoritedetail(planid:string){
+  getfavoritedetail(planid: string) {
     let myParams = new URLSearchParams();
     myParams.append('planid', planid)
     let options = new RequestOptions({ params: myParams });
@@ -166,7 +166,7 @@ export class DataService {
 
   }
 
-  getfavorite(planid:string){
+  getfavorite(planid: string) {
     let myParams = new URLSearchParams();
     myParams.append('planid', planid)
     let options = new RequestOptions({ params: myParams });
@@ -174,7 +174,7 @@ export class DataService {
       .map(result => this.result = result.json().data)
   }
 
-  favorite(planid:string,time:string){
+  favorite(planid: string, time: string) {
     let myParams = new URLSearchParams();
     myParams.append('planid', planid)
     myParams.append('time', time)
@@ -184,7 +184,7 @@ export class DataService {
 
   }
 
-  delfavorite(planid:string){
+  delfavorite(planid: string) {
     let myParams = new URLSearchParams();
     myParams.append('planid', planid)
     let options = new RequestOptions({ params: myParams });
@@ -193,7 +193,7 @@ export class DataService {
 
   }
 
-  addfavorite(planid:string,time:string){
+  addfavorite(planid: string, time: string) {
     let myParams = new URLSearchParams();
     myParams.append('planid', planid)
     myParams.append('time', time)

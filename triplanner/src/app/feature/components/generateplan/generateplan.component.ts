@@ -1,6 +1,6 @@
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../../../data.service';
-import {ActivatedRoute,RouterLink,Router} from '@angular/router'
+import { ActivatedRoute, RouterLink, Router } from '@angular/router'
 
 @Component({
   selector: 'app-generateplan',
@@ -10,34 +10,34 @@ import {ActivatedRoute,RouterLink,Router} from '@angular/router'
 export class GenerateplanComponent implements OnInit {
 
   tripName: string;
-  departDate:string;
-  returnDate:string;
+  departDate: string;
+  returnDate: string;
 
-  resultDate:number;
+  resultDate: number;
 
   private sub: any;
 
 
-  constructor(private router: Router,private _dataService:DataService,private route: ActivatedRoute) { 
+  constructor(private router: Router, private _dataService: DataService, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
 
- /*    this.sub = this.route.params.subscribe(params => {
-      this.tripName = params['name']; 
-      this.departDate = params['depdate'];
-      this.returnDate = params['retdate'];
-    
-      
-   });
- */
+    /*    this.sub = this.route.params.subscribe(params => {
+         this.tripName = params['name']; 
+         this.departDate = params['depdate'];
+         this.returnDate = params['retdate'];
+       
+         
+      });
+    */
 
 
   }
 
- /*  ngOnDestroy() {
-    this.sub.unsubscribe();
-  } */
+  /*  ngOnDestroy() {
+     this.sub.unsubscribe();
+   } */
 
 }
