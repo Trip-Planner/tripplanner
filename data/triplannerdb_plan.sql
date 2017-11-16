@@ -27,19 +27,13 @@ CREATE TABLE `plan` (
   `user_id` varchar(45) NOT NULL,
   `startdate` varchar(45) NOT NULL,
   `enddate` varchar(45) NOT NULL,
-  PRIMARY KEY (`plan_id`),
-  UNIQUE KEY `plan_id_UNIQUE` (`plan_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `plan_name` varchar(45) NOT NULL,
+  `plan_status` varchar(45) NOT NULL DEFAULT 'waiting',
+  `favorite` int(11) NOT NULL DEFAULT '0',
+  `review_point` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`plan_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `plan`
---
-
-LOCK TABLES `plan` WRITE;
-/*!40000 ALTER TABLE `plan` DISABLE KEYS */;
-/*!40000 ALTER TABLE `plan` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -50,4 +44,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-06 20:51:50
+-- Dump completed on 2017-11-16  6:38:46

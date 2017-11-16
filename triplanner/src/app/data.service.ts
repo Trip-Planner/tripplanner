@@ -202,4 +202,29 @@ export class DataService {
       .map(result => this.result = result.json().data)
 
   }
+
+  getcoplan() {
+    return this.http.get("/api/getcoplan")
+      .map(result => this.result = result.json().data)
+
+  }
+
+  setcoplan(userid: string, planid: string) {
+    let myParams = new URLSearchParams();
+    myParams.append('planid', planid)
+    myParams.append('userid', userid)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/setcoplan", options)
+      .map(result => this.result = result.json().data)
+
+  }
+
+  getuserid(username: string) {
+    let myParams = new URLSearchParams();
+    myParams.append('username', username)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/getuserid", options)
+      .map(result => this.result = result.json().data)
+
+  }
 }

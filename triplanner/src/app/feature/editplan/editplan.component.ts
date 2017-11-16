@@ -8,7 +8,7 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router'
   styleUrls: ['./editplan.component.css']
 })
 export class EditplanComponent implements OnInit {
-
+  coplan=[];
   plan: any
   days_data: any
   plan_id: string
@@ -29,7 +29,7 @@ export class EditplanComponent implements OnInit {
 
   delete_temp: string;
 
-  co_id: string;
+  co_username: string;
 
 
   isActCreate: boolean[];
@@ -64,8 +64,8 @@ export class EditplanComponent implements OnInit {
     this.plan_index = 0;
     this.act_temp = "";
     this.total = +'';
-    this.co_id = "";
-
+    this.co_username = "";
+    this.coplan=[];
     this.days = [];
 
 
@@ -75,9 +75,15 @@ export class EditplanComponent implements OnInit {
       this.plan = res;
 
     })
-
-
-
+    this._dataService.getcoplan().subscribe(res=>{
+      if (res[0] != null)
+      res.forEach(temp => {
+          this._dataService.getplan(temp.plan_id).subscribe(res => {
+            this.coplan.push(res[0]);
+          })
+      })
+      console.log(this.coplan)
+    })
   }
 
 
@@ -216,7 +222,18 @@ export class EditplanComponent implements OnInit {
 
   Co_Confirm() {
     //console.log("CO DONE")
-
+    this._dataService.getuserid(this.co_username).subscribe(result=>{
+        if(result[0] != null )
+        this._dataService.setcoplan(result[0].user_id,this.plan_id).subscribe(res=>{
+          if(res == 'done')
+            console.log("done")
+          else if(res == 'have already')
+            console.log("already co with this id")
+        })
+        else
+        console.log("no this user")
+      })
+   
     this.ngOnInit()
 
 
@@ -270,7 +287,7 @@ export class EditplanComponent implements OnInit {
     this._dataService.getplandetail(plan_id).subscribe(res => {
       this.days_data = res;
       this.plan_index = 0;
-      console.log(res)
+      //console.log(res)
       if (res[0] == null)
         return 0;
       for (var i = 0; i <= this.plan.length; i++) {

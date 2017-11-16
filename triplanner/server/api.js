@@ -32,6 +32,15 @@ router.get('/getuserdetail', function (req, res) {
     });
 });
 
+router.get('/getuserid', function (req, res) {
+    var sql = 'SELECT * FROM account WHERE username = ' + mysql.escape(req.query.username);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data = result;
+        res.json(response);
+    });
+});
+
 router.get('/users', function (req, res) {
     var user_id = req.session.user;
     var sql = 'SELECT * FROM account WHERE user_id = ' + mysql.escape(user_id);
@@ -81,6 +90,11 @@ router.get('/deleteplan', function (req, res) {
     sql = 'DELETE FROM plan WHERE plan_id = ' + mysql.escape(req.query.planid);
     con.query(sql, function (err, result) {
         if (err) throw err;
+    });
+
+    sql = 'DELETE FROM coplan WHERE plan_id = ' + mysql.escape(req.query.planid);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
         response.data = 'DONE';
         res.json(response);
     });
@@ -93,10 +107,10 @@ router.get('/createplan', function (req, res) {
     con.query(sql, function (err, result) {
         if (err) throw err;
     });
-    sql = 'SELECT * FROM plan WHERE plan_id=(SELECT MAX(plan_id) FROM plan)';    
+    sql = 'SELECT * FROM plan WHERE plan_id=(SELECT MAX(plan_id) FROM plan)';
     con.query(sql, function (err, result) {
-            response.data = result[0].plan_id;
-            res.json(response);
+        response.data = result[0].plan_id;
+        res.json(response);
     });
 })
 
@@ -158,6 +172,39 @@ router.get('/deleteplandetail', function (req, res) {
         response.data = 'DONE';
         res.json(response);
     });
+})
+
+router.get('/getcoplan', function (req, res) {
+    var user_id = req.session.user;
+    sql = 'SELECT * FROM coplan WHERE user_id = ' + mysql.escape(user_id);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data = result;
+        res.json(response);
+    });
+})
+
+router.get('/setcoplan', function (req, res) {
+    check = false;
+    sql = 'SELECT * FROM coplan WHERE user_id = ' + mysql.escape(req.query.userid) + 'AND plan_id = ' + mysql.escape(req.query.planid);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        if (result[0] == null)
+            check = true;
+    });
+    if (check == true) {
+        sql = 'INSERT INTO coplan (plan_id,user_id) VALUES (' + mysql.escape(req.query.planid) + ',' + mysql.escape(req.query.userid) + ')';
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            response.data = 'done';
+            res.json(response);
+        });
+    }
+    else
+    {
+        response.data = 'have already';
+        res.json(response);
+    }
 })
 
 router.get('/editplan', function (req, res) {

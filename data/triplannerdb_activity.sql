@@ -16,20 +16,17 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `accountdetail`
+-- Table structure for table `activity`
 --
 
-DROP TABLE IF EXISTS `accountdetail`;
+DROP TABLE IF EXISTS `activity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `accountdetail` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(60) DEFAULT NULL,
-  `lastname` varchar(60) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
-  `country` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_id_UNIQUE` (`user_id`)
+CREATE TABLE `activity` (
+  `type` varchar(30) NOT NULL,
+  `icon` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`type`),
+  UNIQUE KEY `type_UNIQUE` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
