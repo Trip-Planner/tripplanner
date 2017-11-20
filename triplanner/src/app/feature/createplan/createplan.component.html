@@ -1,111 +1,213 @@
-
 <br>
-<br>
-CREAT YOUR PLAN...
-<br>
+<div id='block1'>
+    MAKE YOUR PLAN
+    <br>
+</div>
+<div id='block' style="color:white">
+    <div *ngIf="isSubmit == false ;else set_activities ">
+        <form>
+            <div class="left">
+                <label for="tripName">
+                    <b style="font-size:18px;font-family: 'Arial';">Trip Name </b>
+                    <br>
+                    <br>
+                    <br>
+                    <b style="font-size:18px;font-family: 'Arial';">Start Date </b>
+                    <br>
+                    <br>
+                    <br>
+                    <b style="font-size:18px;font-family: 'Arial';">End Date </b>
+                    <br>
+                    <br>
+                    <br>
+                </label>
+            </div>
+            <div class="right">
+                <br>
+                <input type="text" id="fontb" placeholder="Enter your trip name" name="tripName" [(ngModel)]="tripName" required />
+                <br>
+                <br>
+                <br>
+                <input type="date" name="departDate" id="fontb" [(ngModel)]="departDate" placeholder="yyyy-MM-dd" min={{now}} max="2019-12-31"
+                    required />
+                <br>
+                <br>
+                <br>
 
 
-<div *ngIf="isSubmit == false ;else set_activities ">
-    <form>
+                <input type="date" name="returnDate" id="fontb" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" min={{departDate}} max="2019-12-31"
+                    required />
+                <br>
+                <br>
+                <br>
+            </div>
 
-        <label for="tripName"><b>Tripname :</b></label>
-        <input type="text"  placeholder="Enter Username" name="tripName" 
-        [(ngModel)]="tripName" required /><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p style="color:red">{{status1}}</p>
+            <button class="btn btn-primary btn-large" style="float:right;" (click)="calculateDate()"> Start Planing </button>
+            <br>
+            <br>
 
-        <label for="departDate">depart date</label>
-        <input type="date" name="departDate" [(ngModel)]="departDate" placeholder="yyyy-MM-dd" 
-        min="2017-01-01" max="2019-12-31" required /><br>
 
-        <label for="returnDate">return date</label>
-        <input type="date" name="returnDate" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" 
-        min="2017-01-01" max="2019-12-31" required /><br>
-
-        <label *ngIf="isAlert==false">WARNING: returndate must greater than departdate!!</label><br>
-
-        <button (click)="isSubmit=true ;calculateDate(departDate,returnDate)"> Startplaning </button>
-        
-
-       <!-- <button (click)="fuction("eiei")" routerLink="/deleteplan"> Startplaning </button> --> 
-        
-    </form>
-    
+        </form>
+    </div>
 </div>
 
-<ng-template #set_activities> 
+<ng-template #set_activities>
 
-        Tripname: {{tripName}}<br>
-        deppartDate:{{departDate}}<br> 
-        returnDate:{{returnDate}}<br>
-        days = {{resultDate}} day<br>
+    <div style="font-size:40px;color:white;text-align:center">{{tripName}}</div>
+    <br>
+    <div style="float:left;font-size:20px">{{departDate}} </div>
+    <div style="float:right;font-size:20px">{{returnDate}}</div>
+    <br>
+    <div style="text-align:center;font-size:20px">{{resultDate}} day</div>
+    <br>
+    <div *ngIf="isHide == false ;else hide ">
 
         <div *ngFor="let d of days;let j =index;">
 
-            <mat-toolbar color="primary">
-                    
-                <span>Day{{j+1}} </span>
-                <span clasee = "example-spacer">   </span>    
-                <button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>add</mat-icon></button>
-                    
+            <mat-toolbar style="background:rgb(19, 155, 218);color:white">
+
+                <span>Day{{j+1}}({{days[j].thatDate}}) </span>
+                <span clasee="example-spacer"> </span>
+                <button mat-button [matMenuTriggerFor]="appMenu">
+                    <mat-icon>add</mat-icon>
+                </button>
+
             </mat-toolbar>
-                    
+            <br>
             <mat-menu #appMenu="matMenu">
-                <button mat-menu-item (click)="act_temp = 'Chiangmai';isActCreate[j]=true">Chiangmai</button>  <!--  ex activites (need database) -->
-                <button mat-menu-item (click)="act_temp = 'Bankkok';isActCreate[j]=true">Bankok</button>       <!--  ex activites (need database) -->
+                <button mat-menu-item (click)="act_temp = 'Chiangmai';isActCreate[j]=true">Chiang Mai</button>
+                <!--  ex activites (need database) -->
+                <button mat-menu-item (click)="act_temp = 'Bangkok';isActCreate[j]=true">Bangkok</button>
+                <!--  ex activites (need database) -->
             </mat-menu>
-            
 
-        <table>
-            <thead>
-                <th>Index</th>
-                <th>Time</th>
-                <th>Detail</th>
-                <th>Activitie</th>
 
-            </thead>
-                <tr *ngFor="let act of d.acts;let i =index;">
-
-                    <td>{{i+1}}</td>
-
-                    <td>{{days[j].times[i]}}</td>
-
-                    <td>{{days[j].details[i]}}</td>
-
-                    <td>{{days[j].acts[i]}}</td>
-
-                    <td><button mat-button (click)="removeActs(i,j)"><mat-icon>remove</mat-icon></button></td>
-                </tr>
-        </table> 
-
-        <!-- กรอกข้อมูล -->
-        <div *ngIf="isActCreate[j] == true ;else "> <!-- condition for showing set_activities_detail -->
-
-            <table>
-                <thead>
-                    <th></th>
-                    <th>Time</th>
-                    <th>Detail</th>
-                    <th>Activitie</th>
-                
+            <table id="table">
+                <thead id="table-odd">
                 </thead>
-                <td><input type="time" name="time" [(ngModel)]="time" required /><br></td>
-        
-                <td><input type="text" name="detail"  placeholder="detail" [(ngModel)]="detail" required /><br></td>
-        
-                <td>{{act_temp}}</td>
-                
-            <button (click)="addActs(act_temp,time,detail,j);isActCreate[j]=false;detail='';time='';">submit</button> <!-- button for addActivities to database (from addActs()) -->
-                
-            </table>
-                
-        </div>  
-    
-    </div>
+                <tr id="table-even" *ngFor="let act of d.acts;let i =index;">
 
-    <button routerLink="/generateplan">generateplan !!</button>   <!--  rout to generate plan -->
+                    <td style="color:white;padding-left:30px;padding-right: 30px;">{{i+1}}</td>
+
+                    <td style="color:white;padding-right: 30px;">{{days[j].times[i]}}</td>
+
+                    <td style="color:white;padding-right: 30px;">{{days[j].details[i]}}</td>
+
+                    <td style="color:white;padding-right: 30px;">{{days[j].acts[i]}}</td>
+
+                    <td>
+                        <button mat-button (click)="removeActs(i,j)">
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- กรอกข้อมูล -->
+            <div *ngIf="isActCreate[j] == true ;else ">
+                <!-- condition for showing set_activities_detail -->
+                <div style="float:left;width: 90%">
+                    <table id="table" style="background:white;width:100%">
+                        <thead id="table-even">
+                            <th>Time</th>
+                            <th>Detail</th>
+                            <th>Activity</th>
+                        </thead>
+                        <td>
+                            <input type="time" [(ngModel)]="time" required />
+                            <br>
+                        </td>
+
+                        <td>
+                            <input type="text" placeholder="detail" [(ngModel)]="detail" required />
+                            <br>
+                        </td>
+                        <td>
+                            {{act_temp}}
+                        </td>
+                        <!-- button for addActivities to database (from addActs()) -->
+
+                    </table>
+                </div>
+                <div style="float:right;width: 10%">
+                    <br>
+                    <button class="btn btn-primary btn-block btn-large" (click)="addActs(act_temp,time,detail,j);detail='';time='';">submit</button>
+                </div>
+                <br>
+                <br>
+                <div style="color:red;float:left">{{status2}}</div>
+                <br>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- <button routerLink="/generateplan">generateplan !!</button>   -->
+        <button type="button" class="btn btn-primary" (click)="isHide= true"> Generate Plan</button>
+
+    </div>
 
 </ng-template>
 
-    
-   
+<!--  generate -->
+<ng-template #hide>
 
 
+    <button *ngFor="let d of days;let j =index;" class="btn btn-primary" (click)="dayShowing(j,resultDate)">day {{j+1}}</button>
+    <div *ngFor="let d of days;let j =index">
+        <div *ngIf="dayShow[j] == true ;else ">
+
+            <a>
+                day:{{days[j].thatDate}}
+            </a>
+            <table>
+
+                <thead>
+                    <th *ngFor="let act of days[j].acts;let l =index;">{{act}}</th>
+                </thead>
+                <td *ngFor="let act of days[j].acts;let l =index;">
+                    <img src="../../assets/images/background.jpg" style="width:48px;height:48px;"> </td>
+                <!-- activity image (j =index) -->
+
+
+                <table id="table">
+                    <thead id="table-odd">
+                        <th>Index</th>
+                        <th>Time</th>
+                        <th>Detail</th>
+                        <th>Activitie</th>
+
+                    </thead>
+                    <br>
+                    <tr id="table-even" style="background:white;width:100%" *ngFor="let act of d.acts;let i =index;">
+
+                        <td>{{i+1}}</td>
+
+                        <td>{{days[j].times[i]}}</td>
+
+                        <td>{{days[j].details[i]}}</td>
+
+                        <td>{{days[j].acts[i]}}</td>
+                    </tr>
+                </table>
+                <thead>
+                    <th></th>
+
+                </thead>
+
+            </table>
+
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="confirm()">confirm</button>
+</ng-template>

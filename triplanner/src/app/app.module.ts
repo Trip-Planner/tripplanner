@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms' 
+import { FormsModule } from '@angular/forms'
 import { DataService } from './data.service';
-import { RouterModule} from '@angular/router' // for routing
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatButtonModule,MatCardModule,MatMenuModule,MatToolbarModule,MatIconModule} from '@angular/material';
+import { RouterModule } from '@angular/router' // for routing
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CreateplanComponent } from './feature/createplan/createplan.component';
@@ -51,55 +51,55 @@ import { HomeComponent } from './feature/home/home.component';
     //  routing to component
     RouterModule.forRoot([
       {
-        path: '', 
+        path: '',
         component: LoginComponent
       },
       {
-        path: 'login', 
+        path: 'login',
         component: LoginComponent
       },
       {
-        path:'createplan',
+        path: 'createplan',
         component: CreateplanComponent
       },
-      {   
-        path:'deleteplan',
+      {
+        path: 'deleteplan',
         component: DeleteplanComponent
       },
-      {      
-        path:'co-planning',
-        component:CoPlanningComponent
+      {
+        path: 'co-planning',
+        component: CoPlanningComponent
       },
       {
-        
-        path:'editplan',
+
+        path: 'editplan',
         component: EditplanComponent
       },
       {
-        
-        path:'favnoti',
+
+        path: 'favnoti',
         component: FavnotiComponent
       },
       {
-      
-        path:'review-post',
+
+        path: 'review-post',
         component: ReviewPostComponent
       },
       {
-        path:'generateplan',
+        path: 'generateplan/:name/:depdate/:retdate',
         component: GenerateplanComponent
       },
       {
-        path:'register',
-        component: RegisterComponent     
+        path: 'register',
+        component: RegisterComponent
       },
       {
-        path:'home',
-        component: HomeComponent  
+        path: 'home',
+        component: HomeComponent
       },
     ])
   ],
-  providers: [DataService ],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

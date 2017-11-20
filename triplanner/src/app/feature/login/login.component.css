@@ -1,12 +1,13 @@
 
 #block{
-    background: linear-gradient(to bottom, rgba(146, 135, 187, 0.8) 0%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(to bottom,rgba(128, 124, 124, 0.637) 20%, rgba(0,0,0,0.6) 80%);
     
         width: 350px;
-        height: 60%;
+        height: auto;
     padding: 25px;
     margin: auto;
     text-align:center;
+    font-family: "Arial", Verdana, Sans-serif;
 }
 
 input{
@@ -15,7 +16,7 @@ input{
     width: 100%;
     height: 40px;
     border:none;
-    font-size: 25px;
+    font-size: 18px;
     border-bottom: 1px solid white;
     -webkit-input-placeholder:white;
 }
@@ -27,7 +28,8 @@ input{
   
 }
 #fontr {
-    font-size: 50px;
+    font-family: 'Arial';
+    font-size: 30px;
     font-style: normal;
     color:white;
     text-align:center;

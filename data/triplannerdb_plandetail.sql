@@ -26,23 +26,13 @@ CREATE TABLE `plandetail` (
   `plan_id` int(11) NOT NULL,
   `acti_id` int(11) NOT NULL AUTO_INCREMENT,
   `starttime` varchar(45) DEFAULT NULL,
-  `endtime` varchar(45) DEFAULT NULL,
   `date` varchar(45) DEFAULT NULL,
   `type` varchar(45) NOT NULL,
   `detail` varchar(200) DEFAULT NULL,
   `activityname` varchar(50) DEFAULT NULL,
   UNIQUE KEY `acti_id_UNIQUE` (`acti_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `plandetail`
---
-
-LOCK TABLES `plandetail` WRITE;
-/*!40000 ALTER TABLE `plandetail` DISABLE KEYS */;
-/*!40000 ALTER TABLE `plandetail` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -53,4 +43,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-06 20:51:50
+-- Dump completed on 2017-11-16  6:38:46

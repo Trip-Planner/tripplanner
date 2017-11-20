@@ -1,15 +1,17 @@
-<div>
-  <br><br><br><br>
-  <div id = "lato_font">TRIPLANNER</div>
-  <br><br>
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <ul>
-      <li><button type="submit" class="lato_font" (click)="canlink('/home')">Home</button></li>
-      <li><button type="submit" class="lato_font" (click)="canlink('/createplan')">Createplan</button></li>
-      <li><button type="submit" class="lato_font" (click)="canlink('/deleteplan')">Deleteplan</button></li>
-      <li><button type="submit" class="lato_font" (click)="canlink('/editplan')">Editplan</button></li>
-      <li><button type="submit" class="lato_font" (click)="canlink('/favnoti')">Favnonification</button></li>li>
-      <li><button type="submit" class="lato_font" (click)="canlink('/review-post')">Review&post</button></li>
-      <li><button type="submit" class="lato_font" (click)="canlink('/co-planning')">Co-planning</button></li>
+      <div class="topnav" id="myTopnav">
+          <li style="float:left"><div id="font">TRIPLANNER</div></li>
+          <a style="float:right" type="submit" class="lato_font" (click)="canlink('/home')">Home</a>
+          <a style="float:right" type="submit" class="lato_font" (click)="canlink('/login')">Login</a>
+     </div>     
   </ul>
-    
+  <div id="mySidenav" class="sidenav">
+        <a id="create" style="float:right" type="submit" class="lato_font1" (click)="canlink('/createplan')">CREATE PLAN</a>
+        <a id="edit" style="float:right" type="submit" class="lato_font1" (click)="canlink('/editplan')">EDIT<br>PLAN</a>
+        <a id="delete" style="float:right" type="submit" class="lato_font1" (click)="canlink('/deleteplan')">DELETE PLAN</a>
+        <a id="review" style="float:right" type="submit" class="lato_font1" (click)="canlink('/review-post')">REVIEW PLAN</a>
+        <a id="coplan" style="float:right" type="submit" class="lato_font1" (click)="canlink('/co-planning')">CO-PLANNING</a>
+        
 </div>

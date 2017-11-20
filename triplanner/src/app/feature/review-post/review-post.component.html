@@ -1,3 +1,32 @@
-<p>
-  review-post works!
-</p>
+<div id="block">
+  <div *ngFor="let plan of plan;let i =index;">
+    <p>planname : {{plan.plan_name}}
+      <br> startdate : {{plan.startdate}}
+      <br> enddate : {{plan.enddate}} </p>
+    <button type="submit" class="btn " (click)="chooseplan(i)">
+      <h5>Review</h5>
+    </button>
+    <br>
+  </div>
+</div>
+<div *ngIf="showed == false">
+  <div id="block2">
+    {{showed_plan_name}}
+    <br>
+    <p style="float:left">startdate : {{showed_startdate}}</p>
+    <p style="float:right">enddate : {{showed_enddate}}</p>
+    <br>
+
+    <div style="text-align:left" *ngFor="let act of act;let i =index;">
+      <p>{{act.date}} {{act.starttime}} {{act.type}} activityname : {{act.activityname}} detail : {{act.detail}}</p>
+      <br>
+    </div>
+    put score
+    <br>
+    <input type="text" [(ngModel)]="review_point" />
+    <button type="submit" class="btn " (click)="review()">
+      <h5>Review</h5>
+    </button>
+    <br> {{status}}
+  </div>
+</div>

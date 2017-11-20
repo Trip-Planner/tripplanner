@@ -16,21 +16,18 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `accountdetail`
+-- Table structure for table `coplan`
 --
 
-DROP TABLE IF EXISTS `accountdetail`;
+DROP TABLE IF EXISTS `coplan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `accountdetail` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(60) DEFAULT NULL,
-  `lastname` varchar(60) DEFAULT NULL,
-  `address` varchar(100) DEFAULT NULL,
-  `country` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `user_id_UNIQUE` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `coplan` (
+  `plan_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `co_id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`co_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -42,4 +39,4 @@ CREATE TABLE `accountdetail` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-16  6:38:46
+-- Dump completed on 2017-11-16  7:40:45

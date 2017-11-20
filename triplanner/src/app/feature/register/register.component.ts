@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
             this.username = "";
             this.password = "";
             this.password2 = "";
-            this.email ="";
+            this.email = "";
           });
       }
       else {

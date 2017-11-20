@@ -1,16 +1,36 @@
+<br>
+<div id="block">
+  <div id="fontr">Register
+    <br>
+  </div>
+  <div id="fonts">
+    Username
+    <br>
+    <input type="text" [(ngModel)]="username" required="required" />
+    <br> Password
+    <br>
+    <input type="password" [(ngModel)]="password" required="required" /> Re-Password
+    <br>
+    <input type="password" [(ngModel)]="password2" required="required" />
+    <br> Email
+    <br>
+    <input type="text" [(ngModel)]="email" required="required" />
+    <br>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary btn-large" (click)="submit()">
+    <h5>Confirm</h5>
+  </button>
+  <br>
+  <div *ngIf="status == 'initial';else WrongTmp1">
+    <br>
+  </div>
+  <ng-template #WrongTmp1>
+    <div id="fontw">{{status}}
+      <br>
+      <br>
+    </div>
+  </ng-template>
+  <a routerLink="/login">Back to Login</a>
 
- <div id="block">
-    <div id="fontr">Register<br></div>
-    <div id  ="fonts">
-       Username :<br><input type="text"  [(ngModel)]="username" required="required" /><br>
-       Password :<br><input type="password"  [(ngModel)]="password" required="required" /><br>
-       Re-Password :<br> <input type="password"  [(ngModel)]="password2" required="required" /><br>
-       Email :<br><input type="text"  [(ngModel)]="email" required="required" /><br></div><br>
-         <button type="submit" class="btn btn-primary btn-large" (click)="submit()"><h5>Confirm</h5></button><br>
-         <div *ngIf="status == 'initial';else WrongTmp1">
-           <br>
-         </div>
-         <ng-template #WrongTmp1><div id="fontw">{{status}}<br><br></div></ng-template>
-         <a routerLink="/login">Back to Login</a>
- 
- </div>
+</div>

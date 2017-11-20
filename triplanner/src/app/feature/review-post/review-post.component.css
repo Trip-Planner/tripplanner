@@ -1,0 +1,19 @@
+#block{
+    background:white;
+    min-height: 800px;
+    min-width: 200px;
+    float:left;
+    padding:25px;
+    text-align:center;
+    margin:25px;
+  }
+
+#block2{
+  background:white;
+  min-height: 800px;
+  min-width: 500px;
+  float:right;
+  padding:25px;
+  text-align:center;
+  margin:25px;
+}
