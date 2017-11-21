@@ -29,6 +29,16 @@ CREATE TABLE `activity` (
   UNIQUE KEY `type_UNIQUE` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `activity`
+--
+
+LOCK TABLES `activity` WRITE;
+/*!40000 ALTER TABLE `activity` DISABLE KEYS */;
+INSERT INTO `activity` VALUES ('Boat','assets\\images\\icon\\boat.png'),('Car','assets\\images\\icon\\car.png'),('Food','assets\\images\\icon\\food.png'),('Forest','assets\\images\\icon\\forest.png'),('Medical','assets\\images\\icon\\medical.png'),('Mountain','assets\\images\\icon\\mountain.png'),('Plane','assets\\images\\icon\\plane.png'),('Police','assets\\images\\icon\\police.png'),('Sea','assets\\images\\icon\\sea,png'),('Taxi','assets\\images\\icon\\taxi.png'),('Temple','assets\\images\\icon\\temple.png'),('Train','assets\\images\\icon\\train.png'),('Walk','assets\\images\\icon\\walk.jpg');
+/*!40000 ALTER TABLE `activity` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -39,4 +49,4 @@ CREATE TABLE `activity` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-16  6:38:46
+-- Dump completed on 2017-11-20 14:03:19
