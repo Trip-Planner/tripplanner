@@ -1,4 +1,4 @@
-#block1{
+  #block1{
     font-family: 'Arial';
     font-weight: bold;
     font-size: 30px;
@@ -16,7 +16,7 @@
       flex: 1 1 auto;
     }
     
-    #block{
+  #block{
       width: 750px;
       border: 0px solid rgba(52, 218, 118, 0.822);
       padding: 25px;
@@ -50,7 +50,7 @@
     border: 0px solid rgba(52, 218, 118, 0.822);
     padding: 0px;
     margin: auto;
-    text-align: center;
+    text-align: left;
     color:white;
     border-bottom: none;
     border-bottom-right-radius: 25px;

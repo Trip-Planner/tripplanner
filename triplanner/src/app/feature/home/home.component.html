@@ -1,33 +1,33 @@
-<div id="block">
-    <img src="/assets/images/user.png" style="width:150px">
-    <br>
-    <div *ngFor="let user of user;let i =index;">
+    <div class="tab">
+        <br>
+        <br>
+        <img src="/assets/images/person.png" style="width:100px; float:center;">
+        <div *ngFor="let user of user;let i =index;">
         <h2>{{user.username}}</h2>
         <p>{{user.email}}</p>
+        </div>
+        <div style="text-align:left">
+                <a routerLink="/editplan" routerLinkActive="active" style="text-align:left">My Plan</a>
+                <br>
+                <a routerLink="/favnoti" routerLinkActive="active" style="text-align:left">Notification</a>
+                <br>
+        <button type="submit" class="btn" (click)="logout()">logout</button>
+        </div> 
     </div>
-    <div style="text-align:left">
-        <a routerLink="/editplan" routerLinkActive="active" style="text-align:left">My Plan</a>
-        <br>
-        <a routerLink="/favnoti" routerLinkActive="active" style="text-align:left">Notification</a>
-        <br>
-    </div>
-    <button type="submit" class="btn" (click)="logout()">logout</button>
-
-</div>
-
-<div *ngIf="isShow == false ;else show ">
-    <div id="block2">
-        <ul>
-            <div *ngFor="let plan of plan;let i =index;">
-                <li>
-                    <button type="submit" id="button1" (click)="showdetail(i)">PlanName : {{plan.plan_name}} Review : {{plan.review_point}}</button>
+    <div *ngIf="isShow == false ;else show ">
+            <div class="tabcontent">
+                <ul>
+                    <div *ngFor="let plan of plan;let i =index;">
+                        <li>
+                            <button type="submit" id="button1" (click)="showdetail(i)">PlanName : {{plan.plan_name}} Review : {{plan.review_point}}</button>
+                    </div>
+                </ul>
             </div>
-        </ul>
-    </div>
-</div>
-
-<ng-template #show>
-    <div id="block2">
+        </div>
+    <ng-template #show>
+      <div id="London" class="tabcontent">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
         planname : {{show_planname}} startdate : {{show_startdate}} enddate : {{show_enddate}} favorite : {{show_favorite}} score
         : {{review_point}}
         <div *ngFor="let user of show_user;let i =index;">
@@ -39,4 +39,47 @@
         <button type="submit" id="button1" (click)="isShow = false">back</button>
         <button type="submit" id="button1" (click)="favorite()">fav</button>
     </div>
-</ng-template>
+    </ng-template>  
+      
+
+<!--<div id="block">
+    
+    <br>
+    <div *ngFor="let user of user;let i =index;">
+        <h2>{{user.username}}</h2>
+        <p>{{user.email}}</p>
+    </div>
+    <div style="text-align:left">
+        <a routerLink="/editplan" routerLinkActive="active" style="text-align:left">My Plan</a>
+        <br>
+        <a routerLink="/favnoti" routerLinkActive="active" style="text-align:left">Notification</a>
+        <br>
+    <button type="submit" class="btn" (click)="logout()">logout</button>
+
+</div>
+
+<div *ngIf="isShow == false ;else show ">
+    <div id="content">
+        <ul>
+            <div *ngFor="let plan of plan;let i =index;">
+                <li>
+                    <button type="submit" id="button1" (click)="showdetail(i)">PlanName : {{plan.plan_name}} Review : {{plan.review_point}}</button>
+            </div>
+        </ul>
+    </div>
+</div>
+
+<ng-template #show>
+    <div id="content">
+        planname : {{show_planname}} startdate : {{show_startdate}} enddate : {{show_enddate}} favorite : {{show_favorite}} score
+        : {{review_point}}
+        <div *ngFor="let user of show_user;let i =index;">
+            {{user.username}} {{user.email}}
+        </div>
+        <div *ngFor="let act of act;let i =index;">
+            {{act.date}} {{act.starttime}} {{act.type}} activityname : {{act.activityname}} detail : {{act.detail}}
+        </div>
+        <button type="submit" id="button1" (click)="isShow = false">back</button>
+        <button type="submit" id="button1" (click)="favorite()">fav</button>
+    </div>
+</ng-template> -->
