@@ -43,9 +43,19 @@ export class EditplanComponent implements OnInit {
   month: string;
   day: string
 
+  activities:any
+
   constructor(private router: Router, private _dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this._dataService.getactivity()
+    .subscribe(res => {
+      // console.log(res);
+      this.activities = res;
+
+  
+    });
     this.tripName = '';
     this.departDate = '';
     this.returnDate = '';
@@ -82,7 +92,7 @@ export class EditplanComponent implements OnInit {
             this.coplan.push(res[0]);
           })
       })
-      console.log(this.coplan)
+      //
     })
   }
 
@@ -277,6 +287,7 @@ export class EditplanComponent implements OnInit {
 
   moveToPlandetail(plan_id: string, index: string) {
     this.plan_id = plan_id;
+    console.log(plan_id);
     this.index_temp = index;
     var plan: any;
     this._dataService.getplan(plan_id).subscribe(res => {
@@ -286,16 +297,16 @@ export class EditplanComponent implements OnInit {
     })
     this._dataService.getplandetail(plan_id).subscribe(res => {
       this.days_data = res;
-      this.plan_index = 0;
-      //console.log(res)
+      //this.plan_index = 0;
+      //nsole.log(res)
       if (res[0] == null)
         return 0;
       for (var i = 0; i <= this.plan.length; i++) {
-        if (res[0].plan_id == this.plan[i].plan_id) {
+       // if (res[0].plan_id == this.plan[i].plan_id) {
           //console.log(this.plan_index)
-          break;
-        }
-        this.plan_index++;
+         // break;
+       // }
+      //  this.plan_index++;
       }
 
 
@@ -375,6 +386,29 @@ export class EditplanComponent implements OnInit {
     })
 
   }
+
+  getActivity(act:string){
+    console.log(this.activities + this.activities.length)
+    console.log("act = "+act)
+   for(var i =0;i <=this.activities.length;i++)
+   {
+     if(act == this.activities[i].type )
+     {
+    /*  this.act_pic = "../../"+this.activities[i].icon */
+   /*  return "../../"+this.activities[i].icon  */
+   return "../../"+this.activities[i].icon
+   } 
+  else console.log("NO  NO NO NO")
+   }
+
+
+
+
+
+
+ }
+
+  
 }
 class dayPlanning {
 
