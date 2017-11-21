@@ -1,8 +1,9 @@
-<br>
-<div id='block1'>
+<div class="content">
+    <div id='block1'>
+    <br>
         MY PLAN
-        <br>
-</div>
+    </div>
+
 <div id='block1'>
     <div *ngIf="isEdit == false&&isDelete ==false && isCoplanning == false && showPlan==false;else ">
         <li *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
@@ -198,4 +199,5 @@
         <input type="text" placeholder="put your co-planner username" [(ngModel)]="co_username" required />
         <button (click)="Co_Confirm()">Confirm</button>
     </ng-template>
+</div>
 </div>
