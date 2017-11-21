@@ -10,7 +10,7 @@ let response = {
 }
 
 const con = mysql.createConnection({
-    host: "192.168.0.117",
+    host: "localhost",
     user: "admin",
     password: "admin",
     database: 'triplannerdb'
