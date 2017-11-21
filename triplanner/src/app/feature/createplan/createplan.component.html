@@ -79,14 +79,16 @@
                 <button mat-button [matMenuTriggerFor]="appMenu">
                     <mat-icon>add</mat-icon>
                 </button>
-
+                
             </mat-toolbar>
             <br>
             <mat-menu #appMenu="matMenu">
-                <button mat-menu-item (click)="act_temp = 'Chiangmai';isActCreate[j]=true">Chiang Mai</button>
+                <div *ngFor="let activity of activities;let index =index;"> 
+                <button mat-menu-item (click)="act_temp = activities[index].type ;isActCreate[j]=true;">{{activities[index].type}}</button>
                 <!--  ex activites (need database) -->
-                <button mat-menu-item (click)="act_temp = 'Bangkok';isActCreate[j]=true">Bangkok</button>
+             <!--    <button mat-menu-item (click)="act_temp = 'Bangkok';isActCreate[j]=true">Bangkok</button> -->
                 <!--  ex activites (need database) -->
+                </div>
             </mat-menu>
 
 
@@ -176,7 +178,12 @@
                     <th *ngFor="let act of days[j].acts;let l =index;">{{act}}</th>
                 </thead>
                 <td *ngFor="let act of days[j].acts;let l =index;">
-                    <img src="../../assets/images/background.jpg" style="width:48px;height:48px;"> </td>
+
+                    
+                    
+                    <img src={{getActivity(act)}}  style="width:48px;height:48px;background:white"> </td>
+                    
+                    <!-- <img src="../../assets/images/background.jpg" style="width:48px;height:48px;"> </td> -->
                 <!-- activity image (j =index) -->
 
 

@@ -187,24 +187,25 @@ router.get('/getcoplan', function (req, res) {
 router.get('/setcoplan', function (req, res) {
     check = false;
     sql = 'SELECT * FROM coplan WHERE user_id = ' + mysql.escape(req.query.userid) + 'AND plan_id = ' + mysql.escape(req.query.planid);
-    con.query(sql, function (err, result) {
+    con.query(sql, function (err, result1) {
         if (err) throw err;
-        if (result[0] == null)
+        if (result1[0] == null)
             check = true;
-    });
-    if (check == true) {
-        sql = 'INSERT INTO coplan (plan_id,user_id) VALUES (' + mysql.escape(req.query.planid) + ',' + mysql.escape(req.query.userid) + ')';
-        con.query(sql, function (err, result) {
-            if (err) throw err;
-            response.data = 'done';
+
+
+        if (check == true) {
+            sql = 'INSERT INTO coplan (plan_id,user_id) VALUES (' + mysql.escape(req.query.planid) + ',' + mysql.escape(req.query.userid) + ')';
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                response.data = 'done';
+                res.json(response);
+            });
+        }
+        else {
+            response.data = 'have already';
             res.json(response);
-        });
-    }
-    else
-    {
-        response.data = 'have already';
-        res.json(response);
-    }
+        }
+    });
 })
 
 router.get('/editplan', function (req, res) {
@@ -311,5 +312,14 @@ router.get('/addfavorite', function (req, res) {
         response.data = 'done';
         res.json(response);
     });
+})
+
+router.get('/getactivity', function (req, res) {
+    sql = 'SELECT * FROM activity';
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data = result;
+        res.json(response);
+    })
 })
 module.exports = router;

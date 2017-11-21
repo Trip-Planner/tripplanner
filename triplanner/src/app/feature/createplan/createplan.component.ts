@@ -28,10 +28,27 @@ export class CreateplanComponent implements OnInit {
 
   total: number;
 
+  a:string;
+
+  activities: any;
+  act_pic:string;
+
 
   constructor(private router: Router, private _dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+
+
+    this._dataService.getactivity()
+    .subscribe(res => {
+      // console.log(res);
+      this.activities = res;
+
+  
+    });
+
+
     var date = new Date();
     this.now = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
     this.tripName = '';
@@ -44,11 +61,16 @@ export class CreateplanComponent implements OnInit {
     this.isActCreate = [false];
     this.dayShow = [true];
     this.status1 = "";
-
     this.act_temp = "";
 
+    this.a = ""
 
     this.days = [];
+
+
+
+
+
   }
 
   dayShowing(num: number, end: number) {
@@ -80,6 +102,14 @@ export class CreateplanComponent implements OnInit {
           var temp = this.days[j].times[k];
           this.days[j].times[k] = this.days[j].times[k + 1];
           this.days[j].times[k + 1] = temp;
+
+          temp = this.days[j].acts[k];
+          this.days[j].acts[k] = this.days[j].acts[k+1];
+          this.days[j].acts[k + 1] = temp;
+
+          temp = this.days[j].details[k];
+          this.days[j].details[k] = this.days[j].details[k+1];
+          this.days[j].details[k + 1] = temp;
         }
       }
     }
@@ -254,6 +284,27 @@ export class CreateplanComponent implements OnInit {
   navigateToHome() {
 
     this.router.navigate([' /editplan'])
+  }
+
+   getActivity(act:string){
+     console.log(this.activities + this.activities.length)
+     console.log("act = "+act)
+    for(var i =0;i <=this.activities.length;i++)
+    {
+      if(act == this.activities[i].type )
+      {
+     /*  this.act_pic = "../../"+this.activities[i].icon */
+    /*  return "../../"+this.activities[i].icon  */
+    return "../../"+this.activities[i].icon
+    } 
+   else console.log("NO  NO NO NO")
+    }
+
+
+
+
+
+
   }
 }
 
