@@ -1,7 +1,9 @@
 <br>
 <div id='block1'>
-
-    <li>MY PLAN </li>
+        MY PLAN
+        <br>
+</div>
+<div id='block1'>
     <div *ngIf="isEdit == false&&isDelete ==false && isCoplanning == false && showPlan==false;else ">
         <li *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
              {{item.plan_name}}
@@ -11,7 +13,7 @@
             </li>
     </div>
 
-    <button (click)="this.ngOnInit()"> BACK</button>
+    <button (click)="this.ngOnInit()" > BACK</button>
     <ng-template #edit [ngIf]="isEdit == true &&isDelete ==false">
 
         <!--  here -->

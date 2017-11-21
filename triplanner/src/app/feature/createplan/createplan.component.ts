@@ -80,6 +80,16 @@ export class CreateplanComponent implements OnInit {
           var temp = this.days[j].times[k];
           this.days[j].times[k] = this.days[j].times[k + 1];
           this.days[j].times[k + 1] = temp;
+
+          temp = this.days[j].acts[k];
+          this.days[j].acts[k] = this.days[j].acts[k + 1];
+          this.days[j].acts[k + 1] = temp;
+
+
+          temp = this.days[j].details[k];
+          this.days[j].details[k] = this.days[j].details[k + 1];
+          this.days[j].details[k + 1] = temp;
+          
         }
       }
     }
