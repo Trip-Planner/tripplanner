@@ -3,13 +3,17 @@
         <br>
         <img src="/assets/images/person.png" style="width:100px; float:center;">
         <div *ngFor="let user of user;let i =index;">
-        <h2>{{user.username}}</h2>
-        <p>{{user.email}}</p>
+                <div id='font'>
+
+                    <p class="uppercase">{{user.username}}</p>
+                    <p class="uppercase">{{user.email}}</p>
+                </div>
         </div>
-        <div style="text-align:left">
-                <a routerLink="/editplan" routerLinkActive="active" style="text-align:left">My Plan</a>
+        <div id='font'>
                 <br>
-                <a routerLink="/favnoti" routerLinkActive="active" style="text-align:left">Notification</a>
+                <a routerLink="/editplan" routerLinkActive="active" style="text-align:left; color:rgb(48, 48, 48);">My Plan</a>
+                <br>
+                <a routerLink="/favnoti" routerLinkActive="active" style="text-align:left;  color:rgb(48, 48, 48);">Notification</a>
                 <br>
         <button type="submit" class="btn" (click)="logout()">logout</button>
         </div> 
@@ -51,26 +55,54 @@
                               </div>
                         </div>
                     </div>        
-            </div>    
+            </div>
+        <div class="block" style=" margin-left: 370px;" >
+        <!--start button-->
+        <div>
+        <a type="submit"  (click)="canlink('/createplan')" class="btn">
+        <svg width="277" height="62">
+          <defs>
+              <linearGradient id="grad1">
+                  <stop offset="0%" stop-color="#8f44f1"/>
+                  <stop offset="100%" stop-color="#1d84c0" />
+              </linearGradient>
+          </defs>
+           <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+        </svg>
+        <!--<span>Voir mes réalisations</span>-->
+          <span>START PLANNING</span>
+      </a>
+      </div>
+      <!--22-->
+        </div>    
     </div>                 
 </div> 
 <ng-template #show>
         <div id='fonthead'> 
-        {{show_planname}} 
+        <p class="uppercase">
+        {{show_planname}}
+        </p> 
         </div>
         <div id='font'> 
-        START DATE : {{show_startdate}} END DATE : {{show_enddate}} 
+        <p style="float:left; margin-left:30px; ">START DATE<br>{{show_startdate}}</p> 
+        <p style="float:right; margin-right:30px; ">END DATE<br> {{show_enddate}} </p>  
         <br>
-        FAVORIE : {{show_favorite}} SCORE
-        </div>
-        : {{review_point}}
+        <br>
+
+        FAVORIE {{show_favorite}} SCORE
+        <br>
+        REVIEW RATE : {{review_point}}
         <div *ngFor="let user of show_user;let i =index;">
-            {{user.username}} {{user.email}}
+            <p class="uppercase"> 
+            Create By {{user.username}} 
+            E-mail {{user.email}}   
+            </p>
         </div>
         <div *ngFor="let act of act;let i =index;">
             {{act.date}} {{act.starttime}} {{act.type}} activityname : {{act.activityname}} detail : {{act.detail}}
         </div>
-        <button type="submit" id="button1" (click)="isShow = false">back</button>
-        <button type="submit" id="button1" (click)="favorite()">fav</button>
+        </div>
+        <button style="float:left; margin-left:30px; " type="submit" id="button1" (click)="isShow = false">back</button>
+        <button style="float:right; margin-right:30px; " type="submit" id="button1" (click)="favorite()">fav</button>
 </ng-template>       
  

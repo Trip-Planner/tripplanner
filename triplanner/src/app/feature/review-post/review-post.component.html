@@ -7,37 +7,45 @@
   </div>
   <div *ngFor="let plan of plan;let i =index;">
     <div id='font1'>
-      PLAN NAME  {{plan.plan_name}}
+      PLAN NAME  <div style="color:rgb(77, 77, 77)"> {{plan.plan_name}} </div>
     </div>
     <div id='font2'>
-      <br> START DATE  {{plan.startdate}}
-      <br> END DATE  {{plan.enddate}}
-      <br>
+           START DATE {{plan.startdate}}
+      <br> END DATE   {{plan.enddate}}
+    <form>
       <button style="margin-left:50px" type="submit" class="btn " (click)="chooseplan(i)">
       <h5>Review</h5>
-      </button>  
+      </button>
+    </form>
     </div>
+    <hr/>
     <br>
   </div> 
 </div>
 <div class="content">
-    <!--<div *ngIf="showed == false">-->
+    <div *ngIf="showed == false">
         <br>
         <div id='fonthead'>
-        PLAN NAME<!--{{showed_plan_name}}--></div>
-        <br>
+        <p class="uppercase">  
+        {{showed_plan_name}}
+        </p>
+      </div>
     <div id='font'>
-        <p style="float:left; margin-left:15px; ">START DATE : {{showed_startdate}}</p>
-        <p style="float:right; margin-right:15px;">END DATE : {{showed_enddate}}</p> 
+        <p style="float:left; margin-left:15px; ">START DATE {{showed_startdate}}</p>
+        <p style="float:right; margin-right:15px;">END DATE {{showed_enddate}}</p> 
         <div style="text-align:left" *ngFor="let act of act;let i =index;">
-          <p>{{act.date}} {{act.starttime}} {{act.type}} Activity : {{act.activityname}} Detail : {{act.detail}}</p>
+          <br>
+          <br>
+          <p>{{act.date}}<br> {{act.starttime}}<br> {{act.type}} Activity : {{act.activityname}} <br>Detail : {{act.detail}}</p>
         </div> 
         <br>
         PUT SCORE
         <input type="text" [(ngModel)]="review_point" />
-        <button type="submit" class="btn " (click)="review()">
+      <form>
+      <button type="submit" class="btn " (click)="review()">       
         <h5>Review</h5>
       </button>
+    </form>
       <br> 
       {{status}}
         

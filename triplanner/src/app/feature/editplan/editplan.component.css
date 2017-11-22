@@ -7,7 +7,6 @@
       width: 750px;
       border: 0px solid rgba(52, 218, 118, 0.822);
       padding: 25px;
-      margin: auto;
       background: linear-gradient(to bottom,rgba(128, 124, 124, 0.637) 20%, rgba(0,0,0,0.6) 80%);
   }
   input{
@@ -68,6 +67,7 @@
     color:red;
     font-size: 20px;
   }
+  /***************************************/
   div.content {
     float: right;
     background-color: #3535358a;
@@ -77,3 +77,77 @@
     margin-left:35px;
     margin-top: 10px;
   }
+  #font {
+    font-family: 'Arial';
+    font-size: 18px;
+    text-align: center;
+    color:rgb(255, 255, 255);
+    margin-left:10px; 
+    outline-color:#000000;
+  }
+  p.uppercase {
+    text-transform: uppercase;
+}
+
+/*****************************************/
+/*fav button*/
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 10px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+.btn:hover, .btn:focus {
+  color: #fff;
+  outline: 0;
+}
+.sixth {
+  border-radius: 3em;
+  border-color: #35a4ff;
+  color: #35a4ff;
+  background-image: -webkit-linear-gradient(top, transparent 50%, #35a4ff 50%);
+  background-image: linear-gradient(to bottom, transparent 50%, #35a4ff 50%);
+  background-position: 0% 0%;
+  background-size: 210%;
+  -webkit-transition: background 150ms ease-in-out, color 150ms ease-in-out;
+  transition: background 150ms ease-in-out, color 150ms ease-in-out;
+}
+.sixth:hover {
+  color: #fff;
+  background-position: 0 100%;
+}
+.one {
+  border-radius: 3em;
+  border-color: #fa9107;
+  color: #ffddb0;
+  background-image: -webkit-linear-gradient(top, transparent 50%, #fa9107 50%);
+  background-image: linear-gradient(to bottom, transparent 50%, #fa9107 50%);
+  background-position: 0% 0%;
+  background-size: 210%;
+  -webkit-transition: #fa9107 150ms ease-in-out, color 150ms ease-in-out;
+  transition: #fa9107 150ms ease-in-out, color 150ms ease-in-out;
+}
+.one:hover {
+  color: #fff;
+  background-position: 0 100%;
+}
