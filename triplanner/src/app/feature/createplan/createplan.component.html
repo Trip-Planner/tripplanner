@@ -4,17 +4,28 @@
   <h1>MAKE YOUR PLAN</h1>
   <p style="text-indent: 9em;">You can make your plan here.</p>
   <form class="form" method="post" action="yourpage.html">
-    <input type="text" class="name" placeholder="Name">
+      
     <div>
-      <p class="name-help">Please enter your first and last name.</p>
+    <h4>TRIP NAME</h4>    
+    <input type="text" class="name" placeholder="Enter your trip name" ><!--ยังไม่ได้ส่งค่าไปหลังบ้าน-->
+    <br>
+    <br>
+    <br>
+    <b class="b">Start Date :</b><input type="date" name="departDate" id="fontb" [(ngModel)]="departDate" placeholder="yyyy-MM-dd" min={{now}} max="2019-12-31"
+    required />
+    
+    <b class="b">End Date :</b><input type="date" name="returnDate" id="fontb" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" min={{departDate}} max="2019-12-31"
+    required />
     </div>
-    <input type="email" class="email" placeholder="Email">
-     <div>
-      <p class="email-help">Please enter your current email address.</p>
-    </div>
-    <input type="submit" class="submit" value="Register">
+    <br>
+    <br>
+    <br>
+
+    <input type="submit" class="submit" value="Start Planning">
+   
   </form>
 </div>
 <p class="optimize">
-  Optimized for Chrome & Firefox!
+  Optimized for Chrome
 </p>
+
