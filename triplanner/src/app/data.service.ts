@@ -97,6 +97,10 @@ export class DataService {
       .map(result => this.result = result.json().data)
   }
 
+  getactivity() {
+    return this.http.get("/api/getactivity")
+      .map(result => this.result = result.json().data)
+  }
 
   deleteplandetail(actid: string) {
     let myParams = new URLSearchParams();

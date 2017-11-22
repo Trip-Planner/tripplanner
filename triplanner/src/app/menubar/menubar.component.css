@@ -79,21 +79,11 @@
     top: 140px;
     background-color: rgba(85, 85, 85, 0.904);
 }
-
-#delete {
-    top: 200px;
-    background-color:hsla(206, 90%, 54%, 0.904); /* Blue */
-}
-
 #review {
-    top: 260px;
-    background-color: rgba(85, 85, 85, 0.904); /* Red */
+    top: 200px;
+    background-color: hsla(206, 90%, 54%, 0.904); 
 }
 
-#coplan {
-    top: 320px;
-    background-color: hsla(206, 90%, 54%, 0.904); /* Light Black */
-}
 /*---------------------------------------------------------*/
 ul {
     list-style-type: none;

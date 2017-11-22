@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <div class="wrapper">
@@ -15,7 +16,68 @@
     required />
     
     <b class="b">End Date :</b><input type="date" name="returnDate" id="fontb" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" min={{departDate}} max="2019-12-31"
-    required />
+    required /> <br>
+   
+
+    <!--  generate -->
+    <ng-template #hide>
+
+
+        <button *ngFor="let d of days;let j =index;" class="btn btn-primary" (click)="dayShowing(j,resultDate)">day {{j+1}}</button>
+        <div *ngFor="let d of days;let j =index">
+            <div *ngIf="dayShow[j] == true ;else ">
+
+                <a>
+                    day:{{days[j].thatDate}}
+                </a>
+                <table>
+
+                    <thead>
+                        <th *ngFor="let act of days[j].acts;let l =index;">{{act}}</th>
+                    </thead>
+                    <td *ngFor="let act of days[j].acts;let l =index;">
+
+
+
+                        <img src={{getActivity(act)}} style="width:48px;height:48px;background:white"> </td>
+
+                    <!-- <img src="../../assets/images/background.jpg" style="width:48px;height:48px;"> </td> -->
+                    <!-- activity image (j =index) -->
+
+
+                    <table id="table">
+                        <thead id="table-odd">
+                            <th>Index</th>
+                            <th>Time</th>
+                            <th>Detail</th>
+                            <th>Activitie</th>
+
+                        </thead>
+                        <br>
+                        <tr id="table-even" style="background:white;width:100%" *ngFor="let act of d.acts;let i =index;">
+
+                            <td>{{i+1}}</td>
+
+                            <td>{{days[j].times[i]}}</td>
+
+                            <td>{{days[j].details[i]}}</td>
+
+                            <td>{{days[j].acts[i]}}</td>
+                        </tr>
+                    </table>
+                    <thead>
+                        <th></th>
+
+                    </thead>
+
+                </table>
+
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="confirm()">confirm</button>
+    </ng-template>
+
+
     </div>
     <br>
     <br>

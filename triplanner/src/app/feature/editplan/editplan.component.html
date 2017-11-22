@@ -1,9 +1,17 @@
+<<<<<<< HEAD
+<div class="content">
+    <div id='block1'>
+    <br>
+        MY PLAN
+    </div>
+
+<div id='block1'>
+=======
 <br>
 <div id='block1'>
-        MY PLAN
-        <br>
-</div>
-<div id='block1'>
+
+    <li>MY PLAN </li>
+>>>>>>> bc345830275a51d1fd3000c19ef6f4338054c8ce
     <div *ngIf="isEdit == false&&isDelete ==false && isCoplanning == false && showPlan==false;else ">
         <li *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
              {{item.plan_name}}
@@ -13,7 +21,12 @@
             </li>
     </div>
 
-    <button (click)="this.ngOnInit()" > BACK</button>
+
+    <ng-template #back_butoon [ngIf]='isEdit==true||isDelete==true||isCoplanning==true||showPlan==true'>
+    <button (click)="this.ngOnInit()"> BACK</button>
+    </ng-template>
+
+
     <ng-template #edit [ngIf]="isEdit == true &&isDelete ==false">
 
         <!--  here -->
@@ -40,10 +53,12 @@
                 <br>
 
                 <mat-menu #appMenu="matMenu">
-                    <button mat-menu-item (click)="act_temp = 'Chiangmai';isActCreate[j]=true">Chiang Mai</button>
+                    <div *ngFor="let activity of activities;let index =index;"> 
+                    <button mat-menu-item (click)="act_temp = activities[index].type ;isActCreate[j]=true;">{{activities[index].type}}</button>
                     <!--  ex activites (need database) -->
-                    <button mat-menu-item (click)="act_temp = 'Bangkok';isActCreate[j]=true">Bangkok</button>
+    
                     <!--  ex activites (need database) -->
+                    </div>
                 </mat-menu>
 
 
@@ -132,7 +147,8 @@
                         <th *ngFor="let act of days[j].acts;let l =index;">{{act}}</th>
                     </thead>
                     <td *ngFor="let act of days[j].acts;let l =index;">
-                        <img src="../../assets/images/background.jpg" style="width:48px;height:48px;"> </td>
+
+                        <img src={{getActivity(act)}}  style="width:48px;height:48px;background:white"> </td>
                     <!-- activity image (j =index) -->
 
 
@@ -198,4 +214,5 @@
         <input type="text" placeholder="put your co-planner username" [(ngModel)]="co_username" required />
         <button (click)="Co_Confirm()">Confirm</button>
     </ng-template>
+</div>
 </div>
