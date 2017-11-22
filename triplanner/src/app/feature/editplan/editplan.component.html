@@ -14,14 +14,6 @@
         </div>
     </div>
 
-
-    <ng-template #back_butoon [ngIf]='isEdit==true||isDelete==true||isCoplanning==true||showPlan==true'>
-    <div class="block" style="  margin-top:350px;">
-        <button class="btn sixth" (click)="this.ngOnInit()" >BACK</button>
-        </div>
-    </ng-template>
-
-
     <ng-template #edit [ngIf]="isEdit == true &&isDelete ==false">
 
         <!--  here -->
@@ -119,16 +111,26 @@
 
 
 
-            <!-- <button routerLink="/generateplan">generateplan !!</button>   -->
-            <button type="button" class="btn btn-primary" (click)="isHide= true"> Generate Plan</button>
+            <!-- <button routerLink="/generateplan">generateplan !!</button> <button type="button" class="btn btn-primary" (click)="isHide= true"> Generate Plan</button>  -->
+            <div class="block" style="font-size:14px; float:right; margin-right:20px; margin-top:350px; ">
+                <button type="button" class="btn sixth" (click)="isHide= true" >Generate Plan</button>
+            </div>
+            
 
         </div>
     </ng-template>
-
+<!--ji comment<ng-template [ngIf]="isEdit==false">
+            <div class="block">
+                <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:50px;" (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =flase">EDIT</button>
+                <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = true  ;isCoplanning = false; delete_temp = plan_id  ">DELETE</button>
+                <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = false ;isCoplanning = true;  isDelete =false ">Co-Planning </button>
+                </div>       
+        </ng-template>-->
 
     <ng-template #hide [ngIf]="showPlan==true">
 
-
+        
+        
         <button *ngFor="let d of days;let j =index;" class="btn btn-primary" (click)="dayShowing(j,resultDate)">day {{j+1}}</button>
         <div *ngFor="let d of days;let j =index">
             <div *ngIf="dayShow[j] == true ;else ">
@@ -185,13 +187,11 @@
         </ng-template>
 
         <ng-template [ngIf]="isEdit==false">
-                <div class="block">
-                <button class="btn sixth" (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =flase">EDIT</button>
-                <button class="btn sixth" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = true  ;isCoplanning = false; delete_temp = plan_id  ">DELETE</button>
-                <button class="btn sixth" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = false ;isCoplanning = true;  isDelete =false ">Co-Planning </button>
-                </div>
-
-                
+            <div class="block">
+                <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:50px;" (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =flase">EDIT</button>
+                <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = true  ;isCoplanning = false; delete_temp = plan_id  ">DELETE</button>
+                <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = false ;isCoplanning = true;  isDelete =false ">Co-Planning </button>
+                </div>       
         </ng-template>
 
     </ng-template>
@@ -200,21 +200,35 @@
     <!-- deletepage -->
 
     <ng-template #deletepage [ngIf]="isEdit == false &&isDelete ==true">
-        <br> ARE YOU SURE ??
+
+            <label>
+                    <span  class="btn one" style="font-size:10px;">CONFIRM DELETE</span>
+                    <input type="checkbox" />
+                    <div class="confirm-modal">
+                      <form action="#do-something" method="get">
+                        <div id="font" style="color:rgb(46, 46, 46)">Are you absolutely sure you want to delete</div>
+                        <br>
+                        <button class="btn one" (click)="deletePlan(delete_temp)" >Yes</button>
+                        <!--<button class="btn one" href="#0">No</button>-->
+                      </form>
+                    </div>
+            </label>
         <br>
-        <button (click)="deletePlan(delete_temp)">confirm delete</button>
+        <!--<button (click)="deletePlan(delete_temp)">confirm delete</button>-->
 
     </ng-template>
 
     <ng-template #coplanning [ngIf]="isCoplanning == true">
 
         <input type="text" placeholder="put your co-planner username" [(ngModel)]="co_username" required />
-        <button (click)="Co_Confirm()">Confirm</button>
+        <div class="block" style=" float: right; margin-top:348px;  margin-right:20px;">
+                <button class="btn sixth" (click)="Co_Confirm()">confirm</button>
+        </div>
     </ng-template>
-    <div class="block">
-            <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:50px;" (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =flase">EDIT</button>
-            <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = true  ;isCoplanning = false; delete_temp = plan_id  ">DELETE</button>
-            <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = false ;isCoplanning = true;  isDelete =false ">Co-Planning </button>
+    <ng-template #back_butoon [ngIf]='isEdit==true||isDelete==true||isCoplanning==true||showPlan==true'>
+            <div class="block" style="  margin-top:350px;">
+                <button class="btn sixth" (click)="this.ngOnInit()" >BACK</button>
             </div>
+    </ng-template>
 
 </div>
