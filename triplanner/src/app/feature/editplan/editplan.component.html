@@ -1,29 +1,24 @@
-<<<<<<< HEAD
 <div class="content">
     <div id='block1'>
     <br>
         MY PLAN
     </div>
-
-<div id='block1'>
-=======
 <br>
-<div id='block1'>
 
-    <li>MY PLAN </li>
->>>>>>> bc345830275a51d1fd3000c19ef6f4338054c8ce
     <div *ngIf="isEdit == false&&isDelete ==false && isCoplanning == false && showPlan==false;else ">
-        <li *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
-             {{item.plan_name}}
-        </li>
-        <li *ngFor="let item of coplan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
-              {{item.plan_name}} (CO-PLAN)
-            </li>
+        <div id="font" *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
+             <p class="uppercase">{{item.plan_name}}</p>
+        </div>
+        <div id="font" *ngFor="let item of coplan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
+            <p class="uppercase">{{item.plan_name}} (CO-PLAN)</p>
+        </div>
     </div>
 
 
     <ng-template #back_butoon [ngIf]='isEdit==true||isDelete==true||isCoplanning==true||showPlan==true'>
-    <button (click)="this.ngOnInit()"> BACK</button>
+    <div class="block" style="  margin-top:350px;">
+        <button class="btn sixth" (click)="this.ngOnInit()" >BACK</button>
+        </div>
     </ng-template>
 
 
@@ -183,18 +178,20 @@
         </div>
         <ng-template [ngIf]="isEdit==true">
 
-            <button class="btn btn-primary" (click)="confirm();">confirm</button>
+                <div class="block" style=" float: right; margin-top:350px;  margin-right:20px;">
+                        <button class="btn sixth" (click)="confirm();">confirm</button>
+                </div>
 
         </ng-template>
 
         <ng-template [ngIf]="isEdit==false">
+                <div class="block">
+                <button class="btn sixth" (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =flase">EDIT</button>
+                <button class="btn sixth" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = true  ;isCoplanning = false; delete_temp = plan_id  ">DELETE</button>
+                <button class="btn sixth" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = false ;isCoplanning = true;  isDelete =false ">Co-Planning </button>
+                </div>
 
-            <li>
-
-                <button (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =flase">EDIT</button>
-                <button (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = true  ;isCoplanning = false; delete_temp = plan_id  ">DELETE</button>
-                <button (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = false ;isCoplanning = true;  isDelete =false ">Co-Planning </button>
-            </li>
+                
         </ng-template>
 
     </ng-template>
@@ -214,5 +211,10 @@
         <input type="text" placeholder="put your co-planner username" [(ngModel)]="co_username" required />
         <button (click)="Co_Confirm()">Confirm</button>
     </ng-template>
-</div>
+    <div class="block">
+            <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:50px;" (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =flase">EDIT</button>
+            <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = true  ;isCoplanning = false; delete_temp = plan_id  ">DELETE</button>
+            <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = false ;isCoplanning = true;  isDelete =false ">Co-Planning </button>
+            </div>
+
 </div>
