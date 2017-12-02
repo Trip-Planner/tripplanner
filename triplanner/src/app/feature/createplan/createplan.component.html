@@ -135,7 +135,7 @@
 
 
                     <!-- <button routerLink="/generateplan">generateplan !!</button>   -->
-                    <button type="button" class="btn btn-primary" (click)="isHide= true"> Generate Plan</button>
+                    <button type="button" class="btn btn-primary" (click)="isHide= true;"> Generate Plan</button>
 
                 </div>
 
@@ -147,7 +147,7 @@
 
                 <button *ngFor="let d of days;let j =index;" class="btn btn-primary" (click)="dayShowing(j,resultDate)">day {{j+1}}</button>
                 <div *ngFor="let d of days;let j =index">
-                    <div *ngIf="dayShow[j] == true ;else ">
+                    <div *ngIf="dayShow[j] == true ; ">
 
                         <a>
                             day:{{days[j].thatDate}}
@@ -196,7 +196,7 @@
 
                     </div>
                 </div>
-                <button class="btn btn-primary" (click)="confirm()">confirm</button>
+                <button class="btn btn-primary" (click)="confirm();isHide=true;">confirm</button>
             </ng-template>
         </form>
         <p class="optimize">
