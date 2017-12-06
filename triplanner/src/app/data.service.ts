@@ -231,4 +231,38 @@ export class DataService {
       .map(result => this.result = result.json().data)
 
   }
+
+  searchplanname(planname: string) {
+    let myParams = new URLSearchParams();
+    myParams.append('planname', planname)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/searchplanname", options)
+      .map(result => this.result = result.json().data)
+
+  }
+
+  searchactiname(actiname: string) {
+    let myParams = new URLSearchParams();
+    myParams.append('actiname', actiname)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/searchactiname", options)
+      .map(result => this.result = result.json().data)
+  }
+
+  searchname(username: string) {
+    let myParams = new URLSearchParams();
+    myParams.append('username', username)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/searchname", options)
+      .map(result => this.result = result.json().data)
+
+  }
+
+  getreviewplanformuserid(userid: string) {
+    let myParams = new URLSearchParams();
+    myParams.append('userid', userid)
+    let options = new RequestOptions({ params: myParams });
+    return this.http.get("/api/getreviewplanformuserid", options)
+      .map(result => this.result = result.json().data)
+  }
 }
