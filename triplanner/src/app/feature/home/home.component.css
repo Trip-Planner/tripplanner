@@ -1,6 +1,6 @@
 /* Style the tab */
 div.tab {
-  float: right;
+  float: left;
   background-color: #f1f1f1a9;
   width: 20%;
   height: 800px;
@@ -8,15 +8,39 @@ div.tab {
   margin:0px;
 }
 
+.fnt{
+  font:600 16px/18px 'Open Sans',sans-serif;
+  color:rgb(49, 49, 49);
+} 
+.button{
+  background:#1161ee;
+  text-transform:uppercase;
+  border:none;
+	padding:15px 20px;
+  border-radius:25px;
+  font:600 16px/18px 'Open Sans',sans-serif;
+}
 
 /* Style the tab content */
 div.content {
-  float: center;
+  float: right;
   background-color: #3535358a;
+  width: 75%;
+  height: 790px;
+  margin-right:35px;
+  margin-top: 10px;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+
+}
+
+.login-wrap{
+	float: center;
   width: 75%;
   height: 790px;
   margin-left:50px;
   margin-top: 10px;
+	position:relative;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 
 /* Style the tab content */

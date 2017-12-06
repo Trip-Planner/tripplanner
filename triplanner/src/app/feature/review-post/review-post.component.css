@@ -13,6 +13,7 @@ div.content {
   height: 790px;
   margin-right:35px;
   margin-top: 10px;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 #fonthead{
   font-family: 'Arial';
@@ -57,7 +58,9 @@ div.content {
   color:rgb(46, 46, 46);
 }
 hr {
-  border: 1px solid rgb(136, 136, 136);
+    height:2px;
+    margin:10px 0 10px 0;
+    background:rgba(128, 128, 128, 0.705);
 }
 
 /*****************************************/

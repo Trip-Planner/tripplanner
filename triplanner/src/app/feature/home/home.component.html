@@ -1,4 +1,4 @@
-    <div class="tab">
+<div class="tab">
         <br>
         <br>
         <img src="/assets/images/person.png" style="width:100px; float:center;">
@@ -11,11 +11,15 @@
         </div>
         <div id='font'>
                 <br>
-                <a routerLink="/editplan" routerLinkActive="active" style="text-align:left; color:rgb(48, 48, 48);">My Plan</a>
+                <a routerLink="/editplan" routerLinkActive="active" class="fnt" >My Plan</a>
                 <br>
-                <a routerLink="/favnoti" routerLinkActive="active" style="text-align:left;  color:rgb(48, 48, 48);">Notification</a>
+                <a routerLink="/favnoti" routerLinkActive="active" class="fnt" >Notification</a>
                 <br>
-        <button type="submit" class="btn" (click)="logout()">logout</button>
+                <br>
+                <br>
+                <br>
+                <br>
+        <button type="submit" class="button" (click)="logout()">logout</button>
         </div> 
     </div>
 <div class="content">
@@ -54,7 +58,7 @@
                                     </div>
                               </div>
                         </div>
-                    </div>        
+                    </div>      
             </div>
         <div class="block" style=" margin-left: 370px;" >
         <!--start button-->
@@ -70,13 +74,13 @@
            <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
         </svg>
         <!--<span>Voir mes réalisations</span>-->
-          <span>START PLANNING</span>
+        <span>START PLANNING</span>
       </a>
       </div>
       <!--22-->
-        </div>    
+    </div>   
     </div>                 
-</div> 
+</div>
 <ng-template #show>
         <div id='fonthead'> 
         <p class="uppercase">
@@ -104,5 +108,5 @@
         </div>
         <button style="float:left; margin-left:30px; " type="submit" id="button1" (click)="isShow = false">back</button>
         <button style="float:right; margin-right:30px; " type="submit" id="button1" (click)="favorite()">fav</button>
-</ng-template>       
+</ng-template>   
  
