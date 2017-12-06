@@ -6,10 +6,10 @@
       <hr/>
   </div>
   <div *ngFor="let plan of plan;let i =index;">
-    <div id='font1'>
-      PLAN NAME  <div style="color:rgb(77, 77, 77)"> {{plan.plan_name}} </div>
+    <div id='fnt'>
+      <div style="color:rgb(77, 77, 77)"> {{plan.plan_name}} </div>
     </div>
-    <div id='font2'>
+    <div id='fnt'>
            START DATE {{plan.startdate}}
       <br> END DATE   {{plan.enddate}}
     <form>
@@ -39,8 +39,14 @@
           <p>{{act.date}}<br> {{act.starttime}}<br> {{act.type}} Activity : {{act.activityname}} <br>Detail : {{act.detail}}</p>
         </div> 
         <br>
+        <br>
+        <br>
+        <br>
+        <br>
         PUT SCORE
-        <input type="text" [(ngModel)]="review_point" />
+        <div class="group">
+            <input type="text" class="input" placeholder="Put your plan score"  [(ngModel)]="review_point" />
+        </div>
       <form>
           <button  type="submit" class="bt sixth" (click)="review()">       
               Review

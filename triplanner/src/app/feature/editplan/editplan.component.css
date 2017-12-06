@@ -60,9 +60,10 @@
       background-color: #e9f7ff;
   
     }
-  #fontw{
-    color:white;
-    font-size: 20px;
+fontw{
+      margin:0;
+    color:#fcfcfc;
+    font:600 16px/18px 'Open Sans',sans-serif;
   }
   #fontb{ 
     color:black;
@@ -486,3 +487,20 @@ table tr:nth-child(2n+1) {
     overflow: visible;
   }
 }
+
+#divfix {
+  bottom: 0;
+  right: 500;
+  position: fixed;
+  z-index: 3000;
+
+}
+#divfix2 {
+  bottom: 0;
+  right: 50;
+  position: fixed;
+  z-index: 3000;
+
+}
+/*********************************/
+
