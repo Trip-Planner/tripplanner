@@ -1,18 +1,19 @@
+.button{
+  background:#1161ee;
+  text-transform:uppercase;
+  color: white;
+  border:none;
+  padding:15px 20px;
+  border-radius:25px;
+  font:600 16px/18px 'Open Sans',sans-serif;
+  align-items: center;
 
-/*dark background to support form theme*/
-body{
-  background:url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_wall.png);
 }
-
-/*sass variables used*/
-
-
-
-
 /*site container*/
 .wrapper{
   width:420px;
   margin:0 auto;
+  text-align: center;
 }
 
 h1{
@@ -35,10 +36,10 @@ h4{
 
 }
 p{
-  font:13px Open Sans;
-  color:#6E6E6E;
-  text-shadow:#000 0px 1px 5px;
+  font-family: 'Arial';
+  color:rgb(252, 252, 252);
   margin-bottom:30px;
+  font-size: 20px;
 }
 
 b{
@@ -53,7 +54,7 @@ b{
 }
 
 input[type="text"],input[type="email"]{
-  width:98%;
+  width:50%;
   padding:15px 0px 15px 8px;
   border-radius:5px;
   box-shadow:inset 4px 6px 10px -4px rgba(0,0,0,0.3), 0 1px 1px -1px rgba(255,255,255,0.3);
@@ -274,4 +275,57 @@ table tr:nth-child(2n+1) {
     box-shadow: none;
     overflow: visible;
   }
+}
+
+/***************************************/
+
+#block{
+  
+  width: 700px;
+  height: 60%;
+  padding: 25px;
+  margin: auto;
+  text-align:left;
+}
+.login-wrap{
+width:100%;
+  margin:auto;
+max-width:525px;
+min-height:670px;
+position:relative;
+box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+  padding: 25px;
+width:100%;
+height:100%;
+position:absolute;
+background: linear-gradient(to bottom, rgba(128, 124, 124, 0.637) 20%, rgba(0,0,0,0.6) 80%);
+}
+#block1{
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 25px;
+  padding: 0px;
+  text-align: center;
+  color:rgb(255, 255, 255);
+}
+#fnt{
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 20px;
+  padding: 0px;
+  text-align: left;
+  color:rgb(255, 255, 255);
+}
+
+div.content1 {
+  float: right;
+  background-color: #3535358a;
+  width: 95%;
+  height: 790px;
+  margin-right:35px;
+  margin-left:35px;
+  margin-top: 10px;
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }

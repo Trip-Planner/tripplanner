@@ -1,112 +1,114 @@
 <div class="tab">
-        <br>
-        <br>
-        <img src="/assets/images/person.png" style="width:100px; float:center;">
-        <div *ngFor="let user of user;let i =index;">
-                <div id='font'>
-
-                    <p class="uppercase">{{user.username}}</p>
-                    <p class="uppercase">{{user.email}}</p>
-                </div>
-        </div>
+    <br>
+    <br>
+    <img src="/assets/images/person.png" style="width:100px; float:center;">
+    <div *ngFor="let user of user;let i =index;">
         <div id='font'>
-                <br>
-                <a routerLink="/editplan" routerLinkActive="active" class="fnt" >My Plan</a>
-                <br>
-                <a routerLink="/favnoti" routerLinkActive="active" class="fnt" >Notification</a>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-        <button type="submit" class="button" (click)="logout()">logout</button>
-        </div> 
+
+            <p class="uppercase">{{user.username}}</p>
+            <p class="uppercase">{{user.email}}</p>
+        </div>
     </div>
+    <div id='font'>
+        <br>
+        <a routerLink="/editplan" routerLinkActive="active" class="fnt">My Plan</a>
+        <br>
+        <a routerLink="/favnoti" routerLinkActive="active" class="fnt">Notification</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button type="submit" class="button" (click)="logout()">logout</button>
+    </div>
+</div>
 <div class="content">
     <div *ngIf="isShow == false ;else show ">
+        <br>
+        <div id='block1'>
+            Recent plans by travelers
             <br>
-            <div id='block1'>
-                Recent plans by travelers
             <br>
-            <br>
-            <div class="block">
-                <div class="container">
-                      <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
-                      <div class="overlay">
-                            <div *ngFor="let plan of plan;let i =index;">
-                            <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}<br>Review : {{plan.review_point}}</button>
-                            </div>
-                      </div>
-                </div>
-            </div>  
-            <div class="block" style=" margin-left: 80px;">
+            <div class="block " style=" margin-left: 80px;" >
+                <div *ngFor="let plan of plan;let i =index;">
                     <div class="container">
-                          <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
-                          <div class="overlay">
-                                <div *ngFor="let plan of plan;let i =index;">
-                                <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}<br>Review : {{plan.review_point}}</button>
-                                </div>
-                          </div>
+
+                        <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
+                        <div class="overlay">
+
+                            <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}
+                                <br>Review : {{plan.review_point}}</button>
+                        </div>
                     </div>
                 </div>
-                <div class="block" style=" margin-left: 80px;">
-                        <div class="container">
-                              <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
-                              <div class="overlay">
-                                    <div *ngFor="let plan of plan;let i =index;">
-                                    <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}<br>Review : {{plan.review_point}}</button>
-                                    </div>
-                              </div>
-                        </div>
-                    </div>      
             </div>
-        <div class="block" style=" margin-left: 370px;" >
-        <!--start button-->
-        <div>
-        <a type="submit"  (click)="canlink('/createplan')" class="btn">
-        <svg width="277" height="62">
-          <defs>
-              <linearGradient id="grad1">
-                  <stop offset="0%" stop-color="#8f44f1"/>
-                  <stop offset="100%" stop-color="#1d84c0" />
-              </linearGradient>
-          </defs>
-           <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
-        </svg>
-        <!--<span>Voir mes réalisations</span>-->
-        <span>START PLANNING</span>
-      </a>
-      </div>
-      <!--22-->
-    </div>   
-    </div>                 
+            <!-- <div class="block" style=" margin-left: 80px;">
+                <div class="container">
+                    <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
+                    <div class="overlay">
+                        <div *ngFor="let plan of plan;let i =index;">
+                            <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}
+                                <br>Review : {{plan.review_point}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block" style=" margin-left: 80px;">
+                <div class="container">
+                    <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
+                    <div class="overlay">
+                        <div *ngFor="let plan of plan;let i =index;">
+                            <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}
+                                <br>Review : {{plan.review_point}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <div class="block" style=" margin-left: 370px;">
+            <!--start button-->
+            <div>
+                <a type="submit" (click)="canlink('/createplan')" class="btn">
+                    <svg width="277" height="62">
+                        <defs>
+                            <linearGradient id="grad1">
+                                <stop offset="0%" stop-color="#8f44f1" />
+                                <stop offset="100%" stop-color="#1d84c0" />
+                            </linearGradient>
+                        </defs>
+                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+                    </svg>
+                    <!--<span>Voir mes r?alisations</span>-->
+                    <span>START PLANNING</span>
+                </a>
+            </div>
+            <!--22-->
+        </div>
+    </div>
 </div>
 <ng-template #show>
-        <div id='fonthead'> 
+    <div id='fonthead'>
         <p class="uppercase">
-        {{show_planname}}
-        </p> 
-        </div>
-        <div id='font'> 
-        <p style="float:left; margin-left:30px; ">START DATE<br>{{show_startdate}}</p> 
-        <p style="float:right; margin-right:30px; ">END DATE<br> {{show_enddate}} </p>  
+            {{show_planname}}
+        </p>
+    </div>
+    <div id='font'>
+        <p style="float:left; margin-left:5px; ">START DATE
+            <br style="color:darkgray">{{show_startdate}}</p>
+        <p style="float:right; margin-right:5px; ">END DATE
+            <br> {{show_enddate}} </p>
         <br>
-        <br>
-
-        FAVORIE {{show_favorite}} SCORE
-        <br>
-        REVIEW RATE : {{review_point}}
+        <br> FAVORIE {{show_favorite}} SCORE
+        <br> REVIEW RATE : {{review_point}}
         <div *ngFor="let user of show_user;let i =index;">
-            <p class="uppercase"> 
-            Create By {{user.username}} 
-            E-mail {{user.email}}   
+            <p class="uppercase">
+                Create By {{user.username}} E-mail {{user.email}}
             </p>
         </div>
         <div *ngFor="let act of act;let i =index;">
             {{act.date}} {{act.starttime}} {{act.type}} activityname : {{act.activityname}} detail : {{act.detail}}
         </div>
-        </div>
-        <button style="float:left; margin-left:30px; " type="submit" id="button1" (click)="isShow = false">back</button>
-        <button style="float:right; margin-right:30px; " type="submit" id="button1" (click)="favorite()">fav</button>
-</ng-template>   
- 
+    </div>
+    <button style="float:left; margin-left:30px; " type="submit" id="button1" (click)="isShow = false">back</button>
+    <button style="float:right; margin-right:30px; " type="submit" id="button1" (click)="favorite()">fav</button>
+</ng-template>

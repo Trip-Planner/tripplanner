@@ -1,72 +1,46 @@
-<div class="content">
-<div id='block1'>
-        MAKE YOUR PLAN
+<div class="content1">
+    <br>
+          <div id='block1'>
+              MAKE YOUR PLAN
+              <br>
+          </div>
+           <div *ngIf="isSubmit == false ;else set_activities ">
+               <br>
+               <div id='fnt'style="margin-left :655px;" >TRIP NAME</div>
+                    <br>
+                    <input style="margin-left :370px;" type="text" id="fontb" placeholder="Enter your trip name" name="tripName" [(ngModel)]="tripName" required />
+                    <br>
+                     <br>
+                     <div id='fnt'>
+                     <p style="float:left; margin-left:400px; ">Start Date  <input type="date" style="color:rgb(255, 255, 255); font-size:16px; background-color: transparent;" name="departDate" id="fontb" [(ngModel)]="departDate" placeholder="yyyy-MM-dd" min={{now}} max="2019-12-31"
+                         required /> </p> 
+                    <p style="float:right; margin-right:400px; ">End Date  <input type="date" style="color:rgb(255, 255, 255); font-size:16px; background-color: transparent;" name="returnDate" id="fontb" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" min={{departDate}} max="2019-12-31"
+                         required /></p>  
+                     </div>
+                     <br>
+                     <br>
+                     <br>
+                      <br>
+                     <div style="color:rgb(247, 107, 107); font-size:16px;margin-left :615px; font-weight: bold; ">{{status1}}</div>
+                     <br>
+                     <br>
+                     <div  style="margin-left :615px;" >
+                            <button type="submit" class="button" (click)="calculateDate()">Start Planning</button>
+                        </div>
+                     
+                    <br>
+                    <br>
+        </div>  
+     <ng-template #set_activities>
+
+        <div id='block1'  style="text-align:center; text-transform: uppercase;">{{tripName}}</div>
         <br>
-    </div>
-    <div id='block' style="color:white">
-        <div *ngIf="isSubmit == false ;else set_activities ">
-            <form>
-                <div class="left">
-                    <label for="tripName">
-                        <b style="font-size:18px;font-family: 'Arial';">Trip Name </b>
-                        <br>
-                        <br>
-                        <br>
-                        <b style="font-size:18px;font-family: 'Arial';">Start Date </b>
-                        <br>
-                        <br>
-                        <br>
-                        <b style="font-size:18px;font-family: 'Arial';">End Date </b>
-                        <br>
-                        <br>
-                        <br>
-                    </label>
-                </div>
-                <div class="right">
-                    <br>
-                    <input type="text" id="fontb" placeholder="Enter your trip name" name="tripName" [(ngModel)]="tripName" required />
-                    <br>
-                    <br>
-                    <br>
-                    <input type="date" name="departDate" id="fontb" [(ngModel)]="departDate" placeholder="yyyy-MM-dd" min={{now}} max="2019-12-31"
-                        required />
-                    <br>
-                    <br>
-                    <br>
-
-
-                    <input type="date" name="returnDate" id="fontb" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" min={{departDate}} max="2019-12-31"
-                        required />
-                    <br>
-                    <br>
-                    <br>
-                </div>
-
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <p style="color:red">{{status1}}</p>
-                <button class="btn btn-primary btn-large" style="float:right;" (click)="calculateDate()"> Start Planing </button>
-                <br>
-                <br>
-
-
-            </form>
-        </div>
-    </div>
-
-    <ng-template #set_activities>
-
-        <div style="font-size:40px;color:white;text-align:center">{{tripName}}</div>
+        <div id='block1' style="float:left;font-size:18px; margin-left:30px;">START DATE <br>{{departDate}} </div>
+        <div id='block1' style="float:right;font-size:18px; margin-left:30px;">END DATE<br>{{returnDate}}</div>
         <br>
-        <div style="float:left;font-size:20px">{{departDate}} </div>
-        <div style="float:right;font-size:20px">{{returnDate}}</div>
         <br>
-        <div style="text-align:center;font-size:20px">{{resultDate}} day</div>
+        <br>
+        <div id='block1' style="text-align:center;font-size:20px">{{resultDate}} day</div>
         <br>
         <div *ngIf="isHide == false ;else hide ">
 
@@ -84,37 +58,33 @@
                 <br>
                 <mat-menu #appMenu="matMenu">
                     <div *ngFor="let activity of activities;let index =index;">
-                        <button mat-menu-item (click)="act_temp = activities[index].type ;isActCreate[j]=true;">{{activities[index].type}}</button>
+                        <button mat-menu-item (click)="act_temp = activities[index].type ;isActCreate[j]=true;">{{activities[index].type}}</button>-->
                         <!--  ex activites (need database) -->
-                        <!--    <button mat-menu-item (click)="act_temp = 'Bangkok';isActCreate[j]=true">Bangkok</button> -->
+                       <button mat-menu-item (click)="act_temp = 'Bangkok';isActCreate[j]=true">Bangkok</button>
                         <!--  ex activites (need database) -->
                     </div>
                 </mat-menu>
 
-
-                <table id="table">
-                    <thead id="table-odd">
-                    </thead>
-                    <tr id="table-even" *ngFor="let act of d.acts;let i =index;">
-
-                        <td style="color:white;padding-left:30px;padding-right: 30px;">{{i+1}}</td>
-
-                        <td style="color:white;padding-right: 30px;">{{days[j].times[i]}}</td>
-
-                        <td style="color:white;padding-right: 30px;">{{days[j].details[i]}}</td>
-
-                        <td style="color:white;padding-right: 30px;">{{days[j].acts[i]}}</td>
-
-                        <td>
-                            <button mat-button (click)="removeActs(i,j)">
-                                <mat-icon>remove</mat-icon>
-                            </button>
-                        </td>
-                    </tr>
-                </table>
+                <!--ตารางเพิ่มactivity-->
+                <div class="table-users">
+                        <table cellspacing="0" >
+                               <tr  *ngFor="let act of d.acts;let i =index;">
+    
+                                    <td >{{i+1}}</td>
+                                    <td >{{days[j].times[i]}}</td>
+                                    <td>{{days[j].details[i]}}</td>
+                                    <td>{{days[j].acts[i]}}</td>
+                                    <td>
+                                        <button mat-button (click)="removeActs(i,j)">
+                                                <mat-icon>remove</mat-icon>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                    </div>
 
                 <!-- กรอกข้อมูล -->
-                <div *ngIf="isActCreate[j] == true ;else ">
+               <div *ngIf="isActCreate[j] == true ;else ">
                     <!-- condition for showing set_activities_detail -->
                     <div style="float:left;width: 90%">
                         <table id="table" style="background:white;width:100%">
@@ -151,12 +121,9 @@
                 </div>
 
             </div>
-
-
-
-            <!-- <button routerLink="/generateplan">generateplan !!</button>   -->
-            <button type="button" class="btn btn-primary" (click)="isHide= true"> Generate Plan</button>
-
+          <div  style="margin-left :615px;" >
+                <button type="button" class="button" (click)="isHide= true">Generate Plan</button>
+            </div>
         </div>
 
     </ng-template>
@@ -198,6 +165,11 @@
                     
                 </div>
             </div>
-        <button class="btn btn-primary" (click)="confirm()">confirm</button>
+            <div  style="margin-left :615px;" >
+                    <button type="button" class="button" (click)="confirm()">Confirm</button>
+            </div>
     </ng-template>
+       
 </div>
+
+    
