@@ -1,0 +1,507 @@
+.example-spacer{
+    
+      flex: 1 1 auto;
+    }
+    
+  #block{
+      width: 750px;
+      border: 0px solid rgba(52, 218, 118, 0.822);
+      padding: 25px;
+      background: linear-gradient(to bottom,rgba(128, 124, 124, 0.637) 20%, rgba(0,0,0,0.6) 80%);
+  }
+  input{
+  
+    width: 50px;
+    height: 35px;
+    border:none;
+    border-radius:5px; 
+    font-size: 20px;
+    -webkit-input-placeholder:white;
+  }
+  .right {
+    width: 80%; /*or 45%*/
+    float: left;
+    } 
+    
+  .left {
+    width: 20%; /*or 55%*/
+    float: left;
+  }
+  
+  #block1{
+    font-family: 'Arial';
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 65px;
+    text-align: left;
+    color:white;
+  }
+  #block2{
+    font-family: 'Arial';
+    font-size: 18px;
+    margin-left: 65px;
+    text-align: left;
+    color:rgb(202, 202, 202);
+  }
+    #table{
+      border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 5px;
+      color:black;
+    }
+    #table-odd{
+      background-color: #f1f1f1;
+    }
+    #table-even {
+      background-color: #1da3f7;
+      
+    }
+    #table-stable{
+      background-color: #e9f7ff;
+  
+    }
+  fontw{
+      margin:0;
+    color:#fcfcfc;
+    font:600 16px/18px 'Open Sans',sans-serif;
+  }
+  #fontb{ 
+    color:black;
+    font-style:italic;
+    font-size: 16px;
+  }
+  
+  #fontr{
+    color:red;
+    font-size: 20px;
+  }
+  /***************************************/
+  div.content2 {
+    float: right;
+    background-color: #3535358a;
+    width: 95%;
+    height: 790px;
+    margin-right:35px;
+    margin-left:35px;
+    margin-top: 10px;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+  }
+  #font {
+    font-family: 'Arial';
+    font-size: 18px;
+    text-align: center;
+    color:rgb(255, 255, 255);
+    margin-left:10px; 
+    outline-color:#000000;
+  }
+  p.uppercase {
+    text-transform: uppercase;
+  }
+  
+  /*****************************************/
+  /*fav button*/
+  .btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  margin: 10px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  }
+  .btn:hover, .btn:focus {
+  color: #fff;
+  outline: 0;
+  }
+  .sixth {
+  border-radius: 3em;
+  border-color: #35a4ff;
+  color: #35a4ff;
+  background-image: -webkit-linear-gradient(top, transparent 50%, #35a4ff 50%);
+  background-image: linear-gradient(to bottom, transparent 50%, #35a4ff 50%);
+  background-position: 0% 0%;
+  background-size: 210%;
+  -webkit-transition: background 150ms ease-in-out, color 150ms ease-in-out;
+  transition: background 150ms ease-in-out, color 150ms ease-in-out;
+  }
+  .sixth:hover {
+  color: #fff;
+  background-position: 0 100%;
+  }
+  .one {
+  border-radius: 3em;
+  border-color: #fa9107;
+  color: #ffddb0;
+  background-image: -webkit-linear-gradient(top, transparent 50%, #fa9107 50%);
+  background-image: linear-gradient(to bottom, transparent 50%, #fa9107 50%);
+  background-position: 0% 0%;
+  background-size: 210%;
+  -webkit-transition: #fa9107 150ms ease-in-out, color 150ms ease-in-out;
+  transition: #fa9107 150ms ease-in-out, color 150ms ease-in-out;
+  }
+  .one:hover {
+  color: #fff;
+  background-position: 0 100%;
+  }
+  
+  /********************box**********************/
+  /* All elements should be border-boxes */
+  * {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  color: #8a8a8a;
+  }
+  
+  /*
+  Hide the checkbox, as it's only works as the switch
+  for the confirm-modal.
+  */
+  input[type=checkbox] {
+  display: none;
+  }
+  
+  p, button, .btn {
+  font-size:14px;
+  }
+  
+  
+  button {
+  outline: none !important;
+  }
+  
+  /* Wraps everyting, nothing special */
+  .content-wrapper {
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  }
+  
+  /*
+  The sort of button-ish thingy.
+  It should be wrapped by a label and
+  should be followed by the checkbox.
+  */
+  .bt {
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  background-color: transparent;
+  color: #8a8a8a;
+  min-width: 3em;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #8a8a8a;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: inline-block;
+  width: 200px;
+  max-width: 90%;
+  margin: 0 auto;
+  }
+  .bt:hover {
+  color: #fafafa;
+  background-color: #8a8a8a;
+  }
+  .bt:active, .bt:focus {
+  color: #fafafa;
+  background-color: #a0a0a0;
+  }
+  
+  /*
+  The modal background (the dark-ish overlay),
+  which obviously could be a class instead of a form.
+  
+  For scroll to work as expected, the position is absolute,
+  as position: fixed would not allow the page to scroll when the screen isn't tall enough.
+  */
+  .confirm-modal {
+  display: block;
+  pointer-events: none;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  }
+  .confirm-modal .btn {
+  width: auto;
+  max-width: auto;
+  margin: auto;
+  }
+  .confirm-modal::before {
+  /*
+    The shadow/backdrop which also is clickable to close the modal.
+  */
+  content: "";
+  display: block;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 200px;
+  z-index: 99;
+  opacity: 1;
+  pointer-events: all;
+  }
+  .confirm-modal form {
+    /*
+      The actual modal.
+  
+      Note: to not have clicks inside the modal
+      bleed through to the label (which would uncheck the checkbox),
+      pointer-events are set to none on the modal.
+    */
+  position: absolute;
+  z-index: 99;
+  top: 50px;
+  -webkit-transition: -webkit-transform 0.75s;
+  transition: -webkit-transform 0.75s;
+  transition: transform 0.75s;
+  transition: transform 0.75s, -webkit-transform 0.75s;
+  max-width: 90%;
+  width: 450px;
+  background-color: #fafafa;
+  padding: 20px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+  color: #080808;
+  border-radius: 5px;
+  pointer-events: none;
+  }
+  
+  input:not(:checked) + .confirm-modal, input:not(:checked) + .confirm-modal * {
+  opacity: 0;
+  }
+  input:not(:checked) + .confirm-modal::before {
+  height: 0;
+  width: 0;
+  }
+  
+  /* For that cute little fly down effect */
+  input:not(:checked) + .confirm-modal form {
+  -webkit-transform: translate(-50%, -100px);
+          transform: translate(-50%, -100px);
+  }
+  
+  /* Allow buttons to be clickable. */
+  .confirm-modal button {
+  pointer-events: all;
+  }
+  
+  /************/
+  .group{
+  margin-bottom:15px;
+  }
+  .group .label,
+  .group .input,
+  .group .button{
+  width:50%;
+  color:#fff;
+  display:block;
+  }
+  .group .input,
+  .group .button{
+  border:none;
+  margin-left: 65px;
+  padding:15px 20px;
+  border-radius:25px;
+  background:rgba(199, 199, 199, 0.555);
+  }
+  
+  /******************************/
+  .header {
+  background-color: #327a81;
+  color: white;
+  font-size: 1.5em;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  }
+  
+  img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  }
+  
+  .table-users {
+  border: 1px solid #327a81;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+  max-width: calc(100% - 2em);
+  margin: 1em auto;
+  overflow: hidden;
+  width: 800px;
+  }
+  
+  table {
+  width: 100%;
+  }
+  table td, table th {
+  color: #2b686e;
+  padding: 10px;
+  }
+  table td {
+  text-align: center;
+  vertical-align: middle;
+  }
+  table td:last-child {
+  font-size: 0.95em;
+  line-height: 1.4;
+  text-align: left;
+  }
+  table th {
+  background-color: #daeff1;
+  font-weight: 300;
+  }
+  table tr:nth-child(2n) {
+  background-color: white;
+  }
+  table tr:nth-child(2n+1) {
+  background-color: #edf7f8;
+  }
+  
+  @media screen and (max-width: 700px) {
+  table, tr, td {
+    display: block;
+  }
+  
+  td:first-child {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 100px;
+  }
+  td:not(:first-child) {
+    clear: both;
+    margin-left: 100px;
+    padding: 4px 20px 4px 90px;
+    position: relative;
+    text-align: left;
+  }
+  td:not(:first-child):before {
+    color: #91ced4;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+  }
+  td:nth-child(2):before {
+    content: 'Name:';
+  }
+  td:nth-child(3):before {
+    content: 'Email:';
+  }
+  td:nth-child(4):before {
+    content: 'Phone:';
+  }
+  td:nth-child(5):before {
+    content: 'Comments:';
+  }
+  
+  tr {
+    padding: 10px 0;
+    position: relative;
+  }
+  tr:first-child {
+    display: none;
+  }
+  }
+  @media screen and (max-width: 500px) {
+  .header {
+    background-color: transparent;
+    color: white;
+    font-size: 2em;
+    font-weight: 700;
+    padding: 0;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  img {
+    border: 3px solid;
+    border-color: #daeff1;
+    height: 100px;
+    margin: 0.5rem 0;
+    width: 100px;
+  }
+  
+  td:first-child {
+    background-color: #c8e7ea;
+    border-bottom: 1px solid #91ced4;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    top: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    width: 100%;
+  }
+  td:not(:first-child) {
+    margin: 0;
+    padding: 5px 1em;
+    width: 100%;
+  }
+  td:not(:first-child):before {
+    font-size: .8em;
+    padding-top: 0.3em;
+    position: relative;
+  }
+  td:last-child {
+    padding-bottom: 1rem !important;
+  }
+  
+  tr {
+    background-color: white !important;
+    border: 1px solid #6cbec6;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 0;
+    padding: 0;
+  }
+  
+  .table-users {
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+  }
+  }
+  
+  #divfix {
+  bottom: 0;
+  left: 500;
+  position: fixed;
+  z-index: 3000;
+  
+  }
+  #divfix2 {
+  bottom: 0;
+  right: 50;
+  position: fixed;
+  z-index: 3000;
+  
+  }
+  /*********************************/
+  
+  
