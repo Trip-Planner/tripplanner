@@ -36,15 +36,36 @@
         <div style="text-align:left" *ngFor="let act of act;let i =index;">
           <br>
           <br>
-          <p>{{act.date}}<br> {{act.starttime}}<br> {{act.type}} Activity : {{act.activityname}} <br>Detail : {{act.detail}}</p>
+          <!--plan table-->
+          <div class="table-users">
+              <div class="header">PLAN</div> 
+              <table cellspacing="0" >
+                 <tr>
+                      
+                      <th style="text-align: center;">Date</th>
+                      <th style="text-align: center;">Time</th>
+                      <th style="text-align: center;">Activities</th>
+                      <th style="text-align: center;">detail</th>
+                 </tr>
+                 <tr  *ngFor="let act of act;let i =index;">
+
+                      
+                      <td >{{act.date}}</td>
+                      <td>{{act.starttime}}</td>
+                      <td>{{act.activityname}}</td>
+                      <td>{{act.detail}}</td>
+                  </tr>
+              </table>
+              <thead>
+                      <th></th>
+  
+                  </thead>
+      </div>
+  <!--PLAN TABLE-->
         </div> 
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
         PUT SCORE
-        <div class="group">
+        <div class="group" style="margin-left :43%;" >
             <input type="text" class="input" placeholder="Put your plan score"  [(ngModel)]="review_point" />
         </div>
       <form>

@@ -490,7 +490,7 @@ tr {
 
 #divfix {
 bottom: 0;
-right: 500;
+left: 500;
 position: fixed;
 z-index: 3000;
 

@@ -9,11 +9,11 @@
 <br>
     <div *ngIf="isEdit == false&&isDelete ==false && isCoplanning == false && showPlan==false;else ">
         <div *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
-            <div style="margin-left:65px; color:#fcfcfc; font:600 20px/22px 'Open Sans',sans-serif;">T{{item.plan_name}}</div>
+            <div style="margin-left:65px; color:#3a3a3a; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}}</div>
             
         </div>
         <div  *ngFor="let item of coplan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
-            <div style="margin-left:65px; color:#fcfcfc; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}} (CO-PLAN)</div>
+            <div style="margin-left:65px; color:#3a3a3a; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}} (CO-PLAN)</div>
         </div>
     </div>
 
@@ -215,8 +215,10 @@
         <div class="group">
 		    <input type="text" class="input" placeholder="Put your co-planner username" [(ngModel)]="co_username" required />
 		</div>
-        <div class="block" style=" float: right;   margin-right:20px;">
+        <div class="block" >
+                <div id="divfix2">
                 <button class="btn sixth" (click)="Co_Confirm()">confirm</button>
+                </div>
         </div>
     </ng-template>
     <ng-template #back_butoon [ngIf]='isEdit==true||isDelete==true||isCoplanning==true||showPlan==true'>

@@ -276,6 +276,10 @@ table tr:nth-child(2n+1) {
     overflow: visible;
   }
 }
+div.block2 {
+  width: 500px;
+  align-items: center;
+}
 
 /***************************************/
 
@@ -314,6 +318,12 @@ background: linear-gradient(to bottom, rgba(128, 124, 124, 0.637) 20%, rgba(0,0,
   font-family: 'Arial';
   font-weight: bold;
   font-size: 20px;
+  padding: 0px;
+  text-align: left;
+  color:rgb(255, 255, 255);
+}
+#fnt1{
+  font-family: 'Arial';
   padding: 0px;
   text-align: left;
   color:rgb(255, 255, 255);

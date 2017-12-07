@@ -6,25 +6,29 @@
           </div>
            <div *ngIf="isSubmit == false ;else set_activities ">
                <br>
-               <div id='fnt'style="margin-left :655px;" >TRIP NAME</div>
+               <div id='fnt'style="text-align:center;" >TRIP NAME</div>
                     <br>
-                    <input style="margin-left :370px;" type="text" id="fontb" placeholder="Enter your trip name" name="tripName" [(ngModel)]="tripName" required />
+                    <div class="block2" style=" margin-left:40%">
+                    <input  type="text"  placeholder="Enter your trip name" name="tripName" [(ngModel)]="tripName" required />
                     <br>
-                     <br>
-                     <div id='fnt'>
-                     <p style="float:left; margin-left:400px; ">Start Date  <input type="date" style="color:rgb(255, 255, 255); font-size:16px; background-color: transparent;" name="departDate" id="fontb" [(ngModel)]="departDate" placeholder="yyyy-MM-dd" min={{now}} max="2019-12-31"
+                    <br>
+                    </div>
+                     <div id='fnt1'>
+                     <p style="float:left; margin-left:25%;font-weight: bold; ">START DATE
+                         <input type="date" style="color:rgb(255, 255, 255); border: 1px solid #030303; font-size:16px; background-color: transparent;" name="departDate" id="fontb" [(ngModel)]="departDate" placeholder="yyyy-MM-dd" min={{now}} max="2019-12-31"
                          required /> </p> 
-                    <p style="float:right; margin-right:400px; ">End Date  <input type="date" style="color:rgb(255, 255, 255); font-size:16px; background-color: transparent;" name="returnDate" id="fontb" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" min={{departDate}} max="2019-12-31"
+                    <p style="float:right; margin-right:25%;font-weight: bold; ">END DATE 
+                        <input type="date" style="color:rgb(255, 255, 255);border: 1px solid #030303; font-size:16px; background-color: transparent;" name="returnDate" id="fontb" [(ngModel)]="returnDate" placeholder="yyyy-MM-dd" min={{departDate}} max="2019-12-31"
                          required /></p>  
                      </div>
                      <br>
                      <br>
                      <br>
                       <br>
-                     <div style="color:rgb(247, 107, 107); font-size:16px;margin-left :615px; font-weight: bold; ">{{status1}}</div>
+                     <div style="color:rgb(247, 107, 107); font-size:16px; text-align:center; font-weight: bold; ">{{status1}}</div>
                      <br>
                      <br>
-                     <div  style="margin-left :615px;" >
+                     <div  style="margin-left :43%;" >
                             <button type="submit" class="button" (click)="calculateDate()">Start Planning</button>
                         </div>
                      
@@ -59,9 +63,7 @@
                 <mat-menu #appMenu="matMenu">
                     <div *ngFor="let activity of activities;let index =index;">
                         <button mat-menu-item (click)="act_temp = activities[index].type ;isActCreate[j]=true;">{{activities[index].type}}</button>-->
-                        <!--  ex activites (need database) -->
-                       <button mat-menu-item (click)="act_temp = 'Bangkok';isActCreate[j]=true">Bangkok</button>
-                        <!--  ex activites (need database) -->
+            
                     </div>
                 </mat-menu>
 
@@ -109,7 +111,8 @@
 
                         </table>
                     </div>
-                    <div style="float:right;width: 10%">
+                    <br>
+                    <div style="float:right;width: 10%; align-items:center">
                         <br>
                         <button class="btn btn-primary btn-block btn-large" (click)="addActs(act_temp,time,detail,j);detail='';time='';">submit</button>
                     </div>
