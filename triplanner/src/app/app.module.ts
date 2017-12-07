@@ -22,6 +22,7 @@ import { ActivitiesComponent } from './feature/components/activities/activities.
 import { GenerateplanComponent } from './feature/components/generateplan/generateplan.component';
 import { HomeComponent } from './feature/home/home.component';
 import { FindtripComponent } from './feature/findtrip/findtrip.component';
+import { ProfileComponent } from './feature/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FindtripComponent } from './feature/findtrip/findtrip.component';
     ActivitiesComponent,
     GenerateplanComponent,
     HomeComponent,
-    FindtripComponent
+    FindtripComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
