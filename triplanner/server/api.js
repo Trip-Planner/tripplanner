@@ -322,4 +322,41 @@ router.get('/getactivity', function (req, res) {
         res.json(response);
     })
 })
+
+router.get('/searchplanname', function (req, res) {
+    sql = 'SELECT * FROM plan WHERE plan_name = ' + mysql.escape(req.query.planname) + 'AND  plan_status = ' + mysql.escape('done');
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data = result;
+        res.json(response);
+    })
+})
+
+router.get('/searchactiname', function (req, res) {
+    sql = 'SELECT * FROM plandetail WHERE activityname = ' + mysql.escape(req.query.actiname);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data = result;
+        res.json(response);
+    })
+})
+
+router.get('/searchname', function (req, res) {
+    sql = 'SELECT * FROM account WHERE username = ' + mysql.escape(req.query.username);
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data = result;
+        res.json(response);
+    })
+})
+
+router.get('/getreviewplanformuserid', function (req, res) {
+    sql = 'SELECT * FROM plan WHERE user_id = ' + mysql.escape(req.query.userid) + 'AND  plan_status = ' + mysql.escape('done');
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        response.data = result;
+        res.json(response);
+    })
+})
+
 module.exports = router;

@@ -21,6 +21,7 @@ import { MenubarComponent } from './menubar/menubar.component';
 import { ActivitiesComponent } from './feature/components/activities/activities.component';
 import { GenerateplanComponent } from './feature/components/generateplan/generateplan.component';
 import { HomeComponent } from './feature/home/home.component';
+import { FindtripComponent } from './feature/findtrip/findtrip.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { HomeComponent } from './feature/home/home.component';
     MenubarComponent,
     ActivitiesComponent,
     GenerateplanComponent,
-    HomeComponent
+    HomeComponent,
+    FindtripComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +98,10 @@ import { HomeComponent } from './feature/home/home.component';
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'findtrip',
+        component: FindtripComponent
       },
     ])
   ],
