@@ -79,8 +79,8 @@ fontw{
 div.content2 {
   float: right;
   background-color: #3535358a;
-  width: 95%;
-  height: 790px;
+  min-width: 95%;
+  min-height: 790px;
   margin-right:35px;
   margin-left:35px;
   margin-top: 10px;

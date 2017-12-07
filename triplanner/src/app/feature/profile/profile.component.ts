@@ -21,4 +21,11 @@ export class ProfileComponent implements OnInit {
         this.user = res;
       })
     }
+    logout() {
+      this._dataService.logout()
+        .subscribe(res => {
+          if (res == 'done')
+            this.router.navigate(['/login']);
+        });
+    }
 }
