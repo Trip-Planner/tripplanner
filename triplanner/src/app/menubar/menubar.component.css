@@ -63,6 +63,7 @@
     font-size: 15 px; /* Increase font size */
     color: white; /* White text color */
     border-radius: 0 6px 6px 0; /* Rounded corners on the top right and bottom right side */
+    z-index: 1;
 }
 
 #mySidenav a:hover {
