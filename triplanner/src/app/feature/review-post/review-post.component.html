@@ -4,17 +4,18 @@
   <br>
   <div id='block1'>
       REVIEW PLAN
-      <hr/>
+      
   </div>
+  <hr/>
   <div *ngFor="let plan of plan;let i =index;">
-    <div id='fnt'>
+    <div style="font:600 16px/18px 'Open Sans',sans-serif;">
       <div style="color:rgb(77, 77, 77)"> {{plan.plan_name}} </div>
     </div>
-    <div id='fnt'>
+    <div style="font:600 16px/18px 'Open Sans',sans-serif;">
            START DATE {{plan.startdate}}
       <br> END DATE   {{plan.enddate}}
     <form>
-      <button style="margin-left:50px" type="submit" class="btn " (click)="chooseplan(i)">
+      <button style="align-items:center" type="submit" class="btn " (click)="chooseplan(i)">
       <h5>Review</h5>
       </button>
     </form>
