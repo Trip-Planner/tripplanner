@@ -407,9 +407,3 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8282', end
         letter-spacing: 1px;
         margin-bottom: 25px
       }
-      p {
-        font-size: 16px;
-        line-height: 26px;
-        margin-bottom: 20px;
-        color: #666;
-      }
