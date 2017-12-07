@@ -17,16 +17,16 @@ export class MenubarComponent implements OnInit {
   }
 
   canlink(temp: string) {
-    this.router.navigate([temp]);
+    // this.router.navigate([temp]);
 
-    /*    this._dataService.getSession()
-       .subscribe(res => {
-         this.status = res
-         if(this.status != null)
-         this.router.navigate([temp]);
-         else
-         this.router.navigate(['']);
-       }); */
+    this._dataService.getSession()
+      .subscribe(res => {
+        this.status = res
+        if (this.status != null)
+          this.router.navigate([temp]);
+        else
+          this.router.navigate(['']);
+      });
 
   }
 }

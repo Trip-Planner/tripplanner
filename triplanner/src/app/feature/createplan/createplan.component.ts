@@ -289,8 +289,8 @@ export class CreateplanComponent implements OnInit {
   }
 
    getActivity(act:string){
-     console.log(this.activities + this.activities.length)
-     console.log("act = "+act)
+    //  console.log(this.activities + this.activities.length)
+    //  console.log("act = "+act)
     for(var i =0;i <=this.activities.length;i++)
     {
       if(act == this.activities[i].type )
@@ -299,7 +299,7 @@ export class CreateplanComponent implements OnInit {
     /*  return "../../"+this.activities[i].icon  */
     return "../../"+this.activities[i].icon
     } 
-   else console.log("NO  NO NO NO")
+  //  else console.log("NO  NO NO NO")
     }
 
 
