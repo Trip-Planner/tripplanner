@@ -50,50 +50,11 @@
                                 <br>Review : {{plan.review_point}}</button>
                         </div>
                     </div>
+                    <br>
                 </div>
             </div>
-            <!-- <div class="block" style=" margin-left: 80px;">
-                <div class="container">
-                    <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
-                    <div class="overlay">
-                        <div *ngFor="let plan of plan;let i =index;">
-                            <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}
-                                <br>Review : {{plan.review_point}}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="block" style=" margin-left: 80px;">
-                <div class="container">
-                    <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
-                    <div class="overlay">
-                        <div *ngFor="let plan of plan;let i =index;">
-                            <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}
-                                <br>Review : {{plan.review_point}}</button>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
-        <div class="block" style=" align-items: center;">
-            <!--start button-->
-            <div>
-                <a type="submit" (click)="canlink('/createplan')" class="btn">
-                    <svg width="277" height="62">
-                        <defs>
-                            <linearGradient id="grad1">
-                                <stop offset="0%" stop-color="#8f44f1" />
-                                <stop offset="100%" stop-color="#1d84c0" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
-                    </svg>
-                    <!--<span>Voir mes r?alisations</span>-->
-                    <span>START PLANNING</span>
-                </a>
-            </div>
-            <!--22-->
-        </div>
+        
     </div>
 </div>
 <ng-template #show>
@@ -102,9 +63,10 @@
             {{show_planname}}
         </p>
     </div>
+    <br>
     <div id='font'>
         <p style="float:left; margin-left:30px; ">START DATE
-            <br style="color:darkgray">{{show_startdate}}</p>
+            <br>{{show_startdate}}</p>
         <p style="float:right; margin-right:30px; ">END DATE
             <br> {{show_enddate}} </p>
         <br>

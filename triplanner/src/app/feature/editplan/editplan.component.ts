@@ -25,6 +25,7 @@ export class EditplanComponent implements OnInit {
   isSubmit: boolean;
   isCoplanning: boolean;
   showPlan: boolean;
+  removeDay:boolean;
   plan_index: number;
 
   delete_temp: string;
@@ -65,6 +66,7 @@ export class EditplanComponent implements OnInit {
     this.isDelete = false;
     this.isCoplanning = false;
     this.showPlan = false;
+    this.removeDay = true;
     /*  this.isAlert=false; */
     this.isHide = false;
     this.isActCreate = [false];
@@ -96,7 +98,7 @@ export class EditplanComponent implements OnInit {
     })
   }
 
-
+  
 
   dayShowing(num: number, end: number) {
     for (var i = 0; i < end; i++) {
@@ -370,7 +372,8 @@ export class EditplanComponent implements OnInit {
         this.days[day_index].details.push(res[temp].detail);
 
 
-
+        this.showPlan=true;
+        this.removeDay=false;
 
         //console.log("days = " + this.days[day_index].acts);
         // console.log("days = " + this.days[day_index].times);

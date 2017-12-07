@@ -8,26 +8,26 @@
 <!--test-->
 <br>
     <div *ngIf="isEdit == false&&isDelete ==false && isCoplanning == false && showPlan==false;else ">
-        <div *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
-            <div style="margin-left:65px; color:#3a3a3a; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}}</div>
+        <div *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id)">
+            <div style="margin-left:65px; color:#f7f7f7; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}}</div>
             
         </div>
-        <div  *ngFor="let item of coplan; let i = index" (click)="moveToPlandetail(item.plan_id);showPlan=true">
-            <div style="margin-left:65px; color:#3a3a3a; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}} (CO-PLAN)</div>
+        <div  *ngFor="let item of coplan; let i = index" (click)="moveToPlandetail(item.plan_id)">
+            <div style="margin-left:65px; color:#f7f7f7; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}} (CO-PLAN)</div>
         </div>
     </div>
 
     <ng-template #edit [ngIf]="isEdit == true &&isDelete ==false">
 
         <!--  here -->
-        <div id='block1' style="font-size:22px;align-items: center;">{{tripName}}</div>
+        <div id='block1' style="font-size:22px;text-align:center;">{{tripName}}</div>
         <br>
         <div id='block1' style="float:left;font-size:18px">DEPART DATE<br>{{departDate}} </div>
         <div id='block1' style="float:right;font-size:18px;margin-right:65px;">RETURN DATE<br>{{returnDate}}</div>
         <br>
         <div id='block1' style="text-align:center;font-size:20px">DAY{{resultDate}} </div>
         <br>
-        
+          <ng-template #hide [ngIf]="showPlan==true"></ng-template>
         <div *ngIf="isHide == false ;else hide ">
 
             <div *ngFor="let d of days;let j =index;">
@@ -46,9 +46,7 @@
                 <mat-menu #appMenu="matMenu">
                     <div *ngFor="let activity of activities;let index =index;"> 
                     <button mat-menu-item (click)="act_temp = activities[index].type ;isActCreate[j]=true;">{{activities[index].type}}</button>
-                    <!--  ex activites (need database) -->
-    
-                    <!--  ex activites (need database) -->
+        
                     </div>
                 </mat-menu>
 
@@ -121,7 +119,7 @@
             <!-- <button routerLink="/generateplan">generateplan !!</button> <button type="button" class="btn btn-primary" (click)="isHide= true"> Generate Plan</button>  -->
             <div class="block" style="font-size:14px; float:right; margin-right:20px; margin-top:350px; ">
                 <div id="divfix2">
-                <button type="button" class="btn sixth" (click)="isHide= true" >Generate Plan</button>
+                <button type="button" class="btn sixth" (click)="isHide= true;showPlan =true" >Generate Plan</button>
                 </div>
             </div>
             
@@ -175,7 +173,7 @@
 
         <ng-template [ngIf]="isEdit==false">
             <div class="block">
-                <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:50px;" (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =flase">EDIT</button>
+                <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:50px;" (click)="moveToPlandetail(plan_id); isEdit = true ; isDelete = false ;isCoplanning = false; showPlan =false">EDIT</button>
                 <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = true  ;isCoplanning = false; delete_temp = plan_id  ">DELETE</button>
                 <button class="btn one" style="font-size: 10px; float: left; margin-top:10px;  margin-left:5px;" (click)="moveToPlandetail(plan_id); isEdit = false; isDelete = false ;isCoplanning = true;  isDelete =false ">Co-Planning </button>
                 </div>       
