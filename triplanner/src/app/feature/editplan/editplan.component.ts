@@ -250,15 +250,15 @@ export class EditplanComponent implements OnInit {
         if(result[0] != null )
         this._dataService.setcoplan(result[0].user_id,this.plan_id).subscribe(res=>{
           if(res == 'done')
-            this.co_text = "done"
+            this.ngOnInit();
           else if(res == 'have already')
             this.co_text = "this user already have co-planned with you";
         })
         else
         this.co_text = "this user isn't in system"
       })
-    if(this.co_text == "done")
-    this.ngOnInit()
+
+ 
   
 
   }
