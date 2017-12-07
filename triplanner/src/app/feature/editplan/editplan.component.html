@@ -9,11 +9,12 @@
 <br>
     <div *ngIf="isEdit == false&&isDelete ==false && isCoplanning == false && showPlan==false;else ">
         <div *ngFor="let item of plan; let i = index" (click)="moveToPlandetail(item.plan_id);">
-            <div style="margin-left:65px; color:#e2cf3e; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}}</div>
-            
+            <div style="margin-left:65px; color:#fadd02; font:600 20px/22px 'Open Sans',sans-serif;"><img src="/assets/images/edit.png" style="width:50px;height:50px">{{item.plan_name}}</div>
+            <div class="hr"></div>
         </div>
         <div  *ngFor="let item of coplan; let i = index" (click)="moveToPlandetail(item.plan_id);">
-            <div style="margin-left:65px; color:#ff7b00; font:600 20px/22px 'Open Sans',sans-serif;">{{item.plan_name}} (CO-PLAN)</div>
+            <div style="margin-left:65px; color:#ff5e00; font:600 20px/22px 'Open Sans',sans-serif;"><img src="/assets/images/edit.png" style="width:50px; height:50px">{{item.plan_name}} (CO-PLAN)</div>
+            <div class="hr"></div>
         </div>
     </div>
 
@@ -32,7 +33,7 @@
 
             <div *ngFor="let d of days;let j =index;">
 
-                <mat-toolbar style="background:rgb(19, 155, 218);color:white">
+                <mat-toolbar style="background:rgb(66, 161, 202); color:white">
 
                     <span>Day{{j+1}}({{days[j].thatDate}}) </span>
                     <span clasee="example-spacer"> </span>
@@ -135,7 +136,7 @@
         <button *ngFor="let d of days;let j =index;" class="btn one" (click)="dayShowing(j,resultDate)">day {{j+1}}</button>
         <div *ngFor="let d of days;let j =index">
             <div *ngIf="dayShow[j] == true ;else ">
-                <div style="margin-left:65px; color:#fcfcfc; font:600 20px/22px 'Open Sans',sans-serif; text-align: center;">
+                <div style="margin-left:43%; color:#fcfcfc; font:600 20px/22px 'Open Sans',sans-serif; text-align: center;">
                     DAY:{{days[j].thatDate}}
                 </div>
                 <div class="table-users">

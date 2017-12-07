@@ -41,12 +41,13 @@
         <div style="text-align:center;"> FAVORIE {{show_favorite}} SCORE</div>
         <div style="text-align:center;"> REVIEW RATE : {{review_point}}</div>
         <div *ngFor="let user of show_user;let i =index;">
-            <p class="uppercase" style="float:left; margin-right:625px; font-size:18px;color:darkgrey;">
+            <p class="uppercase" style="float:left; margin-left:30px; font-size:18px;color:darkgrey;">
                 Create By {{user.username}}
                 <br>E-mail {{user.email}}
             </p>
         </div>
-
+        <br>
+        <br>
         <!--plan table-->
         <div class="table-users">
             <div class="header">PLAN</div>
@@ -75,13 +76,12 @@
         <!--PLAN TABLE-->
 
     </div>
+    <br>
+    <br>
+    <br>
+        <button type="submit" class="button" (click)="isShow = false" style="margin-left:30px">BACK</button>
+        <button type="submit" class="button" (click)="favorite()" style="margin-left:75%">FAVORIE</button>
 
-    <div id="divfix">
-        <button type="submit" class="button" (click)="isShow = false">BACK</button>
-    </div>
-    <div id="divfix2">
-        <button type="submit" class="button" (click)="favorite()">FAVORIE</button>
-    </div>
 
     <!--<button style="float:left; margin-left:30px; " type="submit" id="button1" (click)="isShow = false">back</button>-->
     <!--<button style="float:right; margin-right:30px; " type="submit" id="button1" (click)="favorite()">fav</button>-->
