@@ -1,38 +1,4 @@
-<div class="tab">
-        <br>
-        <br>
-        <div class="avatar-flip">
-            <br>
-            <br>
-            
-              <img src="/assets/images/person.png"  height="150" width="150">
-              <img src="/assets/images/GIF.webp" height="150" width="150">
-        </div>
-        <div *ngFor="let user of user;let i =index;">
-            <div id='font' style=" color:rgb(41, 41, 41);">
-                <br>
-                <p class="uppercase">{{user.username}}</p>
-                <p class="uppercase">{{user.email}}</p>
-            </div>
-        </div>
-        <div id='font'>
-            <br>
-            <a routerLink="/editplan" routerLinkActive="active" class="fnt">My Plan</a>
-            <br>
-            <a routerLink="/favnoti" routerLinkActive="active" class="fnt">Notification</a>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <button type="submit" class="button" (click)="logout()">logout</button>
-        </div>
-    
-        
-    </div>
-    
-
-
+<app-profile></app-profile>
 <!--home-->
 <div class="content">
         <br>

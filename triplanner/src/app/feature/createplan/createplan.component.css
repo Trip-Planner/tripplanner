@@ -332,10 +332,9 @@ background: linear-gradient(to bottom, rgba(128, 124, 124, 0.637) 20%, rgba(0,0,
 div.content1 {
   float: right;
   background-color: #3535358a;
-  min-width: 95%;
-  min-height: 790px;
+  width: 75%;
+  height: 790px;
   margin-right:35px;
-  margin-left:35px;
   margin-top: 10px;
   box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
