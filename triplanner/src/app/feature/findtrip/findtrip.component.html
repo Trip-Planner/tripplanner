@@ -1,2 +1,85 @@
 <input style="margin-left :370px;" type="text" id="fontb" placeholder="Enter trip name" name="finding" [(ngModel)]="finding" required />
 <button type="submit" class="button" (click)="findplan()">Find</button>
+
+
+<!--home-->
+<div class="content">
+    <div *ngIf="isShow == false ;else show ">
+        <br>
+        <div id='block1'>
+            <br>
+            <br>
+            <div class="block" style=" align-items: center;" >
+                <div *ngFor="let plan of plan;let i =index;">
+                    <div class="container" >
+
+                        <img src="/assets/images/trip.jpg" alt="Avatar" class="image">
+                        <div class="overlay">
+
+                            <button type="submit" id="button1" (click)="showdetail(i)">PlanName:{{plan.plan_name}}
+                                <br>Review : {{plan.review_point}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #show>
+    <div id='fonthead'>
+        <p class="uppercase">
+            {{show_planname}}
+        </p>
+    </div>
+    <div id='font'>
+        <p style="float:left; margin-left:30px; ">START DATE
+            <br style="color:darkgray">{{show_startdate}}</p>
+        <p style="float:right; margin-right:30px; ">END DATE
+            <br> {{show_enddate}} </p>
+        <br>
+        <div style="text-align:center;"> FAVORIE {{show_favorite}} SCORE</div>
+        <div style="text-align:center;"> REVIEW RATE : {{review_point}}</div>
+        <div *ngFor="let user of show_user;let i =index;">
+            <p class="uppercase" style="float:left; margin-right:625px; font-size:18px;color:darkgrey;">
+                Create By {{user.username}} <br>E-mail {{user.email}}
+            </p>
+        </div>
+
+    <!--plan table-->
+            <div class="table-users">
+                    <div class="header">PLAN</div> 
+                    <table cellspacing="0" >
+                       <tr>
+                            
+                            <th style="text-align: center;">Date</th>
+                            <th style="text-align: center;">Time</th>
+                            <th style="text-align: center;">Activities</th>
+                            <th style="text-align: center;">detail</th>
+                       </tr>
+                       <tr  *ngFor="let act of act;let i =index;">
+
+                            
+                            <td >{{act.date}}</td>
+                            <td>{{act.starttime}}</td>
+                            <td>{{act.activityname}}</td>
+                            <td>{{act.detail}}</td>
+                        </tr>
+                    </table>
+                    <thead>
+                            <th></th>
+        
+                        </thead>
+            </div>
+        <!--PLAN TABLE-->
+        
+    </div>
+    
+        <div id="divfix">
+            <button type="submit" class="button" (click)="isShow = false" >BACK</button>
+        </div>   
+        <div id="divfix2">
+            <button type="submit" class="button" (click)="favorite()" >FAVORIE</button>
+        </div>  
+    <!--<button style="float:left; margin-left:30px; " type="submit" id="button1" (click)="isShow = false">back</button>-->
+    <!--<button style="float:right; margin-right:30px; " type="submit" id="button1" (click)="favorite()">fav</button>-->
+</ng-template>
