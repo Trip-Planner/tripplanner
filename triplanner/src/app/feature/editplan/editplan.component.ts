@@ -9,6 +9,7 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router'
 })
 export class EditplanComponent implements OnInit {
   coplan=[];
+  co_text:string;
   plan: any
   days_data: any
   plan_id: string
@@ -27,6 +28,7 @@ export class EditplanComponent implements OnInit {
   showPlan: boolean;
   removeDay:boolean;
   plan_index: number;
+  
 
   delete_temp: string;
 
@@ -79,6 +81,7 @@ export class EditplanComponent implements OnInit {
     this.co_username = "";
     this.coplan=[];
     this.days = [];
+    this.co_text="";
 
 
 
@@ -247,16 +250,16 @@ export class EditplanComponent implements OnInit {
         if(result[0] != null )
         this._dataService.setcoplan(result[0].user_id,this.plan_id).subscribe(res=>{
           if(res == 'done')
-            console.log("done")
+            this.co_text = "done"
           else if(res == 'have already')
-            console.log("already co with this id")
+            this.co_text = "this user already have co-planned with you";
         })
         else
-        console.log("no this user")
+        this.co_text = "this user isn't in system"
       })
-   
+    if(this.co_text == "done")
     this.ngOnInit()
-
+  
 
   }
 
@@ -298,7 +301,7 @@ export class EditplanComponent implements OnInit {
 
   moveToPlandetail(plan_id: string, index: string) {
     this.plan_id = plan_id;
-    console.log(plan_id);
+    // console.log(plan_id);
     this.index_temp = index;
     var plan: any;
     this._dataService.getplan(plan_id).subscribe(res => {
@@ -345,12 +348,6 @@ export class EditplanComponent implements OnInit {
 
       this.days[day_index].thatDate = res[temp].date;
 
-      //console.log("days = " + this.days[day_index].acts);
-      //console.log("days = " + this.days[day_index].times);
-      //console.log("days = " + this.days[day_index].details);
-      //console.log("days = " + this.days[day_index].thatDate);
-
-
       for (var x = 0; x < res.length - 1; x++) {
         if (res[x].date == res[x + 1].date) {
 
@@ -373,12 +370,86 @@ export class EditplanComponent implements OnInit {
 
 
         this.showPlan=true;
-        this.removeDay=false;
 
-        //console.log("days = " + this.days[day_index].acts);
-        // console.log("days = " + this.days[day_index].times);
-        // console.log("days = " + this.days[day_index].details);
-        // console.log("days = " + this.days[day_index].thatDate);
+
+      }
+
+    })
+  }
+
+
+  moveToPlandetail1(plan_id: string, index: string) {
+    this.plan_id = plan_id;
+    // console.log(plan_id);
+    this.index_temp = index;
+    var plan: any;
+    this._dataService.getplan(plan_id).subscribe(res => {
+      this.tripName = res[0].plan_name;
+      this.departDate = res[0].startdate;
+      this.returnDate = res[0].enddate;
+    })
+    this._dataService.getplandetail(plan_id).subscribe(res => {
+      this.days_data = res;
+      //this.plan_index = 0;
+      //nsole.log(res)
+      if (res[0] == null)
+        return 0;
+      for (var i = 0; i <= this.plan.length; i++) {
+       // if (res[0].plan_id == this.plan[i].plan_id) {
+          //console.log(this.plan_index)
+         // break;
+       // }
+      //  this.plan_index++;
+      }
+
+
+
+      //console.log(this.plan)
+      //console.log(this.tripName)
+      //console.log(this.departDate)
+      //console.log(this.returnDate)
+
+
+      var temp_date = this.calculateDate()
+
+
+
+
+      var temp = 0;
+      var day_index = 0;
+      this.days[day_index] = new dayPlanning();
+      this.isActCreate[day_index] = false;
+
+      this.days[day_index].acts.push(res[temp].activityname)
+      this.days[day_index].times.push(res[temp].starttime);
+      this.days[day_index].details.push(res[temp].detail);
+
+
+      this.days[day_index].thatDate = res[temp].date;
+
+      for (var x = 0; x < res.length - 1; x++) {
+        if (res[x].date == res[x + 1].date) {
+
+          ;
+        }
+        else {
+          day_index++;
+          this.days[day_index] = new dayPlanning();
+          this.isActCreate[day_index] = false;
+          /*  this.getDate(day_index); */
+
+
+        }
+
+        temp++;
+        this.days[day_index].thatDate = (res[temp].date);
+        this.days[day_index].acts.push(res[temp].activityname)
+        this.days[day_index].times.push(res[temp].starttime);
+        this.days[day_index].details.push(res[temp].detail);
+
+
+        this.showPlan=false;
+
 
       }
 
@@ -400,8 +471,8 @@ export class EditplanComponent implements OnInit {
   }
 
   getActivity(act:string){
-    console.log(this.activities + this.activities.length)
-    console.log("act = "+act)
+    // console.log(this.activities + this.activities.length)
+    // console.log("act = "+act)
    for(var i =0;i <=this.activities.length;i++)
    {
      if(act == this.activities[i].type )
@@ -410,7 +481,7 @@ export class EditplanComponent implements OnInit {
    /*  return "../../"+this.activities[i].icon  */
    return "../../"+this.activities[i].icon
    } 
-  else console.log("NO  NO NO NO")
+  // else console.log("NO  NO NO NO")
    }
 
 
