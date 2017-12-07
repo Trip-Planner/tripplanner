@@ -1,9 +1,45 @@
-<input style="margin-left :370px;" type="text" id="fontb" placeholder="Enter trip name" name="finding" [(ngModel)]="finding" required />
-<button type="submit" class="button" (click)="findplan()">Find</button>
+<div class="tab">
+        <br>
+        <br>
+        <div class="avatar-flip">
+            <br>
+            <br>
+            
+              <img src="/assets/images/person.png"  height="150" width="150">
+              <img src="/assets/images/GIF.webp" height="150" width="150">
+        </div>
+        <div *ngFor="let user of user;let i =index;">
+            <div id='font' style=" color:rgb(41, 41, 41);">
+                <br>
+                <p class="uppercase">{{user.username}}</p>
+                <p class="uppercase">{{user.email}}</p>
+            </div>
+        </div>
+        <div id='font'>
+            <br>
+            <a routerLink="/editplan" routerLinkActive="active" class="fnt">My Plan</a>
+            <br>
+            <a routerLink="/favnoti" routerLinkActive="active" class="fnt">Notification</a>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button type="submit" class="button" (click)="logout()">logout</button>
+        </div>
+    
+        
+    </div>
+    
 
 
 <!--home-->
 <div class="content">
+        <br>
+        <div class="group" style="margin-left :30%;" >
+                <input type="text" class="input" placeholder="Enter trip name"  name="finding" [(ngModel)]="finding" required />
+        </div>
+<button style="margin-left :55%;" type="submit" class="button" (click)="findplan()">Find</button>
     <div *ngIf="isShow == false ;else show ">
         <br>
         <div id='block1'>
@@ -26,60 +62,62 @@
     </div>
 </div>
 <ng-template #show>
-    <div id='fonthead'>
-        <p class="uppercase">
-            {{show_planname}}
-        </p>
-    </div>
-    <div id='font'>
-        <p style="float:left; margin-left:30px; ">START DATE
-            <br style="color:darkgray">{{show_startdate}}</p>
-        <p style="float:right; margin-right:30px; ">END DATE
-            <br> {{show_enddate}} </p>
-        <br>
-        <div style="text-align:center;"> FAVORIE {{show_favorite}} SCORE</div>
-        <div style="text-align:center;"> REVIEW RATE : {{review_point}}</div>
-        <div *ngFor="let user of show_user;let i =index;">
-            <p class="uppercase" style="float:left; margin-right:625px; font-size:18px;color:darkgrey;">
-                Create By {{user.username}} <br>E-mail {{user.email}}
+        <div id='fonthead'>
+            <p class="uppercase">
+                {{show_planname}}
             </p>
         </div>
-
-    <!--plan table-->
-            <div class="table-users">
-                    <div class="header">PLAN</div> 
-                    <table cellspacing="0" >
-                       <tr>
-                            
-                            <th style="text-align: center;">Date</th>
-                            <th style="text-align: center;">Time</th>
-                            <th style="text-align: center;">Activities</th>
-                            <th style="text-align: center;">detail</th>
-                       </tr>
-                       <tr  *ngFor="let act of act;let i =index;">
-
-                            
-                            <td >{{act.date}}</td>
-                            <td>{{act.starttime}}</td>
-                            <td>{{act.activityname}}</td>
-                            <td>{{act.detail}}</td>
-                        </tr>
-                    </table>
-                    <thead>
-                            <th></th>
-        
-                        </thead>
+        <br>
+        <div id='font'>
+            <p style="float:left; margin-left:30px; ">START DATE
+                <br>{{show_startdate}}</p>
+            <p style="float:right; margin-right:30px; ">END DATE
+                <br> {{show_enddate}} </p>
+            <br>
+            <div style="text-align:center;"> FAVORIE {{show_favorite}} SCORE</div>
+            <div style="text-align:center;"> REVIEW RATE : {{review_point}}</div>
+            <div *ngFor="let user of show_user;let i =index;">
+                <p class="uppercase" style="float:left; margin-right:625px; font-size:18px;color:darkgrey;">
+                    Create By {{user.username}} <br>E-mail {{user.email}}
+                </p>
             </div>
-        <!--PLAN TABLE-->
-        
-    </div>
     
-        <div id="divfix">
-            <button type="submit" class="button" (click)="isShow = false" >BACK</button>
-        </div>   
-        <div id="divfix2">
-            <button type="submit" class="button" (click)="favorite()" >FAVORIE</button>
-        </div>  
-    <!--<button style="float:left; margin-left:30px; " type="submit" id="button1" (click)="isShow = false">back</button>-->
-    <!--<button style="float:right; margin-right:30px; " type="submit" id="button1" (click)="favorite()">fav</button>-->
+        <!--plan table-->
+                <div class="table-users">
+                        <div class="header">PLAN</div> 
+                        <table cellspacing="0" >
+                           <tr>
+                                
+                                <th style="text-align: center;">Date</th>
+                                <th style="text-align: center;">Time</th>
+                                <th style="text-align: center;">Activities</th>
+                                <th style="text-align: center;">detail</th>
+                           </tr>
+                           <tr  *ngFor="let act of act;let i =index;">
+    
+                                
+                                <td >{{act.date}}</td>
+                                <td>{{act.starttime}}</td>
+                                <td>{{act.activityname}}</td>
+                                <td>{{act.detail}}</td>
+                            </tr>
+                        </table>
+                        <thead>
+                                <th></th>
+            
+                            </thead>
+                </div>
+            <!--PLAN TABLE-->
+            
+        </div>
+        
+            <div id="divfix">
+                <button type="submit" class="button" (click)="isShow = false" >BACK</button>
+            </div>   
+            <div id="divfix2">
+                <button type="submit" class="button" (click)="favorite()" >FAVORIE</button>
+            </div>  
+       
+        <!--<button style="float:left; margin-left:30px; " type="submit" id="button1" (click)="isShow = false">back</button>-->
+        <!--<button style="float:right; margin-right:30px; " type="submit" id="button1" (click)="favorite()">fav</button>-->
 </ng-template>
