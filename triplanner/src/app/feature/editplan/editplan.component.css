@@ -154,6 +154,7 @@ background-position: 0% 0%;
 background-size: 210%;
 -webkit-transition: #fa9107 150ms ease-in-out, color 150ms ease-in-out;
 transition: #fa9107 150ms ease-in-out, color 150ms ease-in-out;
+display:inline
 }
 .one:hover {
 color: #fff;
