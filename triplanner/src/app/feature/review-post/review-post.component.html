@@ -1,84 +1,81 @@
 <app-profile></app-profile>
 <div class="tab">
-  <br>
-  <br>
-  <div id='block1'>
-      REVIEW PLAN
-      
-  </div>
-  <hr/>
-  <div *ngFor="let plan of plan;let i =index;">
-    <div style="font:600 16px/18px 'Open Sans',sans-serif;">
-      <div style="color:rgb(77, 77, 77)"> {{plan.plan_name}} </div>
-    </div>
-    <div style="font:600 16px/18px 'Open Sans',sans-serif;">
-           START DATE {{plan.startdate}}
-      <br> END DATE   {{plan.enddate}}
-    <form>
-      <button style="align-items:center" type="submit" class="btn " (click)="chooseplan(i)">
-      <h5>Review</h5>
-      </button>
-    </form>
+    <br>
+    <br>
+    <div id='block1'>
+        REVIEW PLAN
+
     </div>
     <hr/>
-    <br>
-  </div> 
+    <div *ngFor="let plan of plan;let i =index;">
+        <div style="font:600 16px/18px 'Open Sans',sans-serif;">
+            <div style="color:rgb(77, 77, 77)"> {{plan.plan_name}} </div>
+        </div>
+        <div style="font:600 16px/18px 'Open Sans',sans-serif;">
+            START DATE {{plan.startdate}}
+            <br> END DATE {{plan.enddate}}
+            <form>
+                <button style="align-items:center" type="submit" class="btn " (click)="chooseplan(i)">
+                    <h5>Review</h5>
+                </button>
+            </form>
+        </div>
+        <hr/>
+        <br>
+    </div>
 </div>
 <div class="content">
     <div *ngIf="showed == false">
         <br>
         <div id='fonthead'>
-        <p class="uppercase">  
-        {{showed_plan_name}}
-        </p>
-      </div>
-    <div id='font'>
-        <p style="float:left; margin-left:15px; ">START DATE {{showed_startdate}}</p>
-        <p style="float:right; margin-right:15px;">END DATE {{showed_enddate}}</p> 
-        <div style="text-align:left" *ngFor="let act of act;let i =index;">
-          <br>
-          <br>
-          <!--plan table-->
-          <div class="table-users">
-              <div class="header">PLAN</div> 
-              <table cellspacing="0" >
-                 <tr>
-                      
-                      <th style="text-align: center;">Date</th>
-                      <th style="text-align: center;">Time</th>
-                      <th style="text-align: center;">Activities</th>
-                      <th style="text-align: center;">detail</th>
-                 </tr>
-                 <tr  *ngFor="let act of act;let i =index;">
-
-                      
-                      <td >{{act.date}}</td>
-                      <td>{{act.starttime}}</td>
-                      <td>{{act.activityname}}</td>
-                      <td>{{act.detail}}</td>
-                  </tr>
-              </table>
-              <thead>
-                      <th></th>
-  
-                  </thead>
-      </div>
-  <!--PLAN TABLE-->
-        </div> 
-        <br>
-        PUT SCORE
-        <div class="group" style="margin-left :25%;" >
-            <input type="text" class="input" placeholder="Put your plan score"  [(ngModel)]="review_point" />
+            <p class="uppercase">
+                {{showed_plan_name}}
+            </p>
         </div>
-      <form>
-          <button  type="submit" class="bt sixth" (click)="review()">       
-              Review
-          </button>
-    </form>
-      <br> 
-      {{status}}
-        
-    </div>
-    <!--</div>-->
+        <div id='font'>
+            <p style="float:left; margin-left:15px; ">START DATE {{showed_startdate}}</p>
+            <p style="float:right; margin-right:15px;">END DATE {{showed_enddate}}</p>
 
-</div>
+            <br>
+            <br>
+            <!--plan table-->
+            <div class="table-users">
+                <div class="header">PLAN</div>
+                <table cellspacing="0">
+                    <tr>
+
+                        <th style="text-align: center;">Date</th>
+                        <th style="text-align: center;">Time</th>
+                        <th style="text-align: center;">Activities</th>
+                        <th style="text-align: center;">detail</th>
+                    </tr>
+                    <tr *ngFor="let act of act;let i =index;">
+
+                        <td>{{act.date}}</td>
+                        <td>{{act.starttime}}</td>
+                        <td>{{act.activityname}}</td>
+                        <td>{{act.detail}}</td>
+                    </tr>
+                </table>
+                <thead>
+                    <th></th>
+
+                </thead>
+
+                <!--PLAN TABLE-->
+            </div>
+            <br> PUT SCORE
+            <div class="group" style="margin-left :25%;">
+                <input type="text" class="input" placeholder="Put your plan score" [(ngModel)]="review_point" />
+            </div>
+            <form>
+                <button type="submit" class="bt sixth" (click)="review()">
+                    Review
+                </button>
+            </form>
+            <br> {{status}}
+
+        </div>
+        <!--</div>-->
+
+    </div>

@@ -33,11 +33,12 @@ export class ReviewPostComponent implements OnInit {
     this.showed_plan_id = this.plan[i].plan_id;
     this.showed = false;
     this._dataService.getplandetail(this.showed_plan_id).subscribe(res => {
+
       this.act = res;
     });
   }
   review() {
-    console.log(this.review_point)
+    // console.log(this.review_point)
     if (this.review_point <= 5 && this.review_point >= 0)
       this._dataService.setreviewplan(this.showed_plan_id, this.review_point.toString()).subscribe(res => {
         this.ngOnInit();
