@@ -136,7 +136,7 @@
         <button *ngFor="let d of days;let j =index;" class="btn one" (click)="dayShowing(j,resultDate)">day {{j+1}}</button>
         <div *ngFor="let d of days;let j =index">
             <div *ngIf="dayShow[j] == true ;else ">
-                <div style="margin-left:43%; color:#fcfcfc; font:600 20px/22px 'Open Sans',sans-serif; text-align: center;">
+                <div style="margin-left:20%; color:#fcfcfc; font:600 20px/22px 'Open Sans',sans-serif; text-align: center;">
                     DAY:{{days[j].thatDate}}
                 </div>
                 <div class="table-users">
